@@ -275,7 +275,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 50%, #1a4a6b 100%);
+    linear-gradient(135deg, rgba(13,27,42,.82) 0%, rgba(26,60,94,.75) 50%, rgba(26,74,107,.7) 100%),
+    url('../images/hero-dar.jpg') center/cover no-repeat;
   z-index: -1;
 }
 
@@ -564,16 +565,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .biz-card__image--realestate {
-  background: linear-gradient(135deg, #1b5e3c 0%, #4a9e72 100%);
+  background: linear-gradient(135deg, rgba(27,94,60,.55), rgba(74,158,114,.45)),
+    url('../images/real-estate.jpg') center/cover no-repeat;
 }
 .biz-card__image--medics {
-  background: linear-gradient(135deg, #0d4a7a 0%, #2196F3 100%);
+  background: linear-gradient(135deg, rgba(13,74,122,.55), rgba(33,150,243,.45)),
+    url('../images/medics.jpg') center/cover no-repeat;
 }
 .biz-card__image--laboratory {
-  background: linear-gradient(135deg, #064747 0%, #14a3a8 100%);
+  background: linear-gradient(135deg, rgba(6,71,71,.55), rgba(20,163,168,.45)),
+    url('../images/laboratory.jpg') center/cover no-repeat;
 }
 .biz-card__image--cargo {
-  background: linear-gradient(135deg, #7a3510 0%, #e8751a 100%);
+  background: linear-gradient(135deg, rgba(122,53,16,.55), rgba(232,117,26,.45)),
+    url('../images/cargo.jpg') center/cover no-repeat;
 }
 
 /* Decorative pattern overlay */
@@ -1179,16 +1184,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .page-hero__bg--realestate {
-  background: linear-gradient(135deg, #1b5e3c 0%, #2e7d52 50%, #4a9e72 100%);
+  background: linear-gradient(135deg, rgba(27,94,60,.75), rgba(46,125,82,.65), rgba(74,158,114,.6)),
+    url('../images/real-estate.jpg') center/cover no-repeat;
 }
 .page-hero__bg--medics {
-  background: linear-gradient(135deg, #0d3a6a 0%, #1a73b5 50%, #4da6e8 100%);
+  background: linear-gradient(135deg, rgba(13,58,106,.75), rgba(26,115,181,.65), rgba(77,166,232,.6)),
+    url('../images/medics.jpg') center/cover no-repeat;
 }
 .page-hero__bg--laboratory {
-  background: linear-gradient(135deg, #064747 0%, #0d7377 50%, #14a3a8 100%);
+  background: linear-gradient(135deg, rgba(6,71,71,.75), rgba(13,115,119,.65), rgba(20,163,168,.6)),
+    url('../images/laboratory.jpg') center/cover no-repeat;
 }
 .page-hero__bg--cargo {
-  background: linear-gradient(135deg, #6a2a0a 0%, #c45a1a 50%, #e8871a 100%);
+  background: linear-gradient(135deg, rgba(106,42,10,.75), rgba(196,90,26,.65), rgba(232,135,26,.6)),
+    url('../images/cargo.jpg') center/cover no-repeat;
 }
 
 .page-hero__bg::before {
