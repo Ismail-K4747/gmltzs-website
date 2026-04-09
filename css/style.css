@@ -383,6 +383,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--color-accent);
   line-height: 1;
 }
+.stat__number:not([data-target]) {
+  font-size: 1.35rem;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: .02em;
+}
 
 .stat__label {
   font-size: .75rem;
@@ -1031,6 +1037,73 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .contact__map iframe {
   display: block;
   width: 100%;
+}
+
+/* ============================================================
+   INSIGHTS PAGE
+   ============================================================ */
+.page-hero--insights {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+}
+
+.insights__grid {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .insights__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.insight-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow .3s, transform .3s;
+}
+.insight-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+
+.insight-card__tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(212,168,67,.1);
+  padding: .3rem .75rem;
+  border-radius: 999px;
+}
+
+.insight-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.4;
+}
+
+.insight-card__excerpt {
+  font-size: .9rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.insight-card__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: .78rem;
+  color: var(--color-text-light);
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
 }
 
 /* ============================================================
