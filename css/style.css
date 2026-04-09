@@ -1066,10 +1066,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: opacity .3s;
 }
 .trusted__item:hover { opacity: .85; }
-.trusted__icon {
-  color: var(--color-text-light);
+.trusted__logo {
+  height: 48px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
 }
-.trusted__icon svg { width: 48px; height: 48px; }
 .trusted__name {
   font-size: .8rem;
   font-weight: 600;
