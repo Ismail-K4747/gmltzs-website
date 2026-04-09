@@ -647,8 +647,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .biz-card__logo {
-  font-size: 2rem;
-  line-height: 1;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
 }
 
 .biz-card__title {
