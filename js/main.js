@@ -233,7 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btnLoader.hidden = false;
 
       try {
-        const response = await fetch(form.action, {
+        // Route business enquiries to sales@, general enquiries to info@
+        const businessSelect = form.querySelector('#business');
+        const endpoint = (businessSelect && businessSelect.value !== 'general')
+          ? 'https://formspree.io/f/xqegvbyj'
+          : 'https://formspree.io/f/xpqoello';
+
+        const response = await fetch(endpoint, {
           method: 'POST',
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
