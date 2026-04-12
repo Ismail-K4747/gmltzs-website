@@ -303,4 +303,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ===========================================================
+     PROJECT SHOWCASE – Filters, Media Tabs, 3D Lazy Load
+  =========================================================== */
+  // Category filters
+  const filterBtns = document.querySelectorAll('.showcase__filter');
+  const showcaseCards = document.querySelectorAll('.showcase__card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      showcaseCards.forEach(card => {
+        card.classList.toggle('hidden', cat !== 'all' && card.dataset.category !== cat);
+      });
+    });
+  });
+
+  // Photo / 3D media toggle
+  document.querySelectorAll('.showcase__media-tabs').forEach(tabGroup => {
+    const tabs = tabGroup.querySelectorAll('.showcase__media-tab');
+    const media = tabGroup.closest('.showcase__media');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const view = tab.dataset.view;
+        media.querySelectorAll('.showcase__media-panel').forEach(p => p.classList.remove('active'));
+        media.querySelector(`.showcase__media-panel--${view === '3d' ? '3d' : 'image'}`).classList.add('active');
+      });
+    });
+  });
+
+  // Lazy-load 3D iframe on placeholder click
+  document.querySelectorAll('.showcase__3d-placeholder').forEach(ph => {
+    ph.addEventListener('click', () => {
+      const iframe = ph.parentElement.querySelector('iframe');
+      if (iframe && iframe.dataset.src) {
+        iframe.src = iframe.dataset.src;
+        iframe.removeAttribute('data-src');
+        ph.classList.add('loaded');
+      }
+    });
+  });
+
 });
