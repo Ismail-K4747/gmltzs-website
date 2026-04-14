@@ -18,8 +18,8 @@
 
   /* Business brand colours */
   --color-realestate:  #2e7d52;
-  --color-medics:      #1a73b5;
-  --color-laboratory:  #0d7377;
+  --color-medics:      #1a6b1a;
+  --color-laboratory:  #3c2415;
   --color-cargo:       #c45a1a;
 
   /* Typography */
@@ -1370,11 +1370,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     url('../images/real-estate.jpg') center/cover no-repeat;
 }
 .page-hero__bg--medics {
-  background: linear-gradient(135deg, rgba(13,58,106,.75), rgba(26,115,181,.65), rgba(77,166,232,.6)),
+  background: linear-gradient(135deg, rgba(20,82,26,.8), rgba(26,107,26,.7), rgba(39,138,39,.6)),
     url('../images/medics.jpg') center/cover no-repeat;
 }
 .page-hero__bg--laboratory {
-  background: linear-gradient(135deg, rgba(6,71,71,.75), rgba(13,115,119,.65), rgba(20,163,168,.6)),
+  background: linear-gradient(135deg, rgba(44,26,14,.8), rgba(90,58,40,.7), rgba(122,84,64,.55)),
     url('../images/laboratory.jpg') center/cover no-repeat;
 }
 .page-hero__bg--cargo {
@@ -1720,4 +1720,136 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (max-width: 480px) {
   .showcase__grid { grid-template-columns: 1fr; }
   .showcase__media { aspect-ratio: 4 / 3; }
+}
+
+/* ============================================================
+   PAGE THEMES – GM Medics (Green) & GM Labs (Coffee/Black)
+   ============================================================ */
+
+/* --- GM Medics: forest green from logo --- */
+body[data-theme="medics"] .page-hero__tag {
+  background: rgba(34,139,34,.2);
+  border-color: rgba(34,139,34,.4);
+}
+body[data-theme="medics"] .section__eyebrow {
+  color: #278a27;
+}
+body[data-theme="medics"] .section__title {
+  color: #1a6b1a;
+}
+body[data-theme="medics"] .service-card__title {
+  color: #1a6b1a;
+}
+body[data-theme="medics"] .service-card:hover {
+  box-shadow: 0 8px 24px rgba(26,107,26,.18);
+}
+body[data-theme="medics"] .service-card {
+  border-color: rgba(26,107,26,.15);
+}
+body[data-theme="medics"] .cta-banner {
+  background: linear-gradient(135deg, #1a6b1a, #278a27);
+}
+body[data-theme="medics"] .cta-banner__title,
+body[data-theme="medics"] .cta-banner__desc {
+  color: #fff;
+}
+body[data-theme="medics"] .cta-banner__desc {
+  color: rgba(255,255,255,.85);
+}
+body[data-theme="medics"] .btn--primary {
+  background: #1a6b1a;
+  border-color: #1a6b1a;
+  color: #fff;
+}
+body[data-theme="medics"] .btn--primary:hover {
+  background: #278a27;
+  border-color: #278a27;
+  color: #fff;
+}
+body[data-theme="medics"] .footer {
+  background: #14521a;
+}
+body[data-theme="medics"] .footer__tagline,
+body[data-theme="medics"] .footer__col a,
+body[data-theme="medics"] .footer__bottom p {
+  color: rgba(255,255,255,.65);
+}
+body[data-theme="medics"] .footer__col h4 {
+  color: #fff;
+}
+body[data-theme="medics"] .footer__col a:hover {
+  color: #8fe08f;
+}
+body[data-theme="medics"] .footer__bottom {
+  border-color: rgba(255,255,255,.12);
+}
+body[data-theme="medics"] .nav__logo-icon {
+  background: #1a6b1a;
+}
+
+/* --- GM Labs: coffee black, black & white --- */
+body[data-theme="laboratory"] .page-hero__tag {
+  background: rgba(139,107,74,.2);
+  border-color: rgba(139,107,74,.4);
+}
+body[data-theme="laboratory"] .section__eyebrow {
+  color: #8b6b4a;
+}
+body[data-theme="laboratory"] .section__title {
+  color: #2c1a0e;
+}
+body[data-theme="laboratory"] .service-card__title {
+  color: #5a3a28;
+}
+body[data-theme="laboratory"] .service-card:hover {
+  box-shadow: 0 8px 24px rgba(60,36,21,.15);
+}
+body[data-theme="laboratory"] .service-card {
+  border-color: rgba(90,58,40,.12);
+}
+body[data-theme="laboratory"] .page-about {
+  background: #faf8f6;
+}
+body[data-theme="laboratory"] .service-card {
+  background: var(--color-white);
+}
+body[data-theme="laboratory"] .cta-banner {
+  background: linear-gradient(135deg, #2c1a0e, #5a3a28);
+}
+body[data-theme="laboratory"] .cta-banner__title,
+body[data-theme="laboratory"] .cta-banner__desc {
+  color: #fff;
+}
+body[data-theme="laboratory"] .cta-banner__desc {
+  color: rgba(255,255,255,.85);
+}
+body[data-theme="laboratory"] .btn--primary {
+  background: #5a3a28;
+  border-color: #5a3a28;
+  color: #fff;
+}
+body[data-theme="laboratory"] .btn--primary:hover {
+  background: #7a5440;
+  border-color: #7a5440;
+  color: #fff;
+}
+body[data-theme="laboratory"] .footer {
+  background: #1e1210;
+}
+body[data-theme="laboratory"] .footer__tagline,
+body[data-theme="laboratory"] .footer__col a,
+body[data-theme="laboratory"] .footer__bottom p {
+  color: rgba(255,255,255,.65);
+}
+body[data-theme="laboratory"] .footer__col h4 {
+  color: #fff;
+}
+body[data-theme="laboratory"] .footer__col a:hover {
+  color: #d4a843;
+}
+body[data-theme="laboratory"] .footer__bottom {
+  border-color: rgba(255,255,255,.1);
+}
+body[data-theme="laboratory"] .nav__logo-icon {
+  background: #5a3a28;
 }
