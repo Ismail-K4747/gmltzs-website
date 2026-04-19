@@ -211,11 +211,16 @@
             <!-- Video Slide -->
             <div class="project__slide" data-type="video">
               <div class="project__slide-inner">
-                <img src="../images/Real Estate Project assets/19.jpeg" alt="GM Residence Kinondoni flythrough" class="project__slide-poster" />
-                <div class="project__slide-play" data-video-src="../images/Real Estate Project assets/GM kinondoni 1.mp4" data-local="true">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="10" fill="rgba(0,0,0,.4)"/><polygon points="10 8 16 12 10 16 10 8" fill="#fff" stroke="none"/></svg>
-                  <span>Project Flythrough</span>
-                </div>
+                <video
+                  id="project-video"
+                  src="../images/Real Estate Project assets/GM kinondoni 1.mp4"
+                  poster="../images/Real Estate Project assets/19.jpeg"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;"
+                ></video>
               </div>
             </div>
 

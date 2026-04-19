@@ -403,30 +403,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (Math.abs(diff) > 50) goToSlide(currentSlide + (diff > 0 ? 1 : -1));
     }, { passive: true });
 
-    // Video play – replace poster with video/iframe
-    slider.querySelectorAll('.project__slide-play').forEach(playBtn => {
-      playBtn.addEventListener('click', () => {
-        const videoSrc = playBtn.dataset.videoSrc;
-        if (!videoSrc) return;
-        const inner = playBtn.closest('.project__slide-inner');
-        if (playBtn.dataset.local === 'true') {
-          const video = document.createElement('video');
-          video.src = videoSrc;
-          video.controls = true;
-          video.autoplay = true;
-          video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;';
-          inner.appendChild(video);
-        } else {
-          const iframe = document.createElement('iframe');
-          iframe.src = videoSrc + '?autoplay=1&rel=0';
-          iframe.allow = 'autoplay; encrypted-media';
-          iframe.allowFullscreen = true;
-          iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
-          inner.appendChild(iframe);
-        }
-        playBtn.classList.add('loaded');
-      });
-    });
+    // Autoplay video when scrolled into view, pause when out
+    const projectVideo = document.getElementById('project-video');
+    if (projectVideo) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            projectVideo.play().catch(() => {});
+          } else {
+            projectVideo.pause();
+          }
+        });
+      }, { threshold: 0.4 });
+      videoObserver.observe(projectVideo);
+    }
 
     // 3D lazy load in slider
     slider.querySelectorAll('.project__slide-3d-placeholder').forEach(ph => {
