@@ -1382,7 +1382,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     url('../images/cargo.jpg') center/cover no-repeat;
 }
 .page-hero__bg--devices {
-  background: linear-gradient(135deg, rgba(35,48,58,.78), rgba(70,95,110,.68), rgba(110,140,158,.5));
+  background: linear-gradient(135deg, rgba(35,48,58,.78), rgba(70,95,110,.68), rgba(110,140,158,.5)),
+    url('../images/medical%20devices.webp') center/cover no-repeat;
 }
 
 .page-hero__bg::before {
