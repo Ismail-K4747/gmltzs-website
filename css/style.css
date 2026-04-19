@@ -591,7 +591,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     url('../images/cargo.jpg') center/cover no-repeat;
 }
 .biz-card__image--devices {
-  background: linear-gradient(135deg, rgba(85,72,55,.55), rgba(145,125,90,.45));
+  background: linear-gradient(135deg, rgba(70,95,110,.55), rgba(110,140,158,.45));
 }
 .biz-card__image--kitchen {
   background: linear-gradient(135deg, rgba(153,27,27,.55), rgba(220,38,38,.45));
@@ -1382,7 +1382,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     url('../images/cargo.jpg') center/cover no-repeat;
 }
 .page-hero__bg--devices {
-  background: linear-gradient(135deg, rgba(42,36,30,.78), rgba(85,72,55,.68), rgba(145,125,90,.5));
+  background: linear-gradient(135deg, rgba(35,48,58,.78), rgba(70,95,110,.68), rgba(110,140,158,.5));
 }
 
 .page-hero__bg::before {
@@ -2064,4 +2064,71 @@ body[data-theme="laboratory"] .service-card__icon {
 }
 body[data-theme="laboratory"] .service-card__icon svg {
   stroke: #6b4d38;
+}
+
+/* --- GML Medical Devices: nude steel-blue (from B Medical Systems blue) --- */
+body[data-theme="devices"] .page-hero__tag {
+  background: rgba(110,140,158,.2);
+  border-color: rgba(110,140,158,.4);
+}
+body[data-theme="devices"] .section__eyebrow {
+  color: #6e8c9e;
+}
+body[data-theme="devices"] .section__title {
+  color: #3a5464;
+}
+body[data-theme="devices"] .service-card__title {
+  color: #3a5464;
+}
+body[data-theme="devices"] .service-card:hover {
+  box-shadow: 0 8px 24px rgba(58,84,100,.16);
+}
+body[data-theme="devices"] .service-card {
+  border-color: rgba(58,84,100,.15);
+}
+body[data-theme="devices"] .cta-banner {
+  background: linear-gradient(135deg, #3a5464, #5a7d90);
+}
+body[data-theme="devices"] .cta-banner__title,
+body[data-theme="devices"] .cta-banner__desc {
+  color: #fff;
+}
+body[data-theme="devices"] .cta-banner__desc {
+  color: rgba(255,255,255,.85);
+}
+body[data-theme="devices"] .btn--primary {
+  background: #3a5464;
+  border-color: #3a5464;
+  color: #fff;
+}
+body[data-theme="devices"] .btn--primary:hover {
+  background: #5a7d90;
+  border-color: #5a7d90;
+  color: #fff;
+}
+body[data-theme="devices"] .footer {
+  background: #283c48;
+}
+body[data-theme="devices"] .footer__tagline,
+body[data-theme="devices"] .footer__col a,
+body[data-theme="devices"] .footer__bottom p {
+  color: rgba(255,255,255,.65);
+}
+body[data-theme="devices"] .footer__col h4 {
+  color: #fff;
+}
+body[data-theme="devices"] .footer__col a:hover {
+  color: #a8c8d8;
+}
+body[data-theme="devices"] .footer__bottom {
+  border-color: rgba(255,255,255,.12);
+}
+body[data-theme="devices"] .nav__logo-icon {
+  background: #3a5464;
+}
+body[data-theme="devices"] .service-card__icon {
+  background: rgba(58,84,100,.1);
+}
+body[data-theme="devices"] .service-card__icon svg {
+  stroke: #3a5464;
 }
