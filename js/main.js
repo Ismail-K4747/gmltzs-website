@@ -219,9 +219,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const form        = document.getElementById('contact-form');
   const formSuccess = document.getElementById('form-success');
 
+  // Bot detection: record when page loaded
+  const pageLoadTime = Date.now();
+
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Honeypot check – bots fill hidden fields
+      const honeypot = form.querySelector('#website');
+      if (honeypot && honeypot.value) return;
+
+      // Timing check – reject submissions faster than 3 seconds (bot behaviour)
+      if (Date.now() - pageLoadTime < 3000) return;
+
       if (!validateForm()) return;
 
       const btn       = form.querySelector('[type="submit"]');

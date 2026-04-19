@@ -23,6 +23,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-src https://www.google.com https://maps.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="permissions-policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Structured Data -->
@@ -558,6 +565,11 @@
             <span class="btn__text">Send Message</span>
             <span class="btn__loader" hidden>Sending…</span>
           </button>
+          <!-- Honeypot – hidden from real users, traps bots -->
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="form__success" id="form-success" hidden>
             ✅ Thank you! Your message has been received. We'll be in touch shortly.
           </div>
