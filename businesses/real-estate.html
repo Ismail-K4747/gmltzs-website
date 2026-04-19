@@ -117,177 +117,154 @@
   </section>
 
   <!-- ===== PROJECT SHOWCASE ===== -->
-  <section class="showcase section">
+  <section class="project section" id="projects">
     <div class="container">
       <div class="section__header">
-        <p class="section__eyebrow">Project Showcase</p>
-        <h2 class="section__title">Explore Our Properties</h2>
+        <p class="section__eyebrow">Featured Project</p>
+        <h2 class="section__title">GM Residence Kinondoni</h2>
         <p class="section__subtitle" style="max-width:640px;margin-inline:auto;color:var(--color-text-light);margin-top:.75rem;">
-          Browse 3D walkthroughs, floor plans, and high-resolution photos of our developments.
-          Click any card to explore.
+          Modern apartments with spacious balconies, secure parking, 24/7 security,
+          backup power, and premium finishes in the heart of Kinondoni, Dar es Salaam.
         </p>
       </div>
 
-      <!-- Filter Tabs -->
-      <div class="showcase__filters">
-        <button class="showcase__filter active" data-filter="all">All</button>
-        <button class="showcase__filter" data-filter="apartment">Apartments</button>
-        <button class="showcase__filter" data-filter="commercial">Commercial</button>
-        <button class="showcase__filter" data-filter="land">Land &amp; Plots</button>
+      <!-- Project Quick Stats -->
+      <div class="project__stats">
+        <div class="project__stat">
+          <span class="project__stat-value">2 &amp; 3</span>
+          <span class="project__stat-label">Bedrooms</span>
+        </div>
+        <div class="project__stat">
+          <span class="project__stat-value">85–140</span>
+          <span class="project__stat-label">m² Floor Area</span>
+        </div>
+        <div class="project__stat">
+          <span class="project__stat-value">From 450M</span>
+          <span class="project__stat-label">TZS Starting</span>
+        </div>
+        <div class="project__stat">
+          <span class="project__stat-value">Kinondoni</span>
+          <span class="project__stat-label">Dar es Salaam</span>
+        </div>
       </div>
 
-      <!-- Project Grid -->
-      <div class="showcase__grid">
-
-        <!-- Project 1 -->
-        <div class="showcase__card" data-category="apartment">
-          <div class="showcase__media">
-            <div class="showcase__media-tabs">
-              <button class="showcase__media-tab active" data-view="image">Photos</button>
-              <button class="showcase__media-tab" data-view="3d">3D Tour</button>
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--image active">
-              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop" alt="GM Residence Masaki – modern apartments" loading="lazy" />
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--3d">
-              <iframe src="" data-src="https://my.matterport.com/show/?m=EXAMPLE1" title="3D tour – GM Residence Masaki" allowfullscreen loading="lazy"></iframe>
-              <div class="showcase__3d-placeholder">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                <span>Click to load 3D tour</span>
-              </div>
-            </div>
-          </div>
-          <div class="showcase__info">
-            <span class="showcase__badge">Apartment</span>
-            <h3 class="showcase__name">GM Residence Masaki</h3>
-            <p class="showcase__location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Masaki, Dar es Salaam
-            </p>
-            <div class="showcase__details">
-              <span>2 &amp; 3 Bed</span>
-              <span>85 – 140 m²</span>
-              <span>From TZS 450M</span>
-            </div>
-            <p class="showcase__desc">
-              Premium waterfront apartments with panoramic ocean views, 24/7 security, backup power, and rooftop amenities.
-            </p>
-            <a href="../index.html#contact" class="btn btn--outline btn--sm">Enquire Now</a>
+      <!-- Photo Grid (Masonry-ish) -->
+      <div class="project__gallery" data-all-images='["../images/Real Estate Project assets/3.jpeg","../images/Real Estate Project assets/12.jpeg","../images/Real Estate Project assets/9.jpeg","../images/Real Estate Project assets/2.jpeg","../images/Real Estate Project assets/7.jpeg","../images/Real Estate Project assets/1.jpeg","../images/Real Estate Project assets/4.jpeg","../images/Real Estate Project assets/5.jpeg","../images/Real Estate Project assets/6.jpeg","../images/Real Estate Project assets/8.jpeg","../images/Real Estate Project assets/10.jpeg","../images/Real Estate Project assets/11.jpeg","../images/Real Estate Project assets/13.jpeg","../images/Real Estate Project assets/14.jpeg","../images/Real Estate Project assets/15.jpeg","../images/Real Estate Project assets/16.jpeg","../images/Real Estate Project assets/17.jpeg","../images/Real Estate Project assets/18.jpeg","../images/Real Estate Project assets/19.jpeg","../images/Real Estate Project assets/20.jpeg"]'>
+        <div class="project__gallery-main" data-index="0">
+          <img src="../images/Real Estate Project assets/3.jpeg" alt="GM Residence Kinondoni – front exterior view" loading="lazy" />
+          <div class="project__gallery-overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
           </div>
         </div>
-
-        <!-- Project 2 -->
-        <div class="showcase__card" data-category="apartment">
-          <div class="showcase__media">
-            <div class="showcase__media-tabs">
-              <button class="showcase__media-tab active" data-view="image">Photos</button>
-              <button class="showcase__media-tab" data-view="3d">3D Tour</button>
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--image active">
-              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop" alt="GM Heights Kinondoni – luxury apartments" loading="lazy" />
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--3d">
-              <iframe src="" data-src="https://my.matterport.com/show/?m=EXAMPLE2" title="3D tour – GM Heights Kinondoni" allowfullscreen loading="lazy"></iframe>
-              <div class="showcase__3d-placeholder">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                <span>Click to load 3D tour</span>
-              </div>
+        <div class="project__gallery-side">
+          <div class="project__gallery-thumb" data-index="1">
+            <img src="../images/Real Estate Project assets/12.jpeg" alt="Corner view with balconies and parking" loading="lazy" />
+            <div class="project__gallery-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
             </div>
           </div>
-          <div class="showcase__info">
-            <span class="showcase__badge">Apartment</span>
-            <h3 class="showcase__name">GM Heights Kinondoni</h3>
-            <p class="showcase__location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Kinondoni, Dar es Salaam
-            </p>
-            <div class="showcase__details">
-              <span>1, 2 &amp; 3 Bed</span>
-              <span>55 – 130 m²</span>
-              <span>From TZS 280M</span>
+          <div class="project__gallery-thumb" data-index="2">
+            <img src="../images/Real Estate Project assets/9.jpeg" alt="Night view with LED lighting" loading="lazy" />
+            <div class="project__gallery-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
             </div>
-            <p class="showcase__desc">
-              Modern urban living in the heart of Kinondoni with gym, parking, high-speed lifts, and smart-home wiring.
-            </p>
-            <a href="../index.html#contact" class="btn btn--outline btn--sm">Enquire Now</a>
+          </div>
+          <div class="project__gallery-thumb" data-index="3">
+            <img src="../images/Real Estate Project assets/2.jpeg" alt="Aerial view of building" loading="lazy" />
+            <div class="project__gallery-overlay">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+          <div class="project__gallery-thumb project__gallery-more" data-index="4">
+            <img src="../images/Real Estate Project assets/7.jpeg" alt="Side view of building" loading="lazy" />
+            <div class="project__gallery-overlay project__gallery-overlay--count">
+              <span>+15 Photos</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Project 3 -->
-        <div class="showcase__card" data-category="commercial">
-          <div class="showcase__media">
-            <div class="showcase__media-tabs">
-              <button class="showcase__media-tab active" data-view="image">Photos</button>
-              <button class="showcase__media-tab" data-view="3d">3D Tour</button>
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--image active">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="GM Business Park – commercial offices" loading="lazy" />
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--3d">
-              <iframe src="" data-src="https://my.matterport.com/show/?m=EXAMPLE3" title="3D tour – GM Business Park" allowfullscreen loading="lazy"></iframe>
-              <div class="showcase__3d-placeholder">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                <span>Click to load 3D tour</span>
+      <!-- Lightbox (hidden by default) -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox__close" aria-label="Close">&times;</button>
+        <button class="lightbox__prev" aria-label="Previous">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="lightbox__content">
+          <img src="" alt="" />
+        </div>
+        <button class="lightbox__next" aria-label="Next">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <div class="lightbox__counter"><span id="lb-current">1</span> / <span id="lb-total">20</span></div>
+      </div>
+
+      <!-- Video & 3D Slider -->
+      <div class="project__slider-section">
+        <h3 class="project__slider-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Video Tour
+        </h3>
+        <div class="project__slider" id="media-slider">
+          <div class="project__slider-track">
+
+            <!-- Video Slide -->
+            <div class="project__slide" data-type="video">
+              <div class="project__slide-inner">
+                <img src="../images/Real Estate Project assets/19.jpeg" alt="GM Residence Kinondoni flythrough" class="project__slide-poster" />
+                <div class="project__slide-play" data-video-src="../images/Real Estate Project assets/GM kinondoni 1.mp4" data-local="true">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="10" fill="rgba(0,0,0,.4)"/><polygon points="10 8 16 12 10 16 10 8" fill="#fff" stroke="none"/></svg>
+                  <span>Project Flythrough</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="showcase__info">
-            <span class="showcase__badge showcase__badge--commercial">Commercial</span>
-            <h3 class="showcase__name">GM Business Park</h3>
-            <p class="showcase__location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Oyster Bay, Dar es Salaam
-            </p>
-            <div class="showcase__details">
-              <span>Office Suites</span>
-              <span>50 – 300 m²</span>
-              <span>Lease Available</span>
-            </div>
-            <p class="showcase__desc">
-              Grade-A office spaces with fibre internet, conference facilities, generator backup, and ample parking.
-            </p>
-            <a href="../index.html#contact" class="btn btn--outline btn--sm">Enquire Now</a>
+
+          </div><!-- /.project__slider-track -->
+
+          <!-- Slider Controls -->
+          <button class="project__slider-btn project__slider-btn--prev" aria-label="Previous slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="project__slider-btn project__slider-btn--next" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <!-- Dots -->
+          <div class="project__slider-dots">
+            <button class="project__slider-dot active" data-slide="0" aria-label="Slide 1">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </button>
           </div>
         </div>
+      </div>
 
-        <!-- Project 4 -->
-        <div class="showcase__card" data-category="land">
-          <div class="showcase__media">
-            <div class="showcase__media-tabs">
-              <button class="showcase__media-tab active" data-view="image">Photos</button>
-              <button class="showcase__media-tab" data-view="3d">3D Tour</button>
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--image active">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop" alt="GM Kigamboni Plots – prime land" loading="lazy" />
-            </div>
-            <div class="showcase__media-panel showcase__media-panel--3d">
-              <iframe src="" data-src="https://my.matterport.com/show/?m=EXAMPLE4" title="3D tour – GM Kigamboni Plots" allowfullscreen loading="lazy"></iframe>
-              <div class="showcase__3d-placeholder">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                <span>Click to load 3D tour</span>
-              </div>
-            </div>
-          </div>
-          <div class="showcase__info">
-            <span class="showcase__badge showcase__badge--land">Land</span>
-            <h3 class="showcase__name">GM Kigamboni Plots</h3>
-            <p class="showcase__location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Kigamboni, Dar es Salaam
-            </p>
-            <div class="showcase__details">
-              <span>Residential Plots</span>
-              <span>600 – 1200 m²</span>
-              <span>From TZS 35M</span>
-            </div>
-            <p class="showcase__desc">
-              Surveyed and titled plots in the fast-growing Kigamboni peninsula, ideal for residential or investment builds.
-            </p>
-            <a href="../index.html#contact" class="btn btn--outline btn--sm">Enquire Now</a>
-          </div>
+      <!-- Key Features -->
+      <div class="project__features">
+        <div class="project__feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <h4>Premium Finishes</h4>
+          <p>Imported porcelain tiles, solid-core doors, and granite kitchen countertops throughout.</p>
         </div>
+        <div class="project__feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4>24/7 Security</h4>
+          <p>CCTV surveillance, biometric access, and on-site security personnel around the clock.</p>
+        </div>
+        <div class="project__feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <h4>Backup Power</h4>
+          <p>Automatic generator switchover ensures uninterrupted electricity for all units.</p>
+        </div>
+        <div class="project__feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <h4>Rooftop Terrace</h4>
+          <p>Shared rooftop lounge with city views, BBQ area, and landscaped gardens.</p>
+        </div>
+      </div>
 
-      </div><!-- /.showcase__grid -->
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="../index.html#contact" class="btn btn--primary btn--lg">Enquire About This Project</a>
+      </div>
     </div>
   </section>
 
