@@ -1366,7 +1366,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .page-hero__bg--realestate {
-  background: linear-gradient(135deg, rgba(27,94,60,.75), rgba(46,125,82,.65), rgba(74,158,114,.6)),
+  background: linear-gradient(135deg, rgba(42,32,20,.78), rgba(90,68,42,.68), rgba(160,120,60,.5)),
     url('../images/real-estate.jpg') center/cover no-repeat;
 }
 .page-hero__bg--medics {
@@ -1468,8 +1468,23 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .service-card__icon {
-  font-size: 2.5rem;
-  margin-block-end: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(212,168,67,.1);
+  margin-block-end: 1.25rem;
+}
+.service-card__icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--color-accent);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .service-card__title {
@@ -1970,6 +1985,12 @@ body[data-theme="medics"] .footer__bottom {
 body[data-theme="medics"] .nav__logo-icon {
   background: #1a6b1a;
 }
+body[data-theme="medics"] .service-card__icon {
+  background: rgba(26,107,26,.1);
+}
+body[data-theme="medics"] .service-card__icon svg {
+  stroke: #1a6b1a;
+}
 
 /* --- GM Labs: coffee black, black & white --- */
 body[data-theme="laboratory"] .page-hero__tag {
@@ -2036,4 +2057,10 @@ body[data-theme="laboratory"] .footer__bottom {
 }
 body[data-theme="laboratory"] .nav__logo-icon {
   background: #5a3a28;
+}
+body[data-theme="laboratory"] .service-card__icon {
+  background: rgba(90,58,40,.1);
+}
+body[data-theme="laboratory"] .service-card__icon svg {
+  stroke: #5a3a28;
 }
