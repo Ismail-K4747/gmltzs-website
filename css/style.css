@@ -746,6 +746,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .value-item__icon svg {
   display: block;
+  margin-inline: auto;
 }
 
 .value-item__title {
