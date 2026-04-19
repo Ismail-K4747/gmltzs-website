@@ -591,7 +591,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     url('../images/cargo.jpg') center/cover no-repeat;
 }
 .biz-card__image--devices {
-  background: linear-gradient(135deg, rgba(70,95,110,.55), rgba(110,140,158,.45));
+  background: linear-gradient(135deg, rgba(70,95,110,.55), rgba(110,140,158,.45)),
+    url('../images/medical%20devices.webp') center/cover no-repeat;
 }
 .biz-card__image--kitchen {
   background: linear-gradient(135deg, rgba(153,27,27,.55), rgba(220,38,38,.45));
