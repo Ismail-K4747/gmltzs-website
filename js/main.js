@@ -443,7 +443,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Construction Progress Tiles ---
+  const progressCards = document.querySelectorAll('.project__progress-card');
+  const progressTimelineItems = document.querySelectorAll('.project__progress-timeline li');
   const progressVideos = document.querySelectorAll('.project__progress-video');
+
+  function setActiveProgress(index) {
+    progressCards.forEach(card => {
+      card.classList.toggle('active', card.dataset.progressIndex === index);
+    });
+
+    progressTimelineItems.forEach(item => {
+      item.classList.toggle('active', item.dataset.progressIndex === index);
+    });
+  }
+
+  if (progressCards.length) {
+    const progressCardObserver = new IntersectionObserver((entries) => {
+      const visibleEntries = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((entryA, entryB) => entryB.intersectionRatio - entryA.intersectionRatio);
+
+      if (visibleEntries.length) {
+        setActiveProgress(visibleEntries[0].target.dataset.progressIndex);
+      }
+    }, { threshold: [0.35, 0.55, 0.75], rootMargin: '0px -10% 0px -10%' });
+
+    progressCards.forEach(card => {
+      progressCardObserver.observe(card);
+    });
+  }
+
   if (progressVideos.length) {
     const progressObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

@@ -263,15 +263,15 @@
         </div>
 
         <ol class="project__progress-timeline" aria-label="Construction milestones from February 2026 to April 2026">
-          <li><span>Progress 0</span><strong>Feb 2026</strong></li>
-          <li><span>Progress 1</span><strong>Feb 2026</strong></li>
-          <li><span>Progress 2</span><strong>Mar 2026</strong></li>
-          <li><span>Progress 3</span><strong>Apr 2026</strong></li>
-          <li><span>Progress 4</span><strong>Apr 2026</strong></li>
+          <li class="active" data-progress-index="0"><span>Progress 0</span><strong>Feb 2026</strong></li>
+          <li data-progress-index="1"><span>Progress 1</span><strong>Feb 2026</strong></li>
+          <li data-progress-index="2"><span>Progress 2</span><strong>Mar 2026</strong></li>
+          <li data-progress-index="3"><span>Progress 3</span><strong>Apr 2026</strong></li>
+          <li data-progress-index="4"><span>Progress 4</span><strong>Apr 2026</strong></li>
         </ol>
 
         <div class="project__progress-strip" aria-label="Construction progress timeline">
-          <article class="project__progress-card">
+          <article class="project__progress-card active" data-progress-index="0">
             <span class="project__progress-badge">Progress 0</span>
             <div class="project__progress-media">
               <img src="../images/Real Estate Project assets/progress 0.jpeg" alt="GM Residence Kinondoni site progress in February 2026" loading="lazy" />
@@ -287,7 +287,7 @@
             </div>
           </article>
 
-          <article class="project__progress-card">
+          <article class="project__progress-card" data-progress-index="1">
             <span class="project__progress-badge">Progress 1</span>
             <div class="project__progress-media">
               <video class="project__progress-video" src="../images/Real Estate Project assets/progress 1.mp4" poster="../images/Real Estate Project assets/progress 0.jpeg" muted loop playsinline preload="metadata" aria-label="GM Residence Kinondoni construction progress video from February 2026"></video>
@@ -303,7 +303,7 @@
             </div>
           </article>
 
-          <article class="project__progress-card">
+          <article class="project__progress-card" data-progress-index="2">
             <span class="project__progress-badge">Progress 2</span>
             <div class="project__progress-media">
               <video class="project__progress-video" src="../images/Real Estate Project assets/progress 2.mp4" poster="../images/Real Estate Project assets/progress 0.jpeg" muted loop playsinline preload="metadata" aria-label="GM Residence Kinondoni construction progress video from March 2026"></video>
@@ -319,7 +319,7 @@
             </div>
           </article>
 
-          <article class="project__progress-card">
+          <article class="project__progress-card" data-progress-index="3">
             <span class="project__progress-badge">Progress 3</span>
             <div class="project__progress-media">
               <video class="project__progress-video" src="../images/Real Estate Project assets/progress 3.mp4" poster="../images/Real Estate Project assets/progress 0.jpeg" muted loop playsinline preload="metadata" aria-label="GM Residence Kinondoni construction progress video from April 2026"></video>
@@ -335,7 +335,7 @@
             </div>
           </article>
 
-          <article class="project__progress-card">
+          <article class="project__progress-card" data-progress-index="4">
             <span class="project__progress-badge">Progress 4</span>
             <div class="project__progress-media">
               <video class="project__progress-video" src="../images/Real Estate Project assets/progress 4.mp4" poster="../images/Real Estate Project assets/progress 0.jpeg" muted loop playsinline preload="metadata" aria-label="Latest GM Residence Kinondoni construction progress video from April 2026"></video>

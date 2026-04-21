@@ -1926,6 +1926,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-top: 1.4rem;
   color: var(--color-text-light);
   font-size: .82rem;
+  transition: color var(--transition), transform var(--transition);
 }
 
 .project__progress-timeline li::before {
@@ -1965,6 +1966,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--font-serif);
   color: var(--color-primary);
   font-size: 1rem;
+  transition: color var(--transition);
+}
+
+.project__progress-timeline li.active {
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.project__progress-timeline li.active::before {
+  box-shadow: 0 0 0 8px rgba(212,168,67,.2);
+}
+
+.project__progress-timeline li.active strong {
+  color: var(--color-accent);
 }
 
 .project__progress-strip {
@@ -2003,6 +2018,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: 1px solid rgba(26,60,94,.1);
   background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,249,252,.96));
   box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.project__progress-card.active {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,67,.4);
+  box-shadow: 0 20px 40px rgba(13,27,42,.08);
 }
 
 .project__progress-badge {
