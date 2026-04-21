@@ -1910,6 +1910,63 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
 }
 
+.project__progress-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 0 1.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project__progress-timeline li {
+  position: relative;
+  display: grid;
+  gap: .2rem;
+  padding-top: 1.4rem;
+  color: var(--color-text-light);
+  font-size: .82rem;
+}
+
+.project__progress-timeline li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 6px rgba(212,168,67,.12);
+}
+
+.project__progress-timeline li::after {
+  content: '';
+  position: absolute;
+  top: .35rem;
+  left: 1rem;
+  right: -.5rem;
+  height: 1px;
+  background: rgba(26,60,94,.18);
+}
+
+.project__progress-timeline li:last-child::after {
+  display: none;
+}
+
+.project__progress-timeline span {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.project__progress-timeline strong {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
 .project__progress-strip {
   display: grid;
   grid-auto-flow: column;
@@ -1976,6 +2033,34 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   object-fit: cover;
 }
 
+.project__progress-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: grid;
+  gap: .3rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(13,27,42,0) 0%, rgba(13,27,42,.78) 100%);
+  color: var(--color-white);
+}
+
+.project__progress-overlay-label {
+  justify-self: start;
+  padding: .32rem .55rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  backdrop-filter: blur(6px);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.project__progress-overlay strong {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
 .project__progress-copy {
   display: grid;
   gap: .45rem;
@@ -2038,6 +2123,32 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .project__progress-header {
     align-items: start;
     flex-direction: column;
+  }
+
+  .project__progress-timeline {
+    grid-template-columns: 1fr;
+    gap: .8rem;
+  }
+
+  .project__progress-timeline li {
+    padding-top: 0;
+    padding-inline-start: 1.5rem;
+  }
+
+  .project__progress-timeline li::before {
+    top: .25rem;
+  }
+
+  .project__progress-timeline li::after {
+    top: 1.1rem;
+    left: .35rem;
+    right: auto;
+    width: 1px;
+    height: calc(100% + .35rem);
+  }
+
+  .project__progress-timeline li:last-child::after {
+    display: none;
   }
 
   .project__progress-strip {
