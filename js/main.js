@@ -442,4 +442,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Construction Progress Tiles ---
+  const progressVideos = document.querySelectorAll('.project__progress-video');
+  if (progressVideos.length) {
+    const progressObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.65 });
+
+    progressVideos.forEach(video => {
+      progressObserver.observe(video);
+    });
+  }
+
 });
