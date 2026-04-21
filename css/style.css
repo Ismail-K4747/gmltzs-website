@@ -1910,6 +1910,43 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
 }
 
+.project__progress-tools {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.project__progress-nav {
+  display: flex;
+  gap: .5rem;
+}
+
+.project__progress-nav-btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid rgba(26,60,94,.14);
+  background: rgba(255,255,255,.96);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition), border-color var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.project__progress-nav-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212,168,67,.35);
+  background: rgba(212,168,67,.12);
+}
+
+.project__progress-nav-btn:focus-visible {
+  outline: 2px solid rgba(212,168,67,.85);
+  outline-offset: 3px;
+}
+
 .project__progress-timeline {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -2161,6 +2198,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .project__progress-header {
     align-items: start;
     flex-direction: column;
+  }
+
+  .project__progress-tools {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .project__progress-timeline {

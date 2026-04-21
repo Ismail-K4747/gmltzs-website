@@ -447,9 +447,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressCards = document.querySelectorAll('.project__progress-card');
   const progressTimelineItems = document.querySelectorAll('.project__progress-timeline li');
   const progressMarkers = document.querySelectorAll('.project__progress-marker');
+  const progressPrevBtn = document.querySelector('.project__progress-nav-btn--prev');
+  const progressNextBtn = document.querySelector('.project__progress-nav-btn--next');
   const progressVideos = document.querySelectorAll('.project__progress-video');
+  let activeProgressIndex = '0';
 
   function setActiveProgress(index) {
+    activeProgressIndex = index;
+
     progressCards.forEach(card => {
       card.classList.toggle('active', card.dataset.progressIndex === index);
     });
@@ -473,6 +478,22 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollToProgress(marker.dataset.progressIndex);
       });
     });
+  }
+
+  function moveProgress(direction) {
+    if (!progressCards.length) return;
+
+    const currentIndex = parseInt(activeProgressIndex, 10) || 0;
+    const nextIndex = Math.max(0, Math.min(progressCards.length - 1, currentIndex + direction));
+    scrollToProgress(String(nextIndex));
+  }
+
+  if (progressPrevBtn) {
+    progressPrevBtn.addEventListener('click', () => moveProgress(-1));
+  }
+
+  if (progressNextBtn) {
+    progressNextBtn.addEventListener('click', () => moveProgress(1));
   }
 
   if (progressCards.length) {
