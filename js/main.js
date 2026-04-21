@@ -443,8 +443,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Construction Progress Tiles ---
+  const progressStrip = document.querySelector('.project__progress-strip');
   const progressCards = document.querySelectorAll('.project__progress-card');
   const progressTimelineItems = document.querySelectorAll('.project__progress-timeline li');
+  const progressMarkers = document.querySelectorAll('.project__progress-marker');
   const progressVideos = document.querySelectorAll('.project__progress-video');
 
   function setActiveProgress(index) {
@@ -454,6 +456,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     progressTimelineItems.forEach(item => {
       item.classList.toggle('active', item.dataset.progressIndex === index);
+    });
+  }
+
+  function scrollToProgress(index) {
+    const targetCard = document.querySelector(`.project__progress-card[data-progress-index="${index}"]`);
+    if (!targetCard || !progressStrip) return;
+
+    setActiveProgress(index);
+    targetCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+  }
+
+  if (progressMarkers.length) {
+    progressMarkers.forEach(marker => {
+      marker.addEventListener('click', () => {
+        scrollToProgress(marker.dataset.progressIndex);
+      });
     });
   }
 

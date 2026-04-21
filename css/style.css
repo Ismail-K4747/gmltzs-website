@@ -1921,12 +1921,28 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .project__progress-timeline li {
   position: relative;
-  display: grid;
-  gap: .2rem;
   padding-top: 1.4rem;
   color: var(--color-text-light);
   font-size: .82rem;
   transition: color var(--transition), transform var(--transition);
+}
+
+.project__progress-marker {
+  display: grid;
+  gap: .2rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project__progress-marker:focus-visible {
+  outline: 2px solid rgba(212,168,67,.85);
+  outline-offset: 6px;
+  border-radius: .5rem;
 }
 
 .project__progress-timeline li::before {
@@ -2155,6 +2171,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .project__progress-timeline li {
     padding-top: 0;
     padding-inline-start: 1.5rem;
+  }
+
+  .project__progress-marker {
+    min-height: 2.25rem;
   }
 
   .project__progress-timeline li::before {
