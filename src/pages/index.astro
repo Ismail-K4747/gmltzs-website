@@ -1,0 +1,342 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Icon from '../components/Icon.astro';
+
+const home = await getEntry('pages', 'home');
+if (!home) throw new Error('Missing src/content/pages/home.md');
+const d = home.data;
+
+const siteEntry = await getEntry('settings', 'site');
+const site = siteEntry?.data;
+---
+<BaseLayout
+  title={d.title}
+  metaDescription={d.metaDescription}
+  metaKeywords={d.metaKeywords}
+  canonical={d.canonical}
+  ogTitle={d.ogTitle}
+  ogDescription={d.ogDescription}
+  ogUrl="https://gmltzs.com/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "General Malick Limited",
+      "alternateName": "GML",
+      "url": "https://gmltzs.com",
+      "email": site?.contactEmail,
+      "telephone": site?.contactPhone,
+      "faxNumber": site?.contactFax,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kinondoni, Kawawa Road / Kasaba Street",
+        "postOfficeBoxNumber": "452",
+        "addressLocality": "Dar es Salaam",
+        "addressCountry": "TZ"
+      },
+      "sameAs": []
+    })}></script>
+  </Fragment>
+
+  <SiteHeader />
+
+  {/* ===== HERO ===== */}
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="container hero__content">
+      {d.heroEyebrow && <p class="hero__eyebrow">{d.heroEyebrow}</p>}
+      <h1 class="hero__title">{d.heroTitle} <span class="hero__title--accent">{d.heroTitleAccent}</span></h1>
+      {d.heroSubtitle && <p class="hero__subtitle">{d.heroSubtitle}</p>}
+      <div class="hero__actions">
+        {d.heroActions.map((a) => (
+          <a href={a.href} class={`btn btn--${a.style} btn--lg`}>{a.label}</a>
+        ))}
+      </div>
+      <div class="hero__stats">
+        {d.heroStats.map((s) => (
+          <div class="stat">
+            <span class="stat__number" data-target={/^\d+$/.test(s.number) ? s.number : undefined}>
+              {/^\d+$/.test(s.number) ? '0' : s.number}
+            </span>
+            <span class="stat__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll down">
+      <span class="hero__scroll-icon"></span>
+    </a>
+  </section>
+
+  {/* ===== ABOUT ===== */}
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section__header">
+        {d.aboutEyebrow && <p class="section__eyebrow">{d.aboutEyebrow}</p>}
+        {d.aboutTitle && <h2 class="section__title">{d.aboutTitle}</h2>}
+      </div>
+      <div class="about__grid">
+        <div class="about__text">
+          {d.aboutLead && <p class="about__lead">{d.aboutLead}</p>}
+          {d.aboutParagraphs.map((p) => <p>{p}</p>)}
+          {d.aboutCtaLabel && d.aboutCtaHref && (
+            <a href={d.aboutCtaHref} class="btn btn--primary">{d.aboutCtaLabel}</a>
+          )}
+        </div>
+        <div class="about__visual">
+          {d.aboutCards.map((c, i) => (
+            <div class={`about__card about__card--${i + 1}`}>
+              <div class="about__card-icon"><Icon name={c.title} size={28} /></div>
+              <h3>{c.title}</h3>
+              <p>{c.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ===== BUSINESSES ===== */}
+  <section class="businesses section section--dark" id="businesses">
+    <div class="container">
+      <div class="section__header section__header--light">
+        {d.businessesEyebrow && <p class="section__eyebrow">{d.businessesEyebrow}</p>}
+        {d.businessesTitle && <h2 class="section__title">{d.businessesTitle}</h2>}
+        {d.businessesSubtitle && <p class="section__subtitle">{d.businessesSubtitle}</p>}
+      </div>
+      <div class="businesses__grid">
+        {d.businesses.map((b) => (
+          <article class={`biz-card${b.comingSoon ? ' biz-card--coming-soon' : ''}`} id={b.id}>
+            <div class={`biz-card__image ${b.imageClass}`}>
+              <div class="biz-card__overlay">
+                <span class={`biz-card__tag${b.tagStyle === 'soon' ? ' biz-card__tag--soon' : ''}`}>{b.tag}</span>
+              </div>
+            </div>
+            <div class="biz-card__body">
+              {b.logo
+                ? <img class="biz-card__logo" src={b.logo} alt={b.logoAlt ?? ''} />
+                : <div class="biz-card__logo"><Icon name={b.id.replace('biz-', '')} /></div>
+              }
+              <h3 class="biz-card__title" set:html={b.title} />
+              <p class="biz-card__desc">{b.description}</p>
+              {b.features.length > 0 && (
+                <ul class="biz-card__features">
+                  {b.features.map((f) => <li>{f}</li>)}
+                </ul>
+              )}
+              {b.link
+                ? <a href={b.link} class="btn btn--outline">Learn More</a>
+                : b.comingSoonLabel && <span class="btn btn--outline biz-card__soon-badge">{b.comingSoonLabel}</span>
+              }
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ===== VALUES ===== */}
+  <section class="values section" id="values">
+    <div class="container">
+      <div class="section__header">
+        {d.valuesEyebrow && <p class="section__eyebrow">{d.valuesEyebrow}</p>}
+        {d.valuesTitle && <h2 class="section__title">{d.valuesTitle}</h2>}
+      </div>
+      <div class="values__grid">
+        {d.values.map((v) => (
+          <div class="value-item">
+            <div class="value-item__icon"><Icon name={v.title} /></div>
+            <h3 class="value-item__title">{v.title}</h3>
+            <p class="value-item__desc">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ===== GALLERY (CMS-managed photos) ===== */}
+  {d.galleryPhotos.length > 0 && (
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        {d.galleryTitle && (
+          <div class="section__header">
+            <h2 class="section__title">{d.galleryTitle}</h2>
+          </div>
+        )}
+        <div class="gallery__grid">
+          {d.galleryPhotos.map((p) => (
+            <figure class="gallery__item">
+              <img src={p.image} alt={p.alt ?? p.caption ?? ''} loading="lazy" />
+              {p.caption && <figcaption>{p.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* ===== TESTIMONIALS ===== */}
+  <section class="testimonials section section--accent" id="testimonials">
+    <div class="container">
+      <div class="section__header section__header--light">
+        {d.testimonialsEyebrow && <p class="section__eyebrow">{d.testimonialsEyebrow}</p>}
+        {d.testimonialsTitle && <h2 class="section__title">{d.testimonialsTitle}</h2>}
+      </div>
+      <div class="testimonials__slider" id="testimonials-slider">
+        {d.testimonials.map((t, i) => (
+          <div class={`testimonial${i === 0 ? ' active' : ''}`}>
+            <blockquote class="testimonial__quote">{t.quote}</blockquote>
+            <footer class="testimonial__footer">
+              <div class="testimonial__avatar">{t.initials}</div>
+              <div>
+                <strong>{t.name}</strong>
+                <span>{t.role}</span>
+              </div>
+            </footer>
+          </div>
+        ))}
+      </div>
+      <div class="testimonials__dots" id="testimonials-dots">
+        {d.testimonials.map((_, i) => (
+          <button class={`dot${i === 0 ? ' active' : ''}`} aria-label={`Testimonial ${i + 1}`}></button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ===== CONTACT ===== */}
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section__header">
+        {d.contactEyebrow && <p class="section__eyebrow">{d.contactEyebrow}</p>}
+        {d.contactTitle && <h2 class="section__title">{d.contactTitle}</h2>}
+        {d.contactSubtitle && <p class="section__subtitle">{d.contactSubtitle}</p>}
+      </div>
+      <div class="contact__layout">
+        <div class="contact__info">
+          <div class="contact__info-item">
+            <div class="contact__info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Head Office</h4>
+              <p set:html={(site?.address ?? '').replace(/\n/g, '<br />')}></p>
+            </div>
+          </div>
+
+          {site?.headOfficeMapEmbed && (
+            <div class="contact__map">
+              <iframe
+                src={site.headOfficeMapEmbed}
+                width="100%"
+                height="220"
+                style="border:0; border-radius:12px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="GM Group Head Office — Kinondoni, Dar es Salaam"
+              ></iframe>
+            </div>
+          )}
+
+          {site?.contactPhone && (
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <p><a href={`tel:${site.contactPhone}`}>{site.contactPhone}</a><br />Mon – Fri, 8am – 5pm (EAT)</p>
+              </div>
+            </div>
+          )}
+
+          {site?.contactFax && (
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              </div>
+              <div>
+                <h4>Fax</h4>
+                <p><a href={`tel:${site.contactFax}`}>{site.contactFax}</a></p>
+              </div>
+            </div>
+          )}
+
+          {site?.contactEmail && (
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p><a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <form class="contact__form" id="contact-form" action="https://formspree.io/f/xpqoello" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New enquiry from gmltzs.com" />
+          <div class="form__row">
+            <div class="form__group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" name="fname" placeholder="e.g. Juma" required />
+              <span class="form__error" id="fname-error"></span>
+            </div>
+            <div class="form__group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" name="lname" placeholder="e.g. Hassan" required />
+              <span class="form__error" id="lname-error"></span>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              <span class="form__error" id="email-error"></span>
+            </div>
+            <div class="form__group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+255 7XX XXX XXX" />
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="business">Business Interest *</label>
+            <select id="business" name="business" required>
+              <option value="" disabled selected>Select a business unit</option>
+              <option value="medical-devices">GML Medical Devices &amp; Lab Equipment</option>
+              <option value="real-estate">GM Apartments &amp; Real Estate</option>
+              <option value="medics">GM Medics Pharmacy</option>
+              <option value="laboratory">GM Labs &amp; Diagnostic Point</option>
+              <option value="general">General Enquiry</option>
+            </select>
+            <span class="form__error" id="business-error"></span>
+          </div>
+          <div class="form__group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+            <span class="form__error" id="message-error"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <span class="btn__text">Send Message</span>
+            <span class="btn__loader" hidden>Sending…</span>
+          </button>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="form__success" id="form-success" hidden>
+            ✅ Thank you! Your message has been received. We'll be in touch shortly.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>

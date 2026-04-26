@@ -1,0 +1,190 @@
+# ==========================================================================
+# GM Group — Sveltia / Decap CMS configuration
+# This file defines what the client can edit through gmltzs.com/admin
+# ==========================================================================
+
+backend:
+  name: github
+  repo: Ismail-K4747/gmltzs-website
+  branch: main
+  base_url: https://YOUR-CLOUDFLARE-WORKER.workers.dev   # ← replace after deploying auth worker
+  auth_endpoint: /auth
+
+# Where uploaded photos go
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Show published changes immediately (no editorial workflow / drafts)
+publish_mode: simple
+site_url: https://gmltzs.com
+display_url: https://gmltzs.com
+logo_url: /images/GML%20LOGO%20transparent%20background%20png.png
+
+# ==========================================================================
+# COLLECTIONS — what the client sees in the sidebar
+# ==========================================================================
+collections:
+
+  # -------- 1. PAGES --------
+  - name: pages
+    label: "Pages"
+    label_singular: "Page"
+    folder: "src/content/pages"
+    extension: "md"
+    format: "frontmatter"
+    create: false   # client edits existing pages; doesn't create new ones (yet)
+    delete: false
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      # ---- SEO ----
+      - { name: title,            label: "Browser tab title",            widget: string }
+      - { name: metaDescription,  label: "Search engine description",    widget: text }
+      - { name: metaKeywords,     label: "Keywords (optional)",          widget: string, required: false }
+      - { name: canonical,        label: "Canonical URL",                widget: string, required: false }
+      - { name: ogTitle,          label: "Social share title",           widget: string, required: false }
+      - { name: ogDescription,    label: "Social share description",     widget: text,   required: false }
+
+      # ---- HERO ----
+      - { name: heroEyebrow,      label: "Hero — small label above title", widget: string, required: false }
+      - { name: heroTitle,        label: "Hero — main title",            widget: string, required: false }
+      - { name: heroTitleAccent,  label: "Hero — accent word",           widget: string, required: false }
+      - { name: heroSubtitle,     label: "Hero — subtitle",              widget: text,   required: false }
+      - name: heroActions
+        label: "Hero — buttons"
+        widget: list
+        required: false
+        fields:
+          - { name: label, label: "Button text",  widget: string }
+          - { name: href,  label: "Link",         widget: string }
+          - { name: style, label: "Style",        widget: select, options: ["primary", "ghost", "outline"], default: "primary" }
+      - name: heroStats
+        label: "Hero — stat cards"
+        widget: list
+        required: false
+        fields:
+          - { name: number, label: "Number / label", widget: string }
+          - { name: label,  label: "Caption",        widget: string }
+
+      # ---- ABOUT ----
+      - { name: aboutEyebrow,     label: "About — eyebrow",              widget: string, required: false }
+      - { name: aboutTitle,       label: "About — title",                widget: string, required: false }
+      - { name: aboutLead,        label: "About — lead paragraph",       widget: text,   required: false }
+      - name: aboutParagraphs
+        label: "About — body paragraphs"
+        widget: list
+        required: false
+        field: { name: paragraph, label: "Paragraph", widget: text }
+      - { name: aboutCtaLabel,    label: "About — button text",          widget: string, required: false }
+      - { name: aboutCtaHref,     label: "About — button link",          widget: string, required: false }
+      - name: aboutCards
+        label: "About — feature cards"
+        widget: list
+        required: false
+        fields:
+          - { name: title,       label: "Title",       widget: string }
+          - { name: description, label: "Description", widget: text }
+
+      # ---- BUSINESSES (homepage only) ----
+      - { name: businessesEyebrow,  label: "Businesses — eyebrow",  widget: string, required: false }
+      - { name: businessesTitle,    label: "Businesses — title",    widget: string, required: false }
+      - { name: businessesSubtitle, label: "Businesses — subtitle", widget: text,   required: false }
+      - name: businesses
+        label: "Businesses — cards"
+        widget: list
+        required: false
+        fields:
+          - { name: id,          label: "ID (anchor)",       widget: string }
+          - { name: tag,         label: "Corner tag",        widget: string }
+          - { name: tagStyle,    label: "Tag style",         widget: select, options: ["default", "soon"], default: "default" }
+          - { name: imageClass,  label: "Background class",  widget: string }
+          - { name: logo,        label: "Logo image",        widget: image, required: false }
+          - { name: logoAlt,     label: "Logo alt text",     widget: string, required: false }
+          - { name: title,       label: "Card title",        widget: string }
+          - { name: description, label: "Description",       widget: text }
+          - name: features
+            label: "Features"
+            widget: list
+            field: { name: feature, label: "Feature", widget: string }
+          - { name: link,             label: "Learn-more link",     widget: string, required: false }
+          - { name: comingSoon,       label: "Coming soon?",        widget: boolean, default: false }
+          - { name: comingSoonLabel,  label: "Coming-soon badge",   widget: string, required: false }
+
+      # ---- VALUES ----
+      - { name: valuesEyebrow, label: "Values — eyebrow", widget: string, required: false }
+      - { name: valuesTitle,   label: "Values — title",   widget: string, required: false }
+      - name: values
+        label: "Values — items"
+        widget: list
+        required: false
+        fields:
+          - { name: title,       label: "Value name",  widget: string }
+          - { name: description, label: "Description", widget: text }
+
+      # ---- TESTIMONIALS ----
+      - { name: testimonialsEyebrow, label: "Testimonials — eyebrow", widget: string, required: false }
+      - { name: testimonialsTitle,   label: "Testimonials — title",   widget: string, required: false }
+      - name: testimonials
+        label: "Testimonials"
+        widget: list
+        required: false
+        fields:
+          - { name: quote,    label: "Quote",         widget: text }
+          - { name: initials, label: "Avatar letters", widget: string }
+          - { name: name,     label: "Person's name",  widget: string }
+          - { name: role,     label: "Role / company", widget: string }
+
+      # ---- CONTACT ----
+      - { name: contactEyebrow,  label: "Contact — eyebrow",  widget: string, required: false }
+      - { name: contactTitle,    label: "Contact — title",    widget: string, required: false }
+      - { name: contactSubtitle, label: "Contact — subtitle", widget: text,   required: false }
+
+      # ---- BODY SECTIONS (for inner pages) ----
+      - name: bodySections
+        label: "Page sections"
+        widget: list
+        required: false
+        fields:
+          - { name: eyebrow, label: "Eyebrow", widget: string, required: false }
+          - { name: title,   label: "Title",   widget: string, required: false }
+          - { name: body,    label: "Body",    widget: markdown, required: false }
+          - { name: image,   label: "Image",   widget: image, required: false }
+
+      # ---- PHOTO GALLERY  ★ THIS IS WHERE THE CLIENT ADDS PHOTOS ★ ----
+      - { name: galleryTitle, label: "Photo gallery — section title", widget: string, required: false }
+      - name: galleryPhotos
+        label: "Photo gallery — photos"
+        label_singular: "Photo"
+        widget: list
+        required: false
+        summary: "{{fields.caption}}"
+        fields:
+          - { name: image,   label: "Photo",        widget: image }
+          - { name: caption, label: "Caption",      widget: string, required: false }
+          - { name: alt,     label: "Alt text (accessibility)", widget: string, required: false }
+
+  # -------- 2. SITE SETTINGS --------
+  - name: settings
+    label: "Site Settings"
+    files:
+      - name: site
+        label: "General Settings"
+        file: "src/content/settings/site.yml"
+        format: "yml"
+        fields:
+          - { name: siteName,     label: "Site name",     widget: string }
+          - { name: siteTagline,  label: "Tagline",       widget: string, required: false }
+          - { name: contactEmail, label: "Contact email", widget: string }
+          - { name: contactPhone, label: "Contact phone", widget: string, required: false }
+          - { name: contactFax,   label: "Fax",           widget: string, required: false }
+          - { name: address,      label: "Address",       widget: text,   required: false }
+          - { name: headOfficeMapEmbed, label: "Google Maps embed URL", widget: string, required: false }
+          - name: socials
+            label: "Social links"
+            widget: list
+            required: false
+            fields:
+              - { name: platform, label: "Platform", widget: string }
+              - { name: url,      label: "URL",      widget: string }
+          - { name: footerTagline, label: "Footer tagline", widget: text, required: false }
+          - { name: footerLegal,   label: "Footer legal text", widget: string, required: false }
