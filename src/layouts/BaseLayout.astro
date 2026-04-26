@@ -9,6 +9,7 @@ interface Props {
   ogTitle?: string;
   ogDescription?: string;
   ogUrl?: string;
+  bodyTheme?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   ogTitle,
   ogDescription,
   ogUrl,
+  bodyTheme,
 } = Astro.props;
 
 const siteEntry = await getEntry('settings', 'site');
@@ -60,7 +62,7 @@ const site = siteEntry?.data;
 
   <slot name="head" />
 </head>
-<body>
+<body data-theme={bodyTheme}>
   <slot />
   <script src="/js/main.js" is:inline></script>
 </body>

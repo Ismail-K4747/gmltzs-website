@@ -1,0 +1,48 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const page = await getEntry('pages', 'insights');
+if (!page) throw new Error('Missing src/content/pages/insights.md');
+const d = page.data;
+---
+<BaseLayout
+  title={d.title}
+  metaDescription={d.metaDescription}
+  metaKeywords={d.metaKeywords}
+  canonical={d.canonical}
+  ogTitle={d.ogTitle}
+  ogDescription={d.ogDescription}
+>
+  <SiteHeader />
+
+  <section class={`page-hero ${d.pageHeroBgClass ?? ''}`}>
+    <div class="container">
+      {d.pageHeroTag && <p class="page-hero__tag">{d.pageHeroTag}</p>}
+      {d.pageHeroTitle && <h1 class="page-hero__title">{d.pageHeroTitle}</h1>}
+      {d.pageHeroDescription && <p class="page-hero__desc">{d.pageHeroDescription}</p>}
+    </div>
+  </section>
+
+  <section class="insights section">
+    <div class="container">
+      <div class="insights__grid">
+        {d.insightsArticles.map((a) => (
+          <article class="insight-card">
+            <div class="insight-card__tag">{a.tag}</div>
+            <h2 class="insight-card__title">{a.title}</h2>
+            <p class="insight-card__excerpt">{a.excerpt}</p>
+            <div class="insight-card__meta">
+              <span>{a.author}</span>
+              <time datetime={a.datetime}>{a.dateLabel}</time>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>

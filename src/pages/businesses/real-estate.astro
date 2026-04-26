@@ -1,0 +1,265 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const page = await getEntry('pages', 'real-estate');
+if (!page) throw new Error('Missing src/content/pages/real-estate.md');
+const d = page.data;
+const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
+---
+<BaseLayout
+  title={d.title}
+  metaDescription={d.metaDescription}
+  metaKeywords={d.metaKeywords}
+  canonical={d.canonical}
+  ogTitle={d.ogTitle}
+  ogDescription={d.ogDescription}
+>
+  <SiteHeader />
+
+  {/* ===== PAGE HERO ===== */}
+  <section class="page-hero">
+    <div class={`page-hero__bg ${d.pageHeroBgClass ?? ''}`}></div>
+    <div class="container page-hero__content">
+      {d.pageHeroTag && <span class="page-hero__tag">{d.pageHeroTag}</span>}
+      <h1 class="page-hero__title" set:html={d.pageHeroTitle} />
+      {d.pageHeroDescription && <p class="page-hero__desc">{d.pageHeroDescription}</p>}
+    </div>
+  </section>
+
+  {/* ===== ABOUT + SERVICES ===== */}
+  <section class="page-about section">
+    <div class="container">
+      <div class="section__header">
+        {d.pageAboutEyebrow && <p class="section__eyebrow">{d.pageAboutEyebrow}</p>}
+        {d.pageAboutTitle && <h2 class="section__title">{d.pageAboutTitle}</h2>}
+      </div>
+      {d.pageAboutParagraphs.length > 0 && (
+        <div class="page-about__content">
+          {d.pageAboutParagraphs.map((p) => <p>{p}</p>)}
+        </div>
+      )}
+
+      {d.services.length > 0 && (
+        <div class="services-grid">
+          {d.services.map((s) => (
+            <div class="service-card">
+              {s.iconSvg && (
+                <div class="service-card__icon">
+                  <svg viewBox="0 0 24 24" set:html={s.iconSvg} />
+                </div>
+              )}
+              <h3 class="service-card__title" set:html={s.title} />
+              <p class="service-card__desc">{s.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  {/* ===== PROJECT SHOWCASE ===== */}
+  <section class="project section" id="projects">
+    <div class="container">
+      <div class="section__header">
+        {d.projectEyebrow && <p class="section__eyebrow">{d.projectEyebrow}</p>}
+        {d.projectTitle && <h2 class="section__title">{d.projectTitle}</h2>}
+        {d.projectSubtitle && (
+          <p class="section__subtitle" style="max-width:640px;margin-inline:auto;color:var(--color-text-light);margin-top:.75rem;">{d.projectSubtitle}</p>
+        )}
+      </div>
+
+      {d.projectStats.length > 0 && (
+        <div class="project__stats">
+          {d.projectStats.map((s) => (
+            <div class="project__stat">
+              <span class="project__stat-value" set:html={s.value} />
+              <span class="project__stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {d.projectGalleryMain && (
+        <div class="project__gallery" data-all-images={allImagesJson}>
+          <div class="project__gallery-main" data-index="0">
+            <img src={d.projectGalleryMain.image} alt={d.projectGalleryMain.alt ?? ''} loading="lazy" />
+            <div class="project__gallery-overlay">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            </div>
+          </div>
+          <div class="project__gallery-side">
+            {d.projectGalleryThumbs.map((t, i) => (
+              <div class={`project__gallery-thumb${t.countOverlay ? ' project__gallery-more' : ''}`} data-index={i + 1}>
+                <img src={t.image} alt={t.alt ?? ''} loading="lazy" />
+                <div class={`project__gallery-overlay${t.countOverlay ? ' project__gallery-overlay--count' : ''}`}>
+                  {t.countOverlay ? (
+                    <span>{t.countOverlay}</span>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox */}
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox__close" aria-label="Close">&times;</button>
+        <button class="lightbox__prev" aria-label="Previous">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="lightbox__content">
+          <img src="" alt="" />
+        </div>
+        <button class="lightbox__next" aria-label="Next">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <div class="lightbox__counter"><span id="lb-current">1</span> / <span id="lb-total">{d.projectGalleryAllImages.length}</span></div>
+      </div>
+
+      {/* Video Tour */}
+      {d.videoTourSlides.length > 0 && (
+        <div class="project__slider-section">
+          <h3 class="project__slider-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Video Tour
+          </h3>
+          <div class="project__slider" id="media-slider">
+            <div class="project__slider-track">
+              {d.videoTourSlides.map((v) => (
+                <div class="project__slide" data-type="video">
+                  <div class="project__slide-inner">
+                    <video
+                      id="project-video"
+                      src={v.videoUrl}
+                      poster={v.posterUrl}
+                      muted
+                      loop
+                      playsinline
+                      preload="metadata"
+                      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;"
+                    ></video>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button class="project__slider-btn project__slider-btn--prev" aria-label="Previous slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="project__slider-btn project__slider-btn--next" aria-label="Next slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <div class="project__slider-dots">
+              {d.videoTourSlides.map((_, i) => (
+                <button class={`project__slider-dot${i === 0 ? ' active' : ''}`} data-slide={i} aria-label={`Slide ${i + 1}`}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Progress Timeline */}
+      {d.progressCards.length > 0 && (
+        <div class="project__progress-section">
+          <div class="project__progress-header">
+            <div>
+              <h3 class="project__slider-title project__slider-title--progress">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+                Construction Progress
+              </h3>
+            </div>
+            <div class="project__progress-tools">
+              <span class="project__progress-hint">Scroll sideways</span>
+              <div class="project__progress-nav" aria-label="Construction progress navigation">
+                <button type="button" class="project__progress-nav-btn project__progress-nav-btn--prev" aria-label="Show previous progress update">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button type="button" class="project__progress-nav-btn project__progress-nav-btn--next" aria-label="Show next progress update">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <ol class="project__progress-timeline" aria-label="Construction milestones">
+            {d.progressCards.map((c) => (
+              <li class={c.active ? 'active' : ''} data-progress-index={c.index}>
+                <button type="button" class="project__progress-marker" data-progress-index={c.index} aria-label={c.markerAriaLabel}>
+                  <strong>{c.markerLabel}</strong>
+                </button>
+              </li>
+            ))}
+          </ol>
+
+          <div class="project__progress-strip" aria-label="Construction progress timeline">
+            {d.progressCards.map((c) => (
+              <article class={`project__progress-card${c.active ? ' active' : ''}`} data-progress-index={c.index}>
+                <div class="project__progress-media">
+                  {c.mediaType === 'video' ? (
+                    <video class="project__progress-video" src={c.mediaUrl} poster={c.posterUrl} muted loop playsinline preload="metadata" aria-label={c.markerAriaLabel}></video>
+                  ) : (
+                    <img src={c.mediaUrl} alt={c.markerAriaLabel ?? c.title} loading="lazy" />
+                  )}
+                  {(c.overlayLabel || c.overlayHeadline) && (
+                    <div class="project__progress-overlay">
+                      {c.overlayLabel && <span class="project__progress-overlay-label">{c.overlayLabel}</span>}
+                      {c.overlayHeadline && <strong>{c.overlayHeadline}</strong>}
+                    </div>
+                  )}
+                </div>
+                <div class="project__progress-copy">
+                  <p class="project__progress-date">{c.dateLabel}</p>
+                  <h4>{c.title}</h4>
+                  <p>{c.caption}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {d.projectFeatures.length > 0 && (
+        <div class="project__features">
+          {d.projectFeatures.map((f) => (
+            <div class="project__feature">
+              {f.iconSvg && <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={f.iconSvg} />}
+              <h4>{f.title}</h4>
+              <p>{f.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {d.projectEnquireButtonLabel && (
+        <div style="text-align:center;margin-top:2.5rem;">
+          <a href="/#contact" class="btn btn--primary btn--lg">{d.projectEnquireButtonLabel}</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  {d.ctaBanner && (
+    <section class="cta-banner">
+      <div class="container">
+        <h2 class="cta-banner__title">{d.ctaBanner.title}</h2>
+        <p class="cta-banner__desc">{d.ctaBanner.description}</p>
+        <a href={d.ctaBanner.buttonHref} class="btn btn--primary btn--lg">{d.ctaBanner.buttonLabel}</a>
+      </div>
+    </section>
+  )}
+
+  <SiteFooter />
+
+  {d.whatsappMessage && (
+    <a href={`https://wa.me/255713879876?text=${encodeURIComponent(d.whatsappMessage)}`} class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004 32 7.176 24.826 0 16.004 0zm9.318 22.614c-.39 1.1-2.274 2.038-3.146 2.134-.872.098-1.672.392-5.632-1.174-4.768-1.886-7.794-6.768-8.03-7.084-.234-.316-1.916-2.548-1.916-4.862 0-2.312 1.212-3.452 1.642-3.924.43-.47.938-.588 1.252-.588.312 0 .626.002.898.016.288.014.676-.11 1.058.808.39.938 1.33 3.25 1.448 3.484.116.234.194.508.038.822-.156.314-.234.51-.468.784-.234.274-.492.612-.702.822-.234.234-.478.488-.206.958.274.47 1.214 2.002 2.606 3.244 1.788 1.594 3.296 2.088 3.766 2.322.47.234.744.196 1.018-.118.274-.314 1.174-1.37 1.488-1.84.312-.47.626-.39 1.056-.234.43.156 2.742 1.292 3.212 1.526.47.234.784.352.898.548.118.196.118 1.13-.274 2.228z"/></svg>
+    </a>
+  )}
+</BaseLayout>

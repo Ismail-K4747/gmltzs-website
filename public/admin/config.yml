@@ -150,6 +150,146 @@ collections:
           - { name: body,    label: "Body",    widget: markdown, required: false }
           - { name: image,   label: "Image",   widget: image, required: false }
 
+      # ==========================================================================
+      # INNER PAGE FIELDS (Medical Devices, Pharmacy, Lab, Real Estate, etc.)
+      # ==========================================================================
+
+      # ---- INNER PAGE THEME ----
+      - { name: pageTheme,         label: "Inner page — theme",       widget: select, options: ["", "devices", "medics", "laboratory", "realestate"], required: false }
+      - { name: pageHeroBgClass,   label: "Inner page — hero background CSS class", widget: string, required: false }
+      - { name: pageHeroTag,       label: "Inner page — hero small tag",  widget: string, required: false }
+      - { name: pageHeroTitle,     label: "Inner page — hero title",      widget: string, required: false }
+      - { name: pageHeroDescription, label: "Inner page — hero description", widget: text, required: false }
+
+      # ---- INNER PAGE ABOUT ----
+      - { name: pageAboutEyebrow,  label: "Inner about — eyebrow",     widget: string, required: false }
+      - { name: pageAboutTitle,    label: "Inner about — title",       widget: string, required: false }
+      - name: pageAboutParagraphs
+        label: "Inner about — paragraphs"
+        widget: list
+        required: false
+        field: { name: paragraph, label: "Paragraph", widget: text }
+
+      # ---- SERVICES (business pages) ----
+      - name: services
+        label: "Services / cards"
+        label_singular: "Service"
+        widget: list
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+          - { name: title,       label: "Title",       widget: string }
+          - { name: description, label: "Description", widget: text }
+          - { name: iconSvg,     label: "Inline SVG (paths only)", widget: text, required: false, hint: "Advanced — paste raw <path>/<circle>/etc. inside the existing 24×24 viewbox" }
+
+      # ---- CTA BANNER ----
+      - name: ctaBanner
+        label: "Call-to-action banner"
+        widget: object
+        required: false
+        fields:
+          - { name: title,       label: "Title",       widget: string }
+          - { name: description, label: "Description", widget: text }
+          - { name: buttonLabel, label: "Button label", widget: string, default: "Get in Touch" }
+          - { name: buttonHref,  label: "Button link",  widget: string, default: "/#contact" }
+
+      - { name: whatsappMessage, label: "WhatsApp pre-filled message", widget: text, required: false }
+
+      # ---- INSIGHTS ARTICLES ----
+      - name: insightsArticles
+        label: "Insights — articles"
+        label_singular: "Article"
+        widget: list
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+          - { name: tag,       label: "Tag (e.g. Healthcare)", widget: string }
+          - { name: title,     label: "Title",                 widget: string }
+          - { name: excerpt,   label: "Excerpt",               widget: text }
+          - { name: author,    label: "Author",                widget: string }
+          - { name: dateLabel, label: "Date label (e.g. March 2026)", widget: string }
+          - { name: datetime,  label: "Datetime ISO (e.g. 2026-03)",  widget: string, required: false }
+
+      # ---- LEGAL PAGES ----
+      - { name: legalLastUpdated, label: "Legal — last updated", widget: string, required: false }
+      - name: legalSections
+        label: "Legal — sections"
+        widget: list
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+          - { name: title, label: "Section title", widget: string }
+          - { name: body,  label: "Section body (HTML allowed)", widget: text }
+
+      # ==========================================================================
+      # REAL-ESTATE-SPECIFIC FIELDS
+      # ==========================================================================
+      - { name: projectEyebrow,  label: "Project — eyebrow",  widget: string, required: false }
+      - { name: projectTitle,    label: "Project — title",    widget: string, required: false }
+      - { name: projectSubtitle, label: "Project — subtitle", widget: text,   required: false }
+      - name: projectStats
+        label: "Project — quick stats"
+        widget: list
+        required: false
+        fields:
+          - { name: value, label: "Value", widget: string }
+          - { name: label, label: "Label", widget: string }
+      - name: projectGalleryAllImages
+        label: "Project — gallery (lightbox set)"
+        widget: list
+        required: false
+        field: { name: image, label: "Image", widget: image }
+      - name: projectGalleryMain
+        label: "Project — main gallery image"
+        widget: object
+        required: false
+        fields:
+          - { name: image, label: "Image", widget: image }
+          - { name: alt,   label: "Alt text", widget: string, required: false }
+      - name: projectGalleryThumbs
+        label: "Project — gallery side thumbnails (4 max)"
+        widget: list
+        required: false
+        fields:
+          - { name: image,        label: "Image", widget: image }
+          - { name: alt,          label: "Alt text", widget: string, required: false }
+          - { name: countOverlay, label: "Overlay text (e.g. +15 Photos) — leave blank for normal thumbs", widget: string, required: false }
+      - name: videoTourSlides
+        label: "Project — video tour slides"
+        widget: list
+        required: false
+        fields:
+          - { name: videoUrl,  label: "Video file (MP4)", widget: file }
+          - { name: posterUrl, label: "Poster image",     widget: image, required: false }
+      - name: progressCards
+        label: "Project — construction progress timeline"
+        label_singular: "Progress update"
+        widget: list
+        required: false
+        summary: "{{fields.dateLabel}} — {{fields.title}}"
+        fields:
+          - { name: index,            label: "Order index (0,1,2,...)", widget: number, value_type: int }
+          - { name: markerLabel,      label: "Timeline marker (e.g. Feb 2026)", widget: string }
+          - { name: markerAriaLabel,  label: "Marker aria-label", widget: string, required: false }
+          - { name: mediaType,        label: "Media type", widget: select, options: ["image", "video"], default: "image" }
+          - { name: mediaUrl,         label: "Media file (image or video)", widget: file }
+          - { name: posterUrl,        label: "Video poster image (optional)", widget: image, required: false }
+          - { name: overlayLabel,     label: "Overlay small label (e.g. Autoplay on View)", widget: string, required: false }
+          - { name: overlayHeadline,  label: "Overlay headline", widget: string, required: false }
+          - { name: dateLabel,        label: "Date label", widget: string }
+          - { name: title,            label: "Headline", widget: string }
+          - { name: caption,          label: "Caption", widget: text }
+          - { name: active,           label: "Active by default?", widget: boolean, default: false }
+      - name: projectFeatures
+        label: "Project — feature cards"
+        widget: list
+        required: false
+        fields:
+          - { name: title,       label: "Title",       widget: string }
+          - { name: description, label: "Description", widget: text }
+          - { name: iconSvg,     label: "Inline SVG (paths only)", widget: text, required: false }
+      - { name: projectEnquireButtonLabel, label: "Project enquire-button label", widget: string, required: false }
+
       # ---- PHOTO GALLERY  ★ THIS IS WHERE THE CLIENT ADDS PHOTOS ★ ----
       - { name: galleryTitle, label: "Photo gallery — section title", widget: string, required: false }
       - name: galleryPhotos

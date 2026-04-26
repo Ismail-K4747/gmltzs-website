@@ -47,7 +47,7 @@ businesses:
     title: "General Malick Limited: Medical Devices & Lab Equipment"
     description: "Supply and distribution of certified medical devices, laboratory instruments, and diagnostic equipment to healthcare facilities."
     features: ["Medical Device Supply", "Lab Instrument Distribution", "Equipment Maintenance", "Technical Consultation"]
-    link: "/businesses/medical-devices"
+    link: "/businesses/medical-devices.html"
   - id: "biz-realestate"
     tag: "Real Estate"
     imageClass: "biz-card__image--realestate"
@@ -56,7 +56,7 @@ businesses:
     title: "GM Apartments & Real Estate"
     description: "Modern apartment rentals and premium real estate development, sales, and property management across Dar es Salaam and Tanzania."
     features: ["Apartment Rentals", "Residential Developments", "Commercial Properties", "Property Management"]
-    link: "/businesses/real-estate"
+    link: "/businesses/real-estate.html"
   - id: "biz-medics"
     tag: "Pharmacy"
     imageClass: "biz-card__image--medics"
@@ -65,7 +65,7 @@ businesses:
     title: "GM Medics Pharmacy"
     description: "A trusted pharmacy delivering quality prescription medicines, over-the-counter drugs, and healthcare products to the community."
     features: ["Prescription Dispensing", "OTC Medicines & Supplements", "Health Consultation", "Medicine Delivery"]
-    link: "/businesses/medics"
+    link: "/businesses/medics.html"
   - id: "biz-laboratory"
     tag: "Laboratory"
     imageClass: "biz-card__image--laboratory"
@@ -74,7 +74,7 @@ businesses:
     title: "GM Labs & Diagnostic Point"
     description: "State-of-the-art diagnostic and clinical laboratory services, delivering accurate, timely results for patients and healthcare providers."
     features: ["Clinical Diagnostics", "Pathology Services", "Health Screening Packages", "Corporate Wellness Testing"]
-    link: "/businesses/laboratory"
+    link: "/businesses/laboratory.html"
   - id: "biz-kitchen"
     tag: "Coming Soon"
     tagStyle: "soon"

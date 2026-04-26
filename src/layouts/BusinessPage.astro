@@ -1,0 +1,113 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props { slug: string; }
+const { slug } = Astro.props;
+
+const page = await getEntry('pages', slug);
+if (!page) throw new Error(`Missing src/content/pages/${slug}.md`);
+const d = page.data;
+---
+<BaseLayout
+  title={d.title}
+  metaDescription={d.metaDescription}
+  metaKeywords={d.metaKeywords}
+  canonical={d.canonical}
+  ogTitle={d.ogTitle}
+  ogDescription={d.ogDescription}
+  bodyTheme={d.pageTheme}
+>
+  <SiteHeader />
+
+    {/* ===== PAGE HERO ===== */}
+    {d.pageHeroTitle && (
+      <section class="page-hero">
+        {d.pageHeroBgClass && <div class={`page-hero__bg ${d.pageHeroBgClass}`}></div>}
+        <div class="container page-hero__content">
+          {d.pageHeroTag && <span class="page-hero__tag">{d.pageHeroTag}</span>}
+          <h1 class="page-hero__title" set:html={d.pageHeroTitle} />
+          {d.pageHeroDescription && <p class="page-hero__desc">{d.pageHeroDescription}</p>}
+        </div>
+      </section>
+    )}
+
+    {/* ===== ABOUT ===== */}
+    {(d.pageAboutTitle || d.pageAboutParagraphs.length > 0 || d.services.length > 0) && (
+      <section class="page-about section">
+        <div class="container">
+          {(d.pageAboutEyebrow || d.pageAboutTitle) && (
+            <div class="section__header">
+              {d.pageAboutEyebrow && <p class="section__eyebrow">{d.pageAboutEyebrow}</p>}
+              {d.pageAboutTitle && <h2 class="section__title">{d.pageAboutTitle}</h2>}
+            </div>
+          )}
+          {d.pageAboutParagraphs.length > 0 && (
+            <div class="page-about__content">
+              {d.pageAboutParagraphs.map((p) => <p>{p}</p>)}
+            </div>
+          )}
+
+          {d.services.length > 0 && (
+            <div class="services-grid">
+              {d.services.map((s) => (
+                <div class="service-card">
+                  {s.iconSvg && (
+                    <div class="service-card__icon">
+                      <svg viewBox="0 0 24 24" set:html={s.iconSvg} />
+                    </div>
+                  )}
+                  <h3 class="service-card__title" set:html={s.title} />
+                  <p class="service-card__desc">{s.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    {/* ===== GALLERY (CMS-managed photos) ===== */}
+    {d.galleryPhotos.length > 0 && (
+      <section class="gallery section">
+        <div class="container">
+          {d.galleryTitle && (
+            <div class="section__header">
+              <h2 class="section__title">{d.galleryTitle}</h2>
+            </div>
+          )}
+          <div class="gallery__grid">
+            {d.galleryPhotos.map((p) => (
+              <figure class="gallery__item">
+                <img src={p.image} alt={p.alt ?? p.caption ?? ''} loading="lazy" />
+                {p.caption && <figcaption>{p.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <slot />
+
+    {/* ===== CTA ===== */}
+    {d.ctaBanner && (
+      <section class="cta-banner">
+        <div class="container">
+          <h2 class="cta-banner__title">{d.ctaBanner.title}</h2>
+          <p class="cta-banner__desc">{d.ctaBanner.description}</p>
+          <a href={d.ctaBanner.buttonHref} class="btn btn--primary btn--lg">{d.ctaBanner.buttonLabel}</a>
+        </div>
+      </section>
+    )}
+
+    <SiteFooter />
+
+    {d.whatsappMessage && (
+      <a href={`https://wa.me/255713879876?text=${encodeURIComponent(d.whatsappMessage)}`} class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.128 6.744 3.046 9.378L1.054 31.2l6.044-1.94a15.9 15.9 0 008.906 2.704C24.826 31.964 32 24.788 32 16.004 32 7.176 24.826 0 16.004 0zm9.318 22.614c-.39 1.1-2.274 2.038-3.146 2.134-.872.098-1.672.392-5.632-1.174-4.768-1.886-7.794-6.768-8.03-7.084-.234-.316-1.916-2.548-1.916-4.862 0-2.312 1.212-3.452 1.642-3.924.43-.47.938-.588 1.252-.588.312 0 .626.002.898.016.288.014.676-.11 1.058.808.39.938 1.33 3.25 1.448 3.484.116.234.194.508.038.822-.156.314-.234.51-.468.784-.234.274-.492.612-.702.822-.234.234-.478.488-.206.958.274.47 1.214 2.002 2.606 3.244 1.788 1.594 3.296 2.088 3.766 2.322.47.234.744.196 1.018-.118.274-.314 1.174-1.37 1.488-1.84.312-.47.626-.39 1.056-.234.43.156 2.742 1.292 3.212 1.526.47.234.784.352.898.548.118.196.118 1.13-.274 2.228z"/></svg>
+      </a>
+    )}
+</BaseLayout>
