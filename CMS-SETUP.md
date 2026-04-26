@@ -98,14 +98,14 @@ Same flow for editing **any text** on any page.
 
 ---
 
-## What's *not* yet migrated (current branch state — `cms-migration`)
+## What's migrated (current branch state — `cms-migration`)
 
-This branch contains the **Phase 2 proof-of-concept**: homepage only.
-Inner pages still exist as legacy `.html` files at the repo root and in `businesses/`.
-Once you confirm the homepage build looks right (visit it via `npm run dev`), Phase 3 will:
-- Migrate `insights.html`, `terms.html`, `privacy.html` → Astro pages
-- Migrate the four business pages → Astro pages, each with its own gallery
-- Delete the legacy `.html` files
-- Cut over `main` and switch DNS to Cloudflare
+**Phase 3 complete** — all 8 pages are now CMS-driven Astro pages:
+- Homepage (`index.html`)
+- 4 business pages (medical-devices, real-estate, medics, laboratory)
+- Insights page
+- Terms & Privacy pages
 
-Do **not** delete the legacy `.html` files until Phase 3 is verified end-to-end.
+All legacy `.html` files have been removed; Astro emits the same URLs (with `.html` suffix preserved). The client can edit every page's text, headlines, service cards, articles, legal sections, project stats/timeline, and photo galleries via `/admin/`.
+
+Branch `cms-migration` is ready to merge into `main` after the OAuth/Worker/Cloudflare setup steps above.
