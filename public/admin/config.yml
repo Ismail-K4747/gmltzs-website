@@ -7,7 +7,7 @@ backend:
   name: github
   repo: Ismail-K4747/gmltzs-website
   branch: main
-  base_url: https://YOUR-CLOUDFLARE-WORKER.workers.dev   # ← replace after deploying auth worker
+  base_url: https://gmltzs-cms-auth.generalmalick.workers.dev
   auth_endpoint: /auth
 
 # Where uploaded photos go
