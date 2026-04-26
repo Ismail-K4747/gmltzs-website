@@ -1,0 +1,105 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # so the optimize-images step can commit back
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  optimize-images:
+    name: Auto-compress new uploads
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    outputs:
+      committed: ${{ steps.commit.outputs.committed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compress newly uploaded images
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+          jpegQuality: 82
+          pngQuality: 82
+          webpQuality: 85
+          ignorePaths: "node_modules/**,dist/**,public/css/**,public/js/**"
+
+      - name: Commit compressed images (if any)
+        id: commit
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            git config user.name  "gm-bot"
+            git config user.email "bot@gmltzs.com"
+            git add -A
+            git commit -m "chore: auto-compress uploaded images [skip ci]"
+            git push
+            echo "committed=true" >> $GITHUB_OUTPUT
+          else
+            echo "committed=false" >> $GITHUB_OUTPUT
+          fi
+
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    needs: [optimize-images]
+    if: |
+      always() &&
+      (needs.optimize-images.result == 'success' ||
+       needs.optimize-images.result == 'skipped') &&
+      needs.optimize-images.outputs.committed != 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Validate built HTML
+        run: npx --yes html-validate "dist/**/*.html" || echo "HTML validation warnings (non-blocking)"
+
+      - name: Check for broken internal links
+        run: npx --yes lychee --no-progress --offline --include-fragments "dist/**/*.html" || echo "Link check warnings (non-blocking)"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+          retention-days: 7
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=gmltzs-website --branch=main

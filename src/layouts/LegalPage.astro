@@ -1,0 +1,47 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props { slug: string; }
+const { slug } = Astro.props;
+
+const page = await getEntry('pages', slug);
+if (!page) throw new Error(`Missing src/content/pages/${slug}.md`);
+const d = page.data;
+---
+<BaseLayout
+  title={d.title}
+  metaDescription={d.metaDescription}
+  metaKeywords={d.metaKeywords}
+  canonical={d.canonical}
+  ogTitle={d.ogTitle}
+  ogDescription={d.ogDescription}
+>
+  <SiteHeader />
+
+  <section class="page-hero">
+    <div class="page-hero__bg" style="background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);"></div>
+    <div class="container page-hero__content">
+      <h1 class="page-hero__title">{d.pageHeroTitle}</h1>
+      {d.legalLastUpdated && <p class="page-hero__desc">Last updated: {d.legalLastUpdated}</p>}
+    </div>
+  </section>
+
+  <section class="page-about section">
+    <div class="container">
+      <div class="page-about__content" style="text-align:left; max-width:800px;">
+        {d.legalSections.map((s, i) => (
+          <Fragment>
+            <h2 style="font-family:var(--font-serif); color:var(--color-primary); margin-block:2rem 1rem; font-size:1.5rem;">{i + 1}. {s.title}</h2>
+            <Fragment set:html={s.body} />
+          </Fragment>
+        ))}
+        {d.legalContactBlock && <Fragment set:html={d.legalContactBlock} />}
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>

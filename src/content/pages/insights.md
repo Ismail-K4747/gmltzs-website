@@ -1,0 +1,41 @@
+---
+title: "Insights & Resources | GM Group"
+metaDescription: "Industry insights, market trends, and expert perspectives on medical equipment procurement, healthcare infrastructure, and property development in Tanzania and East Africa."
+canonical: "https://gmltzs.com/insights.html"
+ogTitle: "Insights & Resources | GM Group"
+ogDescription: "Industry insights on medical equipment procurement, healthcare infrastructure, and property development in Tanzania."
+
+pageHeroBgClass: "page-hero--insights"
+pageHeroTag: "Insights & Resources"
+pageHeroTitle: "Perspectives from the Ground"
+pageHeroDescription: "Industry knowledge, market context, and lessons from building healthcare and property businesses in East Africa."
+
+insightsArticles:
+  - tag: "Healthcare"
+    title: "Why Medical Equipment Procurement in Tanzania Is Still Broken — and How to Fix It"
+    excerpt: "Most hospitals in Tanzania rely on aging diagnostic equipment with limited access to spare parts or calibration services. The procurement pipeline — from international manufacturers to regional clinics — involves customs delays, currency fluctuations, and a shortage of certified local distributors. Here's what we've learned from a decade of bridging that gap."
+    author: "GM Group Team"
+    dateLabel: "March 2026"
+    datetime: "2026-03"
+  - tag: "Real Estate"
+    title: "Dar es Salaam's Rental Market in 2026: What Tenants and Landlords Need to Know"
+    excerpt: "Dar es Salaam's population is projected to reach 10 million by 2030, yet formal housing stock isn't keeping pace. Kinondoni and Mbezi Beach remain the most sought-after corridors for professionals, but new developments in Kigamboni are reshaping the value map. We break down vacancy rates, rental yields, and where the smart money is moving."
+    author: "GM Apartments & Real Estate"
+    dateLabel: "February 2026"
+    datetime: "2026-02"
+  - tag: "Diagnostics"
+    title: "Cold Chain Compliance in East Africa: Lessons from Vaccine Storage Deployments"
+    excerpt: "Maintaining an unbroken cold chain in a country where power outages are routine requires more than good refrigerators. It requires planning, redundancy, and local expertise. We share what we've learned deploying B Medical Systems and Dometic cold-chain solutions across Tanzania's regional health facilities."
+    author: "General Malick Limited: Medical Devices"
+    dateLabel: "January 2026"
+    datetime: "2026-01"
+  - tag: "Pharmacy"
+    title: "The Pharmacy Supply Chain Gap: Why Stock-Outs Persist and What Can Be Done"
+    excerpt: "Pharmaceutical stock-outs affect an estimated 30% of health facilities in sub-Saharan Africa at any given time. The causes are systemic — fragmented distribution networks, regulatory bottlenecks, and demand forecasting that hasn't caught up with population growth. Here's how GM Medics is working to change the equation in Dar es Salaam."
+    author: "GM Medics Pharmacy"
+    dateLabel: "November 2025"
+    datetime: "2025-11"
+
+galleryTitle: ""
+galleryPhotos: []
+---
