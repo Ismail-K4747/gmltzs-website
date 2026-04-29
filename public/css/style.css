@@ -551,8 +551,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 @media (min-width: 640px)  { .businesses__grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1024px) { .businesses__grid { grid-template-columns: repeat(4, 1fr); } }
 
+.biz-card__cover-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-lg);
+}
+
+.biz-card__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-lg);
+}
+
+.biz-card__link:focus-visible {
+  outline: 2px solid rgba(212,168,67,.85);
+  outline-offset: 3px;
+}
+
 .biz-card {
-  background: var(--color-mid);
+  position: relative;
   border: 1px solid rgba(255,255,255,.07);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -656,6 +675,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-direction: column;
   gap: .75rem;
   flex: 1;
+  position: relative;
+  z-index: 2;
 }
 
 .biz-card__logo {

@@ -111,6 +111,7 @@ const site = siteEntry?.data;
       <div class="businesses__grid">
         {d.businesses.map((b) => (
           <article class={`biz-card${b.comingSoon ? ' biz-card--coming-soon' : ''}`} id={b.id}>
+            {b.link && <a href={b.link} class="biz-card__cover-link" aria-label={`Learn more about ${b.title.replace(/<[^>]*>/g, '')}`} tabindex="-1" aria-hidden="true"></a>}
             <div class={`biz-card__image ${b.imageClass}`}>
               <div class="biz-card__overlay">
                 <span class={`biz-card__tag${b.tagStyle === 'soon' ? ' biz-card__tag--soon' : ''}`}>{b.tag}</span>
@@ -135,6 +136,7 @@ const site = siteEntry?.data;
             </div>
           </article>
         ))}
+      </div>
       </div>
     </div>
   </section>
