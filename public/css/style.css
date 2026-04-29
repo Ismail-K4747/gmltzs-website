@@ -1899,15 +1899,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .project__progress-hint {
   flex-shrink: 0;
-  padding: .5rem .85rem;
-  border-radius: 999px;
-  background: rgba(212,168,67,.12);
-  border: 1px solid rgba(212,168,67,.2);
-  color: var(--color-primary);
+  color: var(--color-text-light);
   font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: .03em;
+  opacity: .7;
 }
 
 .project__progress-tools {
@@ -1949,7 +1945,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .project__progress-timeline {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 1rem;
   margin-block: 0 1.4rem;
   padding: 0;
