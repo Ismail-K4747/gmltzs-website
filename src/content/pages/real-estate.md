@@ -157,38 +157,49 @@ progressCards:
     title: Height and Shape Grow
     caption: More of the outer form is visible, with major work still ongoing.
   - index: 4
-    markerLabel: "Apr 2026"
-    markerAriaLabel: "Scroll to April 2026 structural update"
-    mediaType: "video"
-    mediaUrl: "/images/Real Estate Project assets/progress 4.mp4"
-    posterUrl: "/images/Real Estate Project assets/progress 0.jpeg"
-    overlayLabel: "Autoplay on View"
-    overlayHeadline: "Building Takes Shape"
-    dateLabel: "April 2026"
-    title: "Structure Filling Out"
-    caption: "Columns and beams are standing tall — the building's full frame is now clearly visible on the skyline."
+    markerLabel: Apr 2026
+    markerAriaLabel: Scroll to April 2026 structural update
+    mediaType: video
+    mediaUrl: /images/Real Estate Project assets/progress 4.mp4
+    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    overlayLabel: Autoplay on View
+    overlayHeadline: Building Takes Shape
+    dateLabel: April 2026
+    title: Structure Filling Out
+    caption: Columns and beams are standing tall — the building's full frame is now clearly visible on the skyline.
   - index: 5
-    markerLabel: "Apr 2026"
-    markerAriaLabel: "Scroll to April 2026 beam prep update"
-    mediaType: "video"
-    mediaUrl: "/images/Real Estate Project assets/progress 5.mp4"
-    posterUrl: "/images/Real Estate Project assets/progress 0.jpeg"
-    overlayLabel: "Autoplay on View"
-    overlayHeadline: "Concrete Meets Steel"
-    dateLabel: "April 2026"
-    title: "Beams Loaded Up"
-    caption: "Freshly mixed concrete fills every erected beam frame — the skeleton of the building is locking into place, load by load."
+    markerLabel: Apr 2026
+    markerAriaLabel: Scroll to April 2026 beam prep update
+    mediaType: video
+    mediaUrl: /images/Real Estate Project assets/progress 5.mp4
+    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    overlayLabel: Autoplay on View
+    overlayHeadline: Concrete Meets Steel
+    dateLabel: April 2026
+    title: Beams Loaded Up
+    caption: Freshly mixed concrete fills every erected beam frame — the skeleton of the building is locking into place, load by load.
   - index: 6
-    markerLabel: "Apr 2026"
-    markerAriaLabel: "Scroll to latest April 2026 concrete pour"
-    mediaType: "video"
-    mediaUrl: "/images/Real Estate Project assets/progress 6.mp4"
-    posterUrl: "/images/Real Estate Project assets/progress 0.jpeg"
-    overlayLabel: "Autoplay on View"
-    overlayHeadline: "The Pour is On"
-    dateLabel: "April 2026"
-    title: "Concrete Flows, Structure Sets"
-    caption: "This week's highlight — concrete poured and setting in the beams, sealing a milestone that will hold the building for generations."
+    markerLabel: Apr 2026
+    markerAriaLabel: Scroll to April 2026 concrete pour
+    mediaType: video
+    mediaUrl: /images/Real Estate Project assets/progress 6.mp4
+    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    overlayLabel: Autoplay on View
+    overlayHeadline: The Pour is On
+    dateLabel: April 2026
+    title: Concrete Flows, Structure Sets
+    caption: This week's highlight — concrete poured and setting in the beams, sealing a milestone that will hold the building for generations.
+  - index: 7
+    markerLabel: May 2026
+    markerAriaLabel: Scroll to latest May 2026 2nd Floor coming!
+    mediaType: video
+    mediaUrl: /uploads/VID-20260502-WA0005.mp4
+    overlayLabel: Autoplay on View
+    overlayHeadline: 2nd Floor coming!
+    dateLabel: May 2026
+    title: Marine boards set, Ready for 2nd floor
+    caption: This week's highlight — Marine board set and setting in the beams, ready to ascend heights.
+    active: false
 projectFeatures:
   - title: Premium Finishes
     description: Imported porcelain tiles, solid-core doors, and granite kitchen countertops throughout.
