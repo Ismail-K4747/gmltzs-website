@@ -96,13 +96,13 @@ const installationsJson = JSON.stringify(installations);
         height: renderSize,
         phi,
         theta,
-        dark: 1,
+        dark: 0,
         diffuse: 1.2,
         mapSamples: 16000,
-        mapBrightness: 6,
-        baseColor: [0.18, 0.22, 0.32],
-        markerColor: [0.94, 0.72, 0.18],
-        glowColor: [0.65, 0.55, 0.3],
+        mapBrightness: 1.2,
+        baseColor: [1, 1, 1],
+        markerColor: [0.95, 0.55, 0.05],
+        glowColor: [1, 1, 1],
         markers,
         onRender: (state: any) => {
           if (!pointerDown) {
