@@ -69,15 +69,16 @@ const installationsJson = JSON.stringify(installations);
     try { installations = JSON.parse(block.getAttribute('data-installations') || '[]'); } catch { installations = []; }
 
     // Tanzania centroid → cobe phi/theta.
+    // Derived from cobe v2's shader: marker world pos = [-cos(lat)·cos(lng-π), sin(lat), cos(lat)·sin(lng-π)].
+    // To bring a (lat,lng) to camera-front: phi = 3π/2 − lng·π/180, theta = lat·π/180.
     const tzLat = -6.5;
     const tzLng = 35;
     const latLngToPhiTheta = (lat: number, lng: number) => ({
-      phi: (lng * Math.PI) / 180,
+      phi: (3 * Math.PI) / 2 - (lng * Math.PI) / 180,
       theta: (lat * Math.PI) / 180,
     });
 
-    let phi = (tzLng * Math.PI) / 180;
-    let theta = (tzLat * Math.PI) / 180 * -1;
+    let { phi, theta } = latLngToPhiTheta(tzLat, tzLng);
     let targetPhi = phi;
     let targetTheta = theta;
     let pointerDown = false;
@@ -164,7 +165,7 @@ const installationsJson = JSON.stringify(installations);
         if (!i) return;
         const { phi: tp, theta: tt } = latLngToPhiTheta(i.lat, i.lng);
         targetPhi = tp;
-        targetTheta = -tt;
+        targetTheta = tt;
         items.forEach((b) => b.classList.remove('is-active'));
         btn.classList.add('is-active');
         if (detail) {
