@@ -79,8 +79,14 @@ const d = page.data;
           </div>
           <div class="video-tour__grid">
             {d.videoTourSlides.map((v) => (
-              <video class="video-tour__video" controls preload="metadata" playsinline poster={v.posterUrl}>
-                <source src={v.videoUrl} />
+              <video
+                class="video-tour__video"
+                src={v.videoUrl}
+                poster={v.posterUrl}
+                controls
+                preload="metadata"
+                playsinline
+              >
                 Your browser does not support embedded video.
               </video>
             ))}
