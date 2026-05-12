@@ -43,33 +43,39 @@ ctaBanner:
 
 whatsappMessage: "Hello GML, I would like to enquire about your laboratory services."
 
-centersEyebrow: "Our Diagnostic Centres"
-centersTitle: "Find a GM Lab Near You"
-centersIntro: "Walk in or book ahead — every centre is staffed by qualified technicians and equipped with modern analysers, so the result you need is never far away."
+centersEyebrow: "Visit Us"
+centersTitle: "Find Us at Yombo Kwa Limboa"
+centersIntro: "Walk in or book ahead — our centre is staffed by qualified technicians and equipped with modern analysers, so the result you need is never far away."
 centers:
-  - name: "GM Labs — Kariakoo Branch"
-    tagline: "Our flagship centre in the heart of Dar es Salaam."
-    address: "Mhonda Street, Kariakoo, Dar es Salaam"
+  - name: "GM Labs & Diagnostic Point"
+    tagline: "Reliable, modern diagnostics for the Yombo Kwa Limboa community."
+    address: "Yombo Kwa Limboa, Dar es Salaam"
     phone: "+255 713 879 876"
     hours: "Mon–Sat 7:30am – 8:00pm · Sun 9am – 4pm"
-    mapUrl: "https://maps.google.com/?q=Kariakoo+Dar+es+Salaam"
-    image: "https://loremflickr.com/1200/750/medical,laboratory,microscope?lock=10"
+    mapUrl: "https://maps.google.com/?q=Yombo+Kwa+Limboa+Dar+es+Salaam"
+    image: "/uploads/lab/PXL_20260426_133307688.PORTRAIT.ORIGINAL.jpg"
     highlights:
       - "Same-day blood work and urinalysis"
       - "Walk-in friendly — no appointment needed"
-      - "Air-conditioned waiting lounge"
-  - name: "GM Labs — Mbezi Beach"
-    tagline: "Convenient diagnostics for North Dar residents."
-    address: "Mbezi Beach Road, Kinondoni, Dar es Salaam"
-    phone: "+255 713 879 877"
-    hours: "Mon–Fri 8:00am – 7:00pm · Sat 8:00am – 3:00pm"
-    mapUrl: "https://maps.google.com/?q=Mbezi+Beach+Dar+es+Salaam"
-    image: "https://loremflickr.com/1200/750/clinical,laboratory,technician?lock=11"
-    highlights:
-      - "Family-friendly screening packages"
-      - "On-site pathologist consultation"
-      - "Free parking on premises"
+      - "Friendly, qualified team on duty"
 
-galleryTitle: "Inside Our Labs"
-galleryPhotos: []
+videoTourSlides:
+  - videoUrl: "/uploads/lab/PXL_20260426_133407572.mp4"
+    posterUrl: "/uploads/lab/PXL_20260426_133307688.PORTRAIT.ORIGINAL.jpg"
+  - videoUrl: "/uploads/lab/PXL_20260426_133459331.mp4"
+    posterUrl: "/uploads/lab/PXL_20260426_133310198.PORTRAIT.ORIGINAL.jpg"
+  - videoUrl: "/uploads/lab/PXL_20260426_133516642.mp4"
+    posterUrl: "/uploads/lab/PXL_20260426_133311322.PORTRAIT.ORIGINAL.jpg"
+
+galleryTitle: "Inside Our Lab"
+galleryPhotos:
+  - image: "/uploads/lab/PXL_20260426_133307688.PORTRAIT.ORIGINAL.jpg"
+    caption: "Reception and patient waiting area"
+    alt: "GM Labs reception area in Yombo Kwa Limboa"
+  - image: "/uploads/lab/PXL_20260426_133310198.PORTRAIT.ORIGINAL.jpg"
+    caption: "Sample collection room"
+    alt: "Sample collection room at GM Labs"
+  - image: "/uploads/lab/PXL_20260426_133311322.PORTRAIT.ORIGINAL.jpg"
+    caption: "Modern analysers in the diagnostic suite"
+    alt: "Modern analysers inside the GM Labs diagnostic suite"
 ---

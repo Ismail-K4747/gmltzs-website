@@ -1730,6 +1730,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .testimonial-card__author strong { display: block; color: var(--color-dark); font-size: .95rem; }
 .testimonial-card__author span { display: block; color: var(--color-text-light); font-size: .82rem; }
 
+/* ---- Video tour grid (lab/medics walk-through) ---- */
+.video-tour__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 1.5rem;
+}
+.video-tour__video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: #000;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 22px rgba(0,0,0,.12);
+  object-fit: cover;
+}
+
 /* CTA banner */
 .cta-banner {
   background: var(--color-dark);

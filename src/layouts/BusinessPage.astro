@@ -70,6 +70,25 @@ const d = page.data;
       </section>
     )}
 
+    {/* ===== VIDEO TOUR (optional, reuses videoTourSlides) ===== */}
+    {d.videoTourSlides.length > 0 && (
+      <section class="video-tour section">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">Take a Video Tour</h2>
+          </div>
+          <div class="video-tour__grid">
+            {d.videoTourSlides.map((v) => (
+              <video class="video-tour__video" controls preload="metadata" playsinline poster={v.posterUrl}>
+                <source src={v.videoUrl} />
+                Your browser does not support embedded video.
+              </video>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
     {/* ===== GALLERY (CMS-managed photos) ===== */}
     {d.galleryPhotos.length > 0 && (
       <section class="gallery section">
