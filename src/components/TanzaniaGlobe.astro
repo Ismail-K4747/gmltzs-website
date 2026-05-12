@@ -89,17 +89,15 @@ const installationsJson = JSON.stringify(installations);
       size: 0.06,
     }));
 
-    // Cobe v2 expects the canvas backing buffer to be pre-sized.
-    // Official quickstart: <canvas width="1000" height="1000" style="width:500px;height:500px">
-    const dpr = 2;
-    canvas.width = cssWidth * dpr;
-    canvas.height = cssWidth * dpr;
-    canvas.style.height = cssWidth + 'px';
+    // cobe v2 is push-based: it has NO internal animation loop and NO onRender
+    // callback (those are v0.x). We pass CSS pixels for width/height; cobe
+    // internally multiplies by devicePixelRatio when sizing the backing buffer.
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const globe = createGlobe(canvas, {
       devicePixelRatio: dpr,
-      width: cssWidth * dpr,
-      height: cssWidth * dpr,
+      width: cssWidth,
+      height: cssWidth,
       phi,
       theta,
       dark: 1,
@@ -110,26 +108,30 @@ const installationsJson = JSON.stringify(installations);
       markerColor: [0.98, 0.65, 0.12],
       glowColor: [1, 1, 1],
       markers,
-      onRender: (state: any) => {
-        // v2: only update animated state; do NOT touch width/height each frame.
-        if (!pointerDown) {
-          phi += (targetPhi - phi) * 0.08;
-          theta += (targetTheta - theta) * 0.08;
-        }
-        state.phi = phi;
-        state.theta = theta;
-      },
     });
+
+    // Drive the animation ourselves — v2 redraws only when update() is called.
+    let raf = 0;
+    const tick = () => {
+      if (!pointerDown) {
+        phi += (targetPhi - phi) * 0.08;
+        theta += (targetTheta - theta) * 0.08;
+      }
+      globe.update({ phi, theta });
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
 
     // Fade in (cobe trick to avoid first-frame flash)
     canvas.style.opacity = '0';
     requestAnimationFrame(() => { canvas.style.transition = 'opacity .6s'; canvas.style.opacity = '1'; });
 
-    // Resize on container changes.
+    // Resize on container changes — feed new size into update().
     const ro = new ResizeObserver(() => {
       const w = canvas.offsetWidth;
       if (!w || w === cssWidth) return;
       cssWidth = w;
+      globe.update({ width: cssWidth, height: cssWidth });
     });
     ro.observe(canvas);
 
@@ -178,7 +180,7 @@ const installationsJson = JSON.stringify(installations);
       });
     });
 
-    window.addEventListener('beforeunload', () => globe.destroy());
+    window.addEventListener('beforeunload', () => { cancelAnimationFrame(raf); globe.destroy(); });
   }
 
   function initAllGlobes() {
