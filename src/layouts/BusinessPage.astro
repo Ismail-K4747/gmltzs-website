@@ -3,6 +3,7 @@ import { getEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import TanzaniaGlobe from '../components/TanzaniaGlobe.astro';
 
 interface Props { slug: string; }
 const { slug } = Astro.props;
@@ -84,6 +85,153 @@ const d = page.data;
                 <img src={p.image} alt={p.alt ?? p.caption ?? ''} loading="lazy" />
                 {p.caption && <figcaption>{p.caption}</figcaption>}
               </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* ===== CENTERS SHOWCASE (Labs / Medics) ===== */}
+    {d.centers.length > 0 && (
+      <section class="centers section">
+        <div class="container">
+          {(d.centersEyebrow || d.centersTitle || d.centersIntro) && (
+            <div class="section__header">
+              {d.centersEyebrow && <p class="section__eyebrow">{d.centersEyebrow}</p>}
+              {d.centersTitle && <h2 class="section__title">{d.centersTitle}</h2>}
+              {d.centersIntro && <p class="section__lead">{d.centersIntro}</p>}
+            </div>
+          )}
+          <div class="centers__grid">
+            {d.centers.map((c) => (
+              <article class="center-card">
+                {c.image && (
+                  <div class="center-card__media">
+                    <img src={c.image} alt={c.name} loading="lazy" />
+                  </div>
+                )}
+                <div class="center-card__body">
+                  <h3 class="center-card__name">{c.name}</h3>
+                  {c.tagline && <p class="center-card__tagline">{c.tagline}</p>}
+                  <ul class="center-card__meta">
+                    {c.address && <li><strong>Where:</strong> {c.address}</li>}
+                    {c.phone && <li><strong>Call:</strong> <a href={`tel:${c.phone.replace(/\s+/g, '')}`}>{c.phone}</a></li>}
+                    {c.hours && <li><strong>Hours:</strong> {c.hours}</li>}
+                  </ul>
+                  {c.highlights.length > 0 && (
+                    <ul class="center-card__highlights">
+                      {c.highlights.map((h) => <li>{h}</li>)}
+                    </ul>
+                  )}
+                  {c.mapUrl && <a href={c.mapUrl} class="btn btn--outline btn--sm" target="_blank" rel="noopener">Open in Maps</a>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* ===== GOVERNMENT PROJECTS (Devices) ===== */}
+    {d.govProjects.length > 0 && (
+      <section class="gov-projects section">
+        <div class="container">
+          {(d.govProjectsEyebrow || d.govProjectsTitle || d.govProjectsIntro) && (
+            <div class="section__header">
+              {d.govProjectsEyebrow && <p class="section__eyebrow">{d.govProjectsEyebrow}</p>}
+              {d.govProjectsTitle && <h2 class="section__title">{d.govProjectsTitle}</h2>}
+              {d.govProjectsIntro && <p class="section__lead">{d.govProjectsIntro}</p>}
+            </div>
+          )}
+          <div class="gov-projects__grid">
+            {d.govProjects.map((p) => (
+              <article class="gov-card">
+                {p.image && (
+                  <div class="gov-card__media">
+                    <img src={p.image} alt={p.title} loading="lazy" />
+                    {p.year && <span class="gov-card__year">{p.year}</span>}
+                  </div>
+                )}
+                <div class="gov-card__body">
+                  <h3 class="gov-card__title">{p.title}</h3>
+                  {p.location && <p class="gov-card__location">📍 {p.location}</p>}
+                  <p class="gov-card__desc">{p.description}</p>
+                  {p.results.length > 0 && (
+                    <ul class="gov-card__results">
+                      {p.results.map((r) => <li>{r}</li>)}
+                    </ul>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* ===== PARTNER SPOTLIGHT ===== */}
+    {d.partner && (
+      <section class="partner-spotlight section">
+        <div class="container">
+          <div class="partner-spotlight__inner">
+            {d.partner.logo && (
+              <div class="partner-spotlight__logo">
+                <img src={d.partner.logo} alt={d.partner.name} loading="lazy" />
+              </div>
+            )}
+            <div class="partner-spotlight__copy">
+              <p class="partner-spotlight__eyebrow">In Partnership With</p>
+              <h2 class="partner-spotlight__name">{d.partner.name}</h2>
+              {d.partner.tagline && <p class="partner-spotlight__tagline">{d.partner.tagline}</p>}
+              {d.partner.description && <p class="partner-spotlight__desc">{d.partner.description}</p>}
+              {d.partner.websiteUrl && <a href={d.partner.websiteUrl} class="btn btn--outline" target="_blank" rel="noopener">Visit {d.partner.name} →</a>}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* ===== INTERACTIVE GLOBE — INSTALLATIONS ===== */}
+    {d.installations.length > 0 && (
+      <section class="installations section">
+        <div class="container">
+          {(d.installationsEyebrow || d.installationsTitle || d.installationsIntro) && (
+            <div class="section__header">
+              {d.installationsEyebrow && <p class="section__eyebrow">{d.installationsEyebrow}</p>}
+              {d.installationsTitle && <h2 class="section__title">{d.installationsTitle}</h2>}
+              {d.installationsIntro && <p class="section__lead">{d.installationsIntro}</p>}
+            </div>
+          )}
+          <TanzaniaGlobe installations={d.installations} />
+        </div>
+      </section>
+    )}
+
+    {/* ===== HORIZONTAL TESTIMONIAL PANEL ===== */}
+    {d.panelTestimonials.length > 0 && (
+      <section class="testimonial-panel section">
+        <div class="container">
+          {(d.panelTestimonialsEyebrow || d.panelTestimonialsTitle) && (
+            <div class="section__header">
+              {d.panelTestimonialsEyebrow && <p class="section__eyebrow">{d.panelTestimonialsEyebrow}</p>}
+              {d.panelTestimonialsTitle && <h2 class="section__title">{d.panelTestimonialsTitle}</h2>}
+            </div>
+          )}
+          <div class="testimonial-panel__strip" role="list">
+            {d.panelTestimonials.map((t) => (
+              <article class="testimonial-card" role="listitem">
+                <svg class="testimonial-card__quote" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M9.17 6A5.17 5.17 0 004 11.17v6.66h6.67V11.17H6.83A2.34 2.34 0 019.17 8.83V6zm10 0a5.17 5.17 0 00-5.17 5.17v6.66h6.67V11.17h-3.84A2.34 2.34 0 0119.17 8.83V6z"/></svg>
+                <p class="testimonial-card__quote-text">{t.quote}</p>
+                <div class="testimonial-card__author">
+                  {t.avatar && <img src={t.avatar} alt={t.name} class="testimonial-card__avatar" loading="lazy" />}
+                  <div>
+                    <strong>{t.name}</strong>
+                    {(t.role || t.organization) && (
+                      <span>{[t.role, t.organization].filter(Boolean).join(' · ')}</span>
+                    )}
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>

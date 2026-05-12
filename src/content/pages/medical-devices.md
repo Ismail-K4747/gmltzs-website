@@ -43,6 +43,108 @@ ctaBanner:
 
 whatsappMessage: "Hello GML, I would like to enquire about your medical devices and lab equipment."
 
+govProjectsEyebrow: "Public Sector Track Record"
+govProjectsTitle: "Government Projects We Are Proud Of"
+govProjectsIntro: "From regional referral hospitals to remote dispensaries, GML has partnered with the Government of Tanzania and international agencies to deliver, install, and commission medical equipment that saves lives every day."
+govProjects:
+  - title: "Solar Cold-Chain Roll-out — Lake Zone"
+    location: "Mwanza, Geita & Kagera Regions"
+    year: "2024"
+    description: "Supplied and commissioned 42 solar direct-drive vaccine refrigerators across district hospitals and rural health centres, ensuring vaccines stay potent even where the grid is unreliable."
+    image: /images/project-cold-chain.jpg
+    results:
+      - "42 health facilities now off-grid cold-chain capable"
+      - "Zero vaccine loss reported in the first 12 months"
+      - "Trained 60+ local technicians on maintenance"
+  - title: "Regional Hospital Equipment Upgrade"
+    location: "Dodoma Referral Hospital"
+    year: "2023"
+    description: "End-to-end procurement, installation, and staff training for a full suite of laboratory analysers and patient-monitoring equipment as part of the Ministry of Health modernisation programme."
+    image: /images/project-dodoma.jpg
+    results:
+      - "Reduced lab turnaround times by over 60%"
+      - "On-site clinical engineering support for 24 months"
+  - title: "Maternal & Child Health Equipment — Coastal Region"
+    location: "Pwani Region District Hospitals"
+    year: "2022"
+    description: "Delivered ultrasound systems, infant warmers, and phototherapy units to six district hospitals, strengthening maternal and newborn care across the coastal region."
+    image: /images/project-pwani.jpg
+    results:
+      - "6 hospitals fully equipped for safer deliveries"
+      - "Hands-on training for 80+ clinical staff"
+
+partner:
+  name: "B Medical Systems"
+  tagline: "A trusted global leader in medical cold-chain and vaccine refrigeration."
+  description: "GML proudly partners with B Medical Systems — a Luxembourg-based, WHO PQS pre-qualified manufacturer — to bring world-class solar refrigerators, blood-bank fridges, and ultra-low-temperature freezers to Tanzania. Together we are building a stronger cold chain, one health facility at a time."
+  logo: /images/b-medical-logo.png
+  websiteUrl: "https://www.bmedicalsystems.com"
+
+installationsEyebrow: "Live Across Tanzania"
+installationsTitle: "Where Our Equipment Is Working Today"
+installationsIntro: "Spin the globe and explore the hospitals, dispensaries, and health centres across Tanzania where GML has installed solar-powered cold-chain equipment in partnership with B Medical Systems."
+installations:
+  - name: "Bukoba District Hospital"
+    region: "Kagera Region"
+    lat: -1.332
+    lng: 31.812
+    image: /images/install-bukoba.jpg
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational since March 2024"
+    notes: "Serves over 80,000 residents with reliable vaccine storage even during grid outages."
+  - name: "Geita Regional Referral Hospital"
+    region: "Geita Region"
+    lat: -2.872
+    lng: 32.236
+    image: /images/install-geita.jpg
+    deviceType: "Blood Bank Refrigerator + Vaccine Fridge"
+    status: "Operational since June 2024"
+    notes: "Supports both transfusion services and the regional immunisation programme."
+  - name: "Dodoma Referral Hospital"
+    region: "Dodoma Region"
+    lat: -6.173
+    lng: 35.741
+    image: /images/install-dodoma.jpg
+    deviceType: "Laboratory Analysers & Cold Storage"
+    status: "Commissioned 2023"
+    notes: "Full lab modernisation under the Ministry of Health programme."
+  - name: "Mtwara District Hospital"
+    region: "Mtwara Region"
+    lat: -10.265
+    lng: 40.183
+    image: /images/install-mtwara.jpg
+    deviceType: "Solar Vaccine Refrigerator"
+    status: "Operational since November 2023"
+    notes: "Coastal facility now fully off-grid cold-chain ready."
+  - name: "Mbeya Zonal Referral Hospital"
+    region: "Mbeya Region"
+    lat: -8.909
+    lng: 33.460
+    image: /images/install-mbeya.jpg
+    deviceType: "Ultra-Low-Temperature Freezer"
+    status: "Operational since 2024"
+    notes: "Supports advanced research and biobanking activities."
+
+panelTestimonialsEyebrow: "What Our Clients Say"
+panelTestimonialsTitle: "Voices From the Field"
+panelTestimonials:
+  - quote: "The GML team did not just deliver equipment — they trained our staff and stayed with us long after installation. The cold chain in our district has never been more reliable."
+    name: "Dr. Asha Mbwana"
+    role: "Medical Officer In-Charge"
+    organization: "Bukoba District Hospital"
+  - quote: "We can finally store vaccines confidently, even when the power goes out for days. The solar fridges have completely changed how we plan immunisation outreach."
+    name: "Nurse Joseph Kimaro"
+    role: "EPI Coordinator"
+    organization: "Geita Region"
+  - quote: "From procurement to commissioning, GML's professionalism and after-sales support stood out. They are a partner we can count on."
+    name: "Eng. Faraja Mushi"
+    role: "Biomedical Engineer"
+    organization: "Ministry of Health"
+  - quote: "Our laboratory turnaround times dropped dramatically after the new analysers were installed. The training was thorough and our team felt fully supported."
+    name: "Dr. Salim Ndibalema"
+    role: "Head of Laboratory"
+    organization: "Dodoma Referral Hospital"
+
 galleryTitle: ""
 galleryPhotos: []
 ---

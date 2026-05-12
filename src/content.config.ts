@@ -79,6 +79,57 @@ const legalSection = z.object({
   body: z.string(), // HTML/markdown allowed
 });
 
+// ---------- Centers (Labs / Medics) ----------
+const centerLocation = z.object({
+  name: z.string(),
+  tagline: z.string().optional(),       // short hook line
+  address: z.string().optional(),
+  phone: z.string().optional(),
+  hours: z.string().optional(),         // free text e.g. "Mon–Sat 8am–8pm"
+  mapUrl: z.string().optional(),        // Google Maps link
+  image: z.string().optional(),         // hero photo
+  highlights: z.array(z.string()).default([]), // bullet list e.g. "Pediatric corner"
+});
+
+// ---------- Government / partner projects (Devices) ----------
+const govProject = z.object({
+  title: z.string(),
+  location: z.string().optional(),      // e.g. "Mwanza Regional Referral Hospital"
+  year: z.string().optional(),          // "2024"
+  description: z.string(),
+  image: z.string().optional(),
+  results: z.array(z.string()).default([]), // outcome bullets
+});
+
+const partnerInfo = z.object({
+  name: z.string(),                     // "B Medical Systems"
+  tagline: z.string().optional(),
+  description: z.string().optional(),
+  logo: z.string().optional(),
+  websiteUrl: z.string().optional(),
+});
+
+// ---------- Globe installations ----------
+const installation = z.object({
+  name: z.string(),                     // "Bukoba District Hospital"
+  region: z.string().optional(),        // "Kagera Region"
+  lat: z.number(),                      // -1.33
+  lng: z.number(),                      //  31.81
+  image: z.string().optional(),
+  deviceType: z.string().optional(),    // "Solar Direct-Drive Refrigerator"
+  status: z.string().optional(),        // "Active since 2024"
+  notes: z.string().optional(),
+});
+
+// ---------- Testimonial scroll panel ----------
+const panelTestimonial = z.object({
+  quote: z.string(),
+  name: z.string(),
+  role: z.string().optional(),          // "Medical Officer"
+  organization: z.string().optional(),  // "Mwanza Referral Hospital"
+  avatar: z.string().optional(),
+});
+
 // ---------- Real-estate-specific sub-schemas ----------
 const projectStat = z.object({
   value: z.string(),
@@ -203,6 +254,30 @@ const pages = defineCollection({
 
     // Business services grid (inner pages)
     services: z.array(businessService).default([]),
+
+    // Centers showcase (Labs / Medics)
+    centersEyebrow: z.string().optional(),
+    centersTitle: z.string().optional(),
+    centersIntro: z.string().optional(),
+    centers: z.array(centerLocation).default([]),
+
+    // Government projects + partner spotlight (Devices)
+    govProjectsEyebrow: z.string().optional(),
+    govProjectsTitle: z.string().optional(),
+    govProjectsIntro: z.string().optional(),
+    govProjects: z.array(govProject).default([]),
+    partner: partnerInfo.optional(),
+
+    // Interactive globe installations (Devices)
+    installationsEyebrow: z.string().optional(),
+    installationsTitle: z.string().optional(),
+    installationsIntro: z.string().optional(),
+    installations: z.array(installation).default([]),
+
+    // Horizontal-scroll testimonials panel
+    panelTestimonialsEyebrow: z.string().optional(),
+    panelTestimonialsTitle: z.string().optional(),
+    panelTestimonials: z.array(panelTestimonial).default([]),
 
     // CTA banner
     ctaBanner: ctaBanner.optional(),

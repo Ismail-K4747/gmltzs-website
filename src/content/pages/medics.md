@@ -59,6 +59,32 @@ ctaBanner:
   buttonLabel: Get in Touch
   buttonHref: /#contact
 whatsappMessage: Hello GML, I would like to enquire about your pharmacy services.
+centersEyebrow: Our Pharmacy Locations
+centersTitle: Visit a GM Medics Pharmacy Near You
+centersIntro: "Friendly pharmacists, fair prices, and the medications your family relies on — we're never more than a short trip away."
+centers:
+  - name: GM Medics — Kariakoo Pharmacy
+    tagline: "Open early, open late — the dependable neighbourhood pharmacy."
+    address: "Mhonda Street, Kariakoo, Dar es Salaam"
+    phone: "+255 713 879 800"
+    hours: "Daily 7:00am – 10:00pm"
+    mapUrl: "https://maps.google.com/?q=Kariakoo+Dar+es+Salaam"
+    image: /images/pharmacy-1.jpg
+    highlights:
+      - "Licensed pharmacist on duty all day"
+      - "Free blood-pressure check on request"
+      - "Mobile-money & card payments accepted"
+  - name: GM Medics — Mbezi Beach Pharmacy
+    tagline: "Quick, professional service for the whole family."
+    address: "Mbezi Beach Road, Kinondoni, Dar es Salaam"
+    phone: "+255 713 879 801"
+    hours: "Mon–Sat 8:00am – 9:00pm · Sun 10am – 6pm"
+    mapUrl: "https://maps.google.com/?q=Mbezi+Beach+Dar+es+Salaam"
+    image: /images/pharmacy-2.jpg
+    highlights:
+      - "Wide range of OTC and chronic medications"
+      - "Vitamins, baby care & wellness products"
+      - "Home delivery within Dar es Salaam"
 legalLastUpdated: ''
 projectEyebrow: ''
 projectTitle: ''

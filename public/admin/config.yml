@@ -195,6 +195,108 @@ collections:
 
       - { name: whatsappMessage, label: "WhatsApp pre-filled message", widget: text, required: false }
 
+      # ==========================================================================
+      # CENTERS SHOWCASE  (Labs / Medics)
+      # ==========================================================================
+      - { name: centersEyebrow, label: "Centres — eyebrow",  widget: string, required: false }
+      - { name: centersTitle,   label: "Centres — section title", widget: string, required: false }
+      - { name: centersIntro,   label: "Centres — short intro", widget: text,   required: false }
+      - name: centers
+        label: "Centres / Locations"
+        label_singular: "Centre"
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        fields:
+          - { name: name,     label: "Name",      widget: string, hint: "e.g. GM Labs — Kariakoo Branch" }
+          - { name: tagline,  label: "Tagline",   widget: string, required: false, hint: "One short, friendly hook line" }
+          - { name: address,  label: "Address",   widget: string, required: false }
+          - { name: phone,    label: "Phone",     widget: string, required: false }
+          - { name: hours,    label: "Opening hours", widget: string, required: false, hint: "e.g. Mon–Sat 8am–8pm" }
+          - { name: mapUrl,   label: "Google Maps link", widget: string, required: false }
+          - { name: image,    label: "Lead photo", widget: image, required: false }
+          - name: highlights
+            label: "Highlights / what makes it special"
+            widget: list
+            required: false
+            field: { name: item, label: "Highlight", widget: string }
+
+      # ==========================================================================
+      # GOVERNMENT PROJECTS  (Medical Devices)
+      # ==========================================================================
+      - { name: govProjectsEyebrow, label: "Gov. projects — eyebrow", widget: string, required: false }
+      - { name: govProjectsTitle,   label: "Gov. projects — section title", widget: string, required: false }
+      - { name: govProjectsIntro,   label: "Gov. projects — short intro", widget: text, required: false }
+      - name: govProjects
+        label: "Government Projects"
+        label_singular: "Project"
+        widget: list
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+          - { name: title,       label: "Project title", widget: string }
+          - { name: location,    label: "Location",      widget: string, required: false }
+          - { name: year,        label: "Year",          widget: string, required: false }
+          - { name: description, label: "Description",   widget: text }
+          - { name: image,       label: "Photo",         widget: image, required: false }
+          - name: results
+            label: "Outcomes / results bullets"
+            widget: list
+            required: false
+            field: { name: item, label: "Result", widget: string }
+
+      # ---- PARTNER SPOTLIGHT ----
+      - name: partner
+        label: "Partner spotlight (e.g. B Medical Systems)"
+        widget: object
+        required: false
+        fields:
+          - { name: name,        label: "Partner name",   widget: string }
+          - { name: tagline,     label: "Tagline",        widget: string, required: false }
+          - { name: description, label: "Description",    widget: text,   required: false }
+          - { name: logo,        label: "Logo",           widget: image,  required: false }
+          - { name: websiteUrl,  label: "Website URL",    widget: string, required: false }
+
+      # ==========================================================================
+      # INTERACTIVE GLOBE  — INSTALLATIONS ACROSS TANZANIA
+      # ==========================================================================
+      - { name: installationsEyebrow, label: "Installations — eyebrow", widget: string, required: false }
+      - { name: installationsTitle,   label: "Installations — section title", widget: string, required: false }
+      - { name: installationsIntro,   label: "Installations — short intro", widget: text, required: false }
+      - name: installations
+        label: "Installations (pins on the globe)"
+        label_singular: "Installation"
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        fields:
+          - { name: name,       label: "Site name",   widget: string, hint: "e.g. Bukoba District Hospital" }
+          - { name: region,     label: "Region",      widget: string, required: false }
+          - { name: lat,        label: "Latitude",    widget: number, value_type: float, hint: "Tanzania ranges roughly from -11 to -1" }
+          - { name: lng,        label: "Longitude",   widget: number, value_type: float, hint: "Tanzania ranges roughly from 29 to 41" }
+          - { name: image,      label: "Photo",       widget: image,  required: false }
+          - { name: deviceType, label: "Device installed", widget: string, required: false, hint: "e.g. Solar Direct-Drive Vaccine Refrigerator" }
+          - { name: status,     label: "Status",      widget: string, required: false, hint: "e.g. Operational since March 2024" }
+          - { name: notes,      label: "Short note",  widget: text,   required: false }
+
+      # ==========================================================================
+      # TESTIMONIAL PANEL — horizontal scroll
+      # ==========================================================================
+      - { name: panelTestimonialsEyebrow, label: "Testimonial panel — eyebrow", widget: string, required: false }
+      - { name: panelTestimonialsTitle,   label: "Testimonial panel — title",   widget: string, required: false }
+      - name: panelTestimonials
+        label: "Testimonial panel cards"
+        label_singular: "Testimonial"
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        fields:
+          - { name: quote,        label: "Quote",        widget: text }
+          - { name: name,         label: "Person name",  widget: string }
+          - { name: role,         label: "Role / title", widget: string, required: false }
+          - { name: organization, label: "Organisation", widget: string, required: false }
+          - { name: avatar,       label: "Avatar photo", widget: image,  required: false }
+
       # ---- INSIGHTS ARTICLES ----
       - name: insightsArticles
         label: "Insights — articles"

@@ -43,6 +43,33 @@ ctaBanner:
 
 whatsappMessage: "Hello GML, I would like to enquire about your laboratory services."
 
-galleryTitle: ""
+centersEyebrow: "Our Diagnostic Centres"
+centersTitle: "Find a GM Lab Near You"
+centersIntro: "Walk in or book ahead — every centre is staffed by qualified technicians and equipped with modern analysers, so the result you need is never far away."
+centers:
+  - name: "GM Labs — Kariakoo Branch"
+    tagline: "Our flagship centre in the heart of Dar es Salaam."
+    address: "Mhonda Street, Kariakoo, Dar es Salaam"
+    phone: "+255 713 879 876"
+    hours: "Mon–Sat 7:30am – 8:00pm · Sun 9am – 4pm"
+    mapUrl: "https://maps.google.com/?q=Kariakoo+Dar+es+Salaam"
+    image: "/images/lab-1.jpg"
+    highlights:
+      - "Same-day blood work and urinalysis"
+      - "Walk-in friendly — no appointment needed"
+      - "Air-conditioned waiting lounge"
+  - name: "GM Labs — Mbezi Beach"
+    tagline: "Convenient diagnostics for North Dar residents."
+    address: "Mbezi Beach Road, Kinondoni, Dar es Salaam"
+    phone: "+255 713 879 877"
+    hours: "Mon–Fri 8:00am – 7:00pm · Sat 8:00am – 3:00pm"
+    mapUrl: "https://maps.google.com/?q=Mbezi+Beach+Dar+es+Salaam"
+    image: "/images/lab-2.jpg"
+    highlights:
+      - "Family-friendly screening packages"
+      - "On-site pathologist consultation"
+      - "Free parking on premises"
+
+galleryTitle: "Inside Our Labs"
 galleryPhotos: []
 ---
