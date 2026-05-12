@@ -1732,18 +1732,49 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ---- Video tour grid (lab/medics walk-through) ---- */
 .video-tour__grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin-top: 1.5rem;
 }
 .video-tour__video {
   width: 100%;
+  max-width: 240px;
   aspect-ratio: 9 / 16;
   background: #000;
   border-radius: var(--radius-lg);
   box-shadow: 0 6px 22px rgba(0,0,0,.12);
   object-fit: cover;
+  display: block;
+}
+@media (max-width: 540px) {
+  .video-tour__video { max-width: 180px; }
+}
+
+/* Constrain gallery items so portrait phone photos don't dominate */
+.gallery__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1.5rem;
+}
+.gallery__item {
+  margin: 0;
+}
+.gallery__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 22px rgba(0,0,0,.12);
+  display: block;
+}
+.gallery__item figcaption {
+  margin-top: .5rem;
+  font-size: .875rem;
+  color: var(--color-muted, #666);
+  text-align: center;
 }
 
 /* CTA banner */
