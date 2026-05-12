@@ -89,14 +89,17 @@ const installationsJson = JSON.stringify(installations);
       size: 0.06,
     }));
 
-    // Follow cobe's official Next.js example *exactly*:
-    //   width passed to createGlobe = cssWidth * 2 (for retina)
-    //   devicePixelRatio = 2
-    //   onRender just sets state.phi/theta and re-asserts width/height
+    // Cobe v2 expects the canvas backing buffer to be pre-sized.
+    // Official quickstart: <canvas width="1000" height="1000" style="width:500px;height:500px">
+    const dpr = 2;
+    canvas.width = cssWidth * dpr;
+    canvas.height = cssWidth * dpr;
+    canvas.style.height = cssWidth + 'px';
+
     const globe = createGlobe(canvas, {
-      devicePixelRatio: 2,
-      width: cssWidth * 2,
-      height: cssWidth * 2,
+      devicePixelRatio: dpr,
+      width: cssWidth * dpr,
+      height: cssWidth * dpr,
       phi,
       theta,
       dark: 1,
@@ -108,14 +111,13 @@ const installationsJson = JSON.stringify(installations);
       glowColor: [1, 1, 1],
       markers,
       onRender: (state: any) => {
+        // v2: only update animated state; do NOT touch width/height each frame.
         if (!pointerDown) {
           phi += (targetPhi - phi) * 0.08;
           theta += (targetTheta - theta) * 0.08;
         }
         state.phi = phi;
         state.theta = theta;
-        state.width = cssWidth * 2;
-        state.height = cssWidth * 2;
       },
     });
 
