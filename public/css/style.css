@@ -1643,11 +1643,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .globe-block__canvas {
   width: 100%;
-  height: auto;
   max-width: 560px;
   aspect-ratio: 1 / 1;
+  height: auto;
   display: block;
   cursor: grab;
+  opacity: 1;
 }
 .globe-block__hint {
   position: absolute; bottom: .5rem; left: 50%; transform: translateX(-50%);
