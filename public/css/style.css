@@ -1642,10 +1642,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex; align-items: center; justify-content: center;
 }
 .globe-block__canvas {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: auto;
   max-width: 560px;
-  contain: layout paint size;
+  aspect-ratio: 1 / 1;
+  display: block;
   cursor: grab;
 }
 .globe-block__hint {

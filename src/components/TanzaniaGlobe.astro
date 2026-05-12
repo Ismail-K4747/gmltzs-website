@@ -52,12 +52,17 @@ const installationsJson = JSON.stringify(installations);
   // @ts-nocheck
   import createGlobe from 'cobe';
 
-  function initAllGlobes() {
-    const blocks = document.querySelectorAll<HTMLElement>('.globe-block');
-    blocks.forEach((block) => {
+  function initGlobe(block: HTMLElement) {
       const canvas = block.querySelector<HTMLCanvasElement>('[data-globe-canvas]');
       if (!canvas) return;
       if ((canvas as any).__cobeInit) return;
+
+      // Wait for layout — if container is collapsed, retry next frame.
+      const measure = () => canvas.offsetWidth || canvas.parentElement?.offsetWidth || 0;
+      if (measure() < 50) {
+        requestAnimationFrame(() => initGlobe(block));
+        return;
+      }
       (canvas as any).__cobeInit = true;
 
       let installations: any[] = [];
@@ -85,37 +90,52 @@ const installationsJson = JSON.stringify(installations);
         size: 0.06,
       }));
 
-      const width = canvas.offsetWidth || 480;
-      const renderSize = width * 2;
-      canvas.width = renderSize;
-      canvas.height = renderSize;
+      // Match cobe's official example exactly: let cobe own the pixel size,
+      // we just keep canvas CSS responsive and feed it the current backing size.
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let cssSize = canvas.offsetWidth || canvas.parentElement?.offsetWidth || 480;
+      let backingSize = cssSize * dpr;
+      canvas.width = backingSize;
+      canvas.height = backingSize;
+      canvas.style.height = cssSize + 'px';
 
       const globe = createGlobe(canvas, {
-        devicePixelRatio: 2,
-        width: renderSize,
-        height: renderSize,
+        devicePixelRatio: dpr,
+        width: backingSize,
+        height: backingSize,
         phi,
         theta,
         dark: 1,
         diffuse: 1.2,
         mapSamples: 16000,
         mapBrightness: 6,
-        baseColor: [0.22, 0.32, 0.42],
+        baseColor: [0.3, 0.3, 0.3],
         markerColor: [0.98, 0.65, 0.12],
-        glowColor: [0.18, 0.25, 0.34],
+        glowColor: [1, 1, 1],
         markers,
         onRender: (state: any) => {
           if (!pointerDown) {
-            // ease toward target
             phi += (targetPhi - phi) * 0.08;
             theta += (targetTheta - theta) * 0.08;
           }
           state.phi = phi;
           state.theta = theta;
-          state.width = renderSize;
-          state.height = renderSize;
+          state.width = backingSize;
+          state.height = backingSize;
         },
       });
+
+      // Re-size on container changes (responsive layout)
+      const ro = new ResizeObserver(() => {
+        const w = canvas.offsetWidth || canvas.parentElement?.offsetWidth || 480;
+        if (w === cssSize) return;
+        cssSize = w;
+        backingSize = w * dpr;
+        canvas.width = backingSize;
+        canvas.height = backingSize;
+        canvas.style.height = cssSize + 'px';
+      });
+      ro.observe(canvas);
 
       // Pointer drag
       canvas.addEventListener('pointerdown', (e) => {
@@ -166,7 +186,10 @@ const installationsJson = JSON.stringify(installations);
 
       // Cleanup on page navigation (Astro view transitions safe)
       window.addEventListener('beforeunload', () => globe.destroy());
-    });
+  }
+
+  function initAllGlobes() {
+    document.querySelectorAll<HTMLElement>('.globe-block').forEach(initGlobe);
   }
 
   if (document.readyState !== 'loading') initAllGlobes();
