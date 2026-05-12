@@ -19,7 +19,7 @@ const { installations } = Astro.props;
 const installationsJson = JSON.stringify(installations);
 ---
 
-<div class="globe-block">
+<div class="globe-block" data-installations={installationsJson}>
   <div class="globe-block__stage">
     <canvas class="globe-block__canvas" data-globe-canvas></canvas>
     <div class="globe-block__hint">Drag the globe · click a location below</div>
@@ -48,24 +48,20 @@ const installationsJson = JSON.stringify(installations);
   </aside>
 </div>
 
-<script type="application/json" data-globe-data set:html={installationsJson} />
-
 <script>
   // @ts-nocheck
   import createGlobe from 'cobe';
 
   function initAllGlobes() {
-    const canvases = document.querySelectorAll<HTMLCanvasElement>('[data-globe-canvas]');
-    canvases.forEach((canvas) => {
+    const blocks = document.querySelectorAll<HTMLElement>('.globe-block');
+    blocks.forEach((block) => {
+      const canvas = block.querySelector<HTMLCanvasElement>('[data-globe-canvas]');
+      if (!canvas) return;
       if ((canvas as any).__cobeInit) return;
       (canvas as any).__cobeInit = true;
 
-      const block = canvas.closest('.globe-block');
-      if (!block) return;
-      const dataNode = block.querySelector<HTMLScriptElement>('[data-globe-data]');
-      if (!dataNode) return;
       let installations: any[] = [];
-      try { installations = JSON.parse(dataNode.textContent || '[]'); } catch { installations = []; }
+      try { installations = JSON.parse(block.getAttribute('data-installations') || '[]'); } catch { installations = []; }
 
       // Tanzania centroid (lat -6.5, lng 35) — convert to phi/theta for cobe.
       // cobe uses phi (longitude rotation) and theta (vertical tilt).

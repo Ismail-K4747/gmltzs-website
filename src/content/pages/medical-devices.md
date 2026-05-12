@@ -51,7 +51,7 @@ govProjects:
     location: "Mwanza, Geita & Kagera Regions"
     year: "2024"
     description: "Supplied and commissioned 42 solar direct-drive vaccine refrigerators across district hospitals and rural health centres, ensuring vaccines stay potent even where the grid is unreliable."
-    image: /images/project-cold-chain.jpg
+    image: https://loremflickr.com/1200/750/solar,refrigerator,vaccine?lock=30
     results:
       - "42 health facilities now off-grid cold-chain capable"
       - "Zero vaccine loss reported in the first 12 months"
@@ -60,7 +60,7 @@ govProjects:
     location: "Dodoma Referral Hospital"
     year: "2023"
     description: "End-to-end procurement, installation, and staff training for a full suite of laboratory analysers and patient-monitoring equipment as part of the Ministry of Health modernisation programme."
-    image: /images/project-dodoma.jpg
+    image: https://loremflickr.com/1200/750/hospital,equipment,africa?lock=31
     results:
       - "Reduced lab turnaround times by over 60%"
       - "On-site clinical engineering support for 24 months"
@@ -68,7 +68,7 @@ govProjects:
     location: "Pwani Region District Hospitals"
     year: "2022"
     description: "Delivered ultrasound systems, infant warmers, and phototherapy units to six district hospitals, strengthening maternal and newborn care across the coastal region."
-    image: /images/project-pwani.jpg
+    image: https://loremflickr.com/1200/750/maternity,hospital,ultrasound?lock=32
     results:
       - "6 hospitals fully equipped for safer deliveries"
       - "Hands-on training for 80+ clinical staff"
@@ -77,7 +77,7 @@ partner:
   name: "B Medical Systems"
   tagline: "A trusted global leader in medical cold-chain and vaccine refrigeration."
   description: "GML proudly partners with B Medical Systems — a Luxembourg-based, WHO PQS pre-qualified manufacturer — to bring world-class solar refrigerators, blood-bank fridges, and ultra-low-temperature freezers to Tanzania. Together we are building a stronger cold chain, one health facility at a time."
-  logo: /images/b-medical-logo.png
+  logo: https://loremflickr.com/600/400/medical,equipment,logo?lock=70
   websiteUrl: "https://www.bmedicalsystems.com"
 
 installationsEyebrow: "Live Across Tanzania"
@@ -88,7 +88,7 @@ installations:
     region: "Kagera Region"
     lat: -1.332
     lng: 31.812
-    image: /images/install-bukoba.jpg
+    image: https://loremflickr.com/800/520/african,hospital,clinic?lock=40
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational since March 2024"
     notes: "Serves over 80,000 residents with reliable vaccine storage even during grid outages."
@@ -96,7 +96,7 @@ installations:
     region: "Geita Region"
     lat: -2.872
     lng: 32.236
-    image: /images/install-geita.jpg
+    image: https://loremflickr.com/800/520/blood,bank,refrigerator?lock=41
     deviceType: "Blood Bank Refrigerator + Vaccine Fridge"
     status: "Operational since June 2024"
     notes: "Supports both transfusion services and the regional immunisation programme."
@@ -104,7 +104,7 @@ installations:
     region: "Dodoma Region"
     lat: -6.173
     lng: 35.741
-    image: /images/install-dodoma.jpg
+    image: https://loremflickr.com/800/520/laboratory,analyser,hospital?lock=42
     deviceType: "Laboratory Analysers & Cold Storage"
     status: "Commissioned 2023"
     notes: "Full lab modernisation under the Ministry of Health programme."
@@ -112,7 +112,7 @@ installations:
     region: "Mtwara Region"
     lat: -10.265
     lng: 40.183
-    image: /images/install-mtwara.jpg
+    image: https://loremflickr.com/800/520/solar,vaccine,health?lock=43
     deviceType: "Solar Vaccine Refrigerator"
     status: "Operational since November 2023"
     notes: "Coastal facility now fully off-grid cold-chain ready."
@@ -120,7 +120,7 @@ installations:
     region: "Mbeya Region"
     lat: -8.909
     lng: 33.460
-    image: /images/install-mbeya.jpg
+    image: https://loremflickr.com/800/520/freezer,laboratory,medical?lock=44
     deviceType: "Ultra-Low-Temperature Freezer"
     status: "Operational since 2024"
     notes: "Supports advanced research and biobanking activities."

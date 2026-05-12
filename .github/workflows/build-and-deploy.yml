@@ -28,8 +28,6 @@ jobs:
 
       - name: Compress newly uploaded images
         uses: calibreapp/image-actions@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           compressOnly: true
           jpegQuality: 82

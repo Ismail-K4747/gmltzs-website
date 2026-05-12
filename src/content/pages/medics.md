@@ -69,7 +69,7 @@ centers:
     phone: "+255 713 879 800"
     hours: "Daily 7:00am – 10:00pm"
     mapUrl: "https://maps.google.com/?q=Kariakoo+Dar+es+Salaam"
-    image: /images/pharmacy-1.jpg
+    image: https://loremflickr.com/1200/750/pharmacy,medicine,shelves?lock=20
     highlights:
       - "Licensed pharmacist on duty all day"
       - "Free blood-pressure check on request"
@@ -80,7 +80,7 @@ centers:
     phone: "+255 713 879 801"
     hours: "Mon–Sat 8:00am – 9:00pm · Sun 10am – 6pm"
     mapUrl: "https://maps.google.com/?q=Mbezi+Beach+Dar+es+Salaam"
-    image: /images/pharmacy-2.jpg
+    image: https://loremflickr.com/1200/750/pharmacist,drugstore,counter?lock=21
     highlights:
       - "Wide range of OTC and chronic medications"
       - "Vitamins, baby care & wellness products"

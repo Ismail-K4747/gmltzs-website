@@ -53,7 +53,7 @@ centers:
     phone: "+255 713 879 876"
     hours: "Mon–Sat 7:30am – 8:00pm · Sun 9am – 4pm"
     mapUrl: "https://maps.google.com/?q=Kariakoo+Dar+es+Salaam"
-    image: "/images/lab-1.jpg"
+    image: "https://loremflickr.com/1200/750/medical,laboratory,microscope?lock=10"
     highlights:
       - "Same-day blood work and urinalysis"
       - "Walk-in friendly — no appointment needed"
@@ -64,7 +64,7 @@ centers:
     phone: "+255 713 879 877"
     hours: "Mon–Fri 8:00am – 7:00pm · Sat 8:00am – 3:00pm"
     mapUrl: "https://maps.google.com/?q=Mbezi+Beach+Dar+es+Salaam"
-    image: "/images/lab-2.jpg"
+    image: "https://loremflickr.com/1200/750/clinical,laboratory,technician?lock=11"
     highlights:
       - "Family-friendly screening packages"
       - "On-site pathologist consultation"
