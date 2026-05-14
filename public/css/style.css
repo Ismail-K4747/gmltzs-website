@@ -1999,21 +1999,46 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin-top: 1.5rem;
+}
+.video-tour__item {
+  margin: 0;
+  width: 100%;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
 }
 .video-tour__video {
   width: 100%;
-  max-width: 240px;
   aspect-ratio: 9 / 16;
   background: #000;
   border-radius: var(--radius-lg);
   box-shadow: 0 6px 22px rgba(0,0,0,.12);
   object-fit: cover;
   display: block;
+  cursor: pointer;
+}
+.video-tour__caption {
+  display: grid;
+  gap: .2rem;
+  text-align: center;
+  padding: 0 .25rem;
+}
+.video-tour__caption strong {
+  font-family: var(--font-serif, inherit);
+  color: var(--color-primary, #1a3c5e);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+.video-tour__caption span {
+  color: var(--color-text-light, #5b6b7c);
+  font-size: .85rem;
+  line-height: 1.45;
 }
 @media (max-width: 540px) {
-  .video-tour__video { max-width: 180px; }
+  .video-tour__item { max-width: 200px; }
 }
 
 /* Constrain gallery items so portrait phone photos don't dominate */

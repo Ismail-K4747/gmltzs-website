@@ -529,4 +529,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Video Tour autoplay-on-view (lab/medics) ---
+  const tourVideos = document.querySelectorAll('.video-tour__video');
+  if (tourVideos.length) {
+    const tourObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    tourVideos.forEach(video => {
+      tourObserver.observe(video);
+      // Tap to toggle mute for a quick listen
+      video.addEventListener('click', () => {
+        video.muted = !video.muted;
+      });
+    });
+  }
+
 });

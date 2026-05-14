@@ -29,6 +29,12 @@ pageHeroBgClass: page-hero__bg--medics
 pageHeroTag: Pharmacy
 pageHeroTitle: GM Medics Pharmacy
 pageHeroDescription: Your trusted neighbourhood pharmacy, providing quality medications, professional pharmaceutical care, and health products across Dar es Salaam.
+pageHeroImages:
+  - /images/medics/hero-1.jpg
+  - /images/medics/hero-2.jpg
+  - /images/medics/hero-3.jpg
+  - /images/medics/hero-4.jpg
+  - /images/medics/hero-5.jpg
 pageAboutEyebrow: About This Business
 pageAboutTitle: Your Trusted Pharmacy Partner in Tanzania
 pageAboutParagraphs:
@@ -69,7 +75,7 @@ centers:
     phone: "+255 713 879 800"
     hours: "Daily 7:00am – 10:00pm"
     mapUrl: "https://maps.google.com/?q=Yombo+Kwa+Limboa+Dar+es+Salaam"
-    image: https://loremflickr.com/1200/750/pharmacy,medicine,shelves?lock=20
+    image: /images/medics/card.jpg
     highlights:
       - "Licensed pharmacist on duty all day"
       - "Free blood-pressure check on request"

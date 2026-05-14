@@ -176,6 +176,8 @@ const progressCard = z.object({
 const videoTourSlide = z.object({
   videoUrl: z.string(),
   posterUrl: z.string().optional(),
+  title: z.string().optional(),
+  caption: z.string().optional(),
 });
 
 // ---------- Pages collection ----------

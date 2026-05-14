@@ -8,6 +8,11 @@ pageHeroBgClass: "page-hero__bg--laboratory"
 pageHeroTag: "Diagnostics"
 pageHeroTitle: "GM Labs &amp; Diagnostic Point"
 pageHeroDescription: "State-of-the-art diagnostic and clinical laboratory services, delivering accurate, timely results for patients and healthcare providers."
+pageHeroImages:
+  - /images/laboratory/hero-1.jpg
+  - /images/laboratory/hero-2.jpg
+  - /images/laboratory/hero-3.jpg
+  - /images/laboratory/hero-4.jpg
 
 pageAboutEyebrow: "About This Business"
 pageAboutTitle: "Precision Diagnostics You Can Trust"
@@ -62,10 +67,16 @@ centers:
 videoTourSlides:
   - videoUrl: "/uploads/lab/PXL_20260426_133407572.mp4"
     posterUrl: "/uploads/lab/PXL_20260426_133307688.PORTRAIT.ORIGINAL.jpg"
+    title: "Reception & Patient Intake"
+    caption: "Welcoming, organised front-of-house where every visit begins."
   - videoUrl: "/uploads/lab/PXL_20260426_133459331.mp4"
     posterUrl: "/uploads/lab/PXL_20260426_133310198.PORTRAIT.ORIGINAL.jpg"
+    title: "Sample Collection Suite"
+    caption: "Private, hygienic rooms staffed by trained phlebotomists."
   - videoUrl: "/uploads/lab/PXL_20260426_133516642.mp4"
     posterUrl: "/uploads/lab/PXL_20260426_133311322.PORTRAIT.ORIGINAL.jpg"
+    title: "Diagnostic Analysers"
+    caption: "Modern automated platforms delivering fast, reliable results."
 
 galleryTitle: "Inside Our Lab"
 galleryPhotos:

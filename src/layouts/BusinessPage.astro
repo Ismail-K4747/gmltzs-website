@@ -87,16 +87,24 @@ const d = page.data;
           </div>
           <div class="video-tour__grid">
             {d.videoTourSlides.map((v) => (
-              <video
-                class="video-tour__video"
-                src={v.videoUrl}
-                poster={v.posterUrl}
-                controls
-                preload="metadata"
-                playsinline
-              >
-                Your browser does not support embedded video.
-              </video>
+              <figure class="video-tour__item">
+                <video
+                  class="video-tour__video"
+                  src={v.videoUrl}
+                  poster={v.posterUrl}
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label={v.title ?? v.caption ?? 'Video tour clip'}
+                ></video>
+                {(v.title || v.caption) && (
+                  <figcaption class="video-tour__caption">
+                    {v.title && <strong>{v.title}</strong>}
+                    {v.caption && <span>{v.caption}</span>}
+                  </figcaption>
+                )}
+              </figure>
             ))}
           </div>
         </div>
