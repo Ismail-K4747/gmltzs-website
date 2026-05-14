@@ -116,89 +116,105 @@ progressCards:
     markerLabel: Feb 2026
     markerAriaLabel: Scroll to February 2026 foundation snapshot
     mediaType: image
-    mediaUrl: /images/Real Estate Project assets/progress 0.jpeg
+    mediaUrl: /images/Real Estate Project assets/2026-02-00-foundation.jpg
     overlayLabel: Still Frame
     overlayHeadline: Where It Started
     dateLabel: February 2026
     title: Ground Broken
-    caption: Excavation starts and the first footing points are marked on site.
+    caption: Excavation starts and the first footing pits are dug across the plot.
     active: true
   - index: 1
     markerLabel: Feb 2026
     markerAriaLabel: Scroll to February 2026 groundwork momentum
     mediaType: video
-    mediaUrl: /images/Real Estate Project assets/progress 1.mp4
-    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    mediaUrl: /images/Real Estate Project assets/2026-02-01-groundwork.mp4
     overlayLabel: Autoplay on View
     overlayHeadline: First Site Activity
     dateLabel: February 2026
     title: Work Picks Up
-    caption: Crews begin shaping the base and preparing early concrete work.
+    caption: Crews shape the base and start the first concrete work on the footings.
   - index: 2
     markerLabel: Mar 2026
     markerAriaLabel: Scroll to March 2026 structural lift
     mediaType: video
-    mediaUrl: /images/Real Estate Project assets/progress 2.mp4
-    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    mediaUrl: /images/Real Estate Project assets/2026-03-02-structure-rising.mp4
     overlayLabel: Autoplay on View
     overlayHeadline: Heavy Work Arrives
     dateLabel: March 2026
     title: Structure Starts Rising
-    caption: More materials and machinery move in as the main structure starts to show.
+    caption: Materials and machinery move in as the main structure starts to show.
   - index: 3
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 facade progress
     mediaType: video
-    mediaUrl: /images/Real Estate Project assets/progress 3.mp4
-    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    mediaUrl: /images/Real Estate Project assets/2026-04-03-form-takes-shape.mp4
     overlayLabel: Autoplay on View
     overlayHeadline: Building Takes Form
     dateLabel: April 2026
     title: Height and Shape Grow
-    caption: More of the outer form is visible, with major work still ongoing.
+    caption: More of the outer form is visible, with major structural work ongoing.
   - index: 4
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 structural update
     mediaType: video
-    mediaUrl: /images/Real Estate Project assets/progress 4.mp4
-    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    mediaUrl: /images/Real Estate Project assets/2026-04-04-frame-complete.mp4
     overlayLabel: Autoplay on View
     overlayHeadline: Building Takes Shape
     dateLabel: April 2026
     title: Structure Filling Out
-    caption: Columns and beams are standing tall — the building's full frame is now clearly visible on the skyline.
+    caption: Columns and beams stand tall — the building's full frame is now clearly visible on the skyline.
   - index: 5
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 beam prep update
     mediaType: video
-    mediaUrl: /images/Real Estate Project assets/progress 5.mp4
-    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    mediaUrl: /images/Real Estate Project assets/2026-04-05-beams-loaded.mp4
     overlayLabel: Autoplay on View
     overlayHeadline: Concrete Meets Steel
     dateLabel: April 2026
     title: Beams Loaded Up
-    caption: Freshly mixed concrete fills every erected beam frame — the skeleton of the building is locking into place, load by load.
+    caption: Freshly mixed concrete fills every erected beam frame — the skeleton locks into place, load by load.
   - index: 6
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 concrete pour
     mediaType: video
-    mediaUrl: /images/Real Estate Project assets/progress 6.mp4
-    posterUrl: /images/Real Estate Project assets/progress 0.jpeg
+    mediaUrl: /images/Real Estate Project assets/2026-04-06-concrete-pour.mp4
     overlayLabel: Autoplay on View
     overlayHeadline: The Pour is On
     dateLabel: April 2026
     title: Concrete Flows, Structure Sets
-    caption: This week's highlight — concrete poured and setting in the beams, sealing a milestone that will hold the building for generations.
+    caption: Concrete poured and setting in the beams — sealing a milestone that will hold the building for generations.
   - index: 7
     markerLabel: May 2026
-    markerAriaLabel: Scroll to latest May 2026 2nd Floor coming!
+    markerAriaLabel: Scroll to early May 2026 marine boards milestone
     mediaType: video
-    mediaUrl: /uploads/VID-20260502-WA0005.mp4
+    mediaUrl: /images/Real Estate Project assets/2026-05-02-07-marine-boards.mp4
     overlayLabel: Autoplay on View
-    overlayHeadline: 2nd Floor coming!
-    dateLabel: May 2026
-    title: Marine boards set, Ready for 2nd floor
-    caption: This week's highlight — Marine board set and setting in the beams, ready to ascend heights.
+    overlayHeadline: Ready to Ascend
+    dateLabel: Early May 2026
+    title: Marine Boards Set for 2nd Floor
+    caption: Heavy-duty marine boards laid across the beams — the formwork that will support the next slab is locked in.
+  - index: 8
+    markerLabel: May 2026
+    markerAriaLabel: Scroll to mid-May 2026 second-floor slab pour
+    mediaType: video
+    mediaUrl: /images/Real Estate Project assets/2026-05-13-08-slab-pour-A.mp4
+    posterUrl: /images/Real Estate Project assets/2026-05-13-01.jpg
+    overlayLabel: Autoplay on View
+    overlayHeadline: 2nd Floor Slab Pour
+    dateLabel: 13 May 2026
+    title: Pump Truck Goes Live
+    caption: A boom-pump arm reaches over the structure as the 2nd-floor slab takes its first wave of concrete.
+  - index: 9
+    markerLabel: May 2026
+    markerAriaLabel: Scroll to mid-May 2026 slab finishing crew
+    mediaType: video
+    mediaUrl: /images/Real Estate Project assets/2026-05-13-10-slab-pour-C.mp4
+    posterUrl: /images/Real Estate Project assets/2026-05-13-07.jpg
+    overlayLabel: Autoplay on View
+    overlayHeadline: Slab Closes Out
+    dateLabel: 13 May 2026
+    title: Crews Finish the Pour
+    caption: Hi-vis crews work the wet slab smooth — the deck for the next storey is officially set.
     active: false
 projectFeatures:
   - title: Premium Finishes
