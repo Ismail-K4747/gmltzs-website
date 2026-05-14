@@ -26,7 +26,7 @@ const d = page.data;
     {/* ===== PAGE HERO ===== */}
     {d.pageHeroTitle && (
       <section class={`page-hero ${d.pageHeroImages?.length > 0 ? 'page-hero--slideshow' : ''}`}>
-        {d.pageHeroBgClass && <div class={`page-hero__bg ${d.pageHeroBgClass}`}></div>}
+        {d.pageHeroBgClass && !(d.pageHeroImages?.length > 0) && <div class={`page-hero__bg ${d.pageHeroBgClass}`}></div>}
         {d.pageHeroImages?.length > 0 && (
           <div class="page-hero__slideshow" data-hero-slideshow>
             {d.pageHeroImages.map((src: string, i: number) => (

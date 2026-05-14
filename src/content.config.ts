@@ -113,12 +113,22 @@ const partnerInfo = z.object({
 const installation = z.object({
   name: z.string(),                     // "Bukoba District Hospital"
   region: z.string().optional(),        // "Kagera Region"
+  project: z.string().optional(),       // "COVAX", "HSS2", etc.
   lat: z.number(),                      // -1.33
   lng: z.number(),                      //  31.81
   image: z.string().optional(),
   deviceType: z.string().optional(),    // "Solar Direct-Drive Refrigerator"
   status: z.string().optional(),        // "Active since 2024"
   notes: z.string().optional(),
+});
+
+// ---------- B Medical Systems projects (Devices) ----------
+const bMedicalProject = z.object({
+  code: z.string(),                     // "COVAX", "HSS", "AU-CDC"
+  name: z.string(),
+  description: z.string().optional(),
+  regions: z.array(z.string()).default([]),
+  year: z.string().optional(),
 });
 
 // ---------- Testimonial scroll panel ----------
@@ -246,6 +256,7 @@ const pages = defineCollection({
     pageHeroTitle: z.string().optional(),
     pageHeroDescription: z.string().optional(),
     pageHeroGradient: z.boolean().default(false), // for terms/privacy gradient hero
+    pageHeroImages: z.array(z.string()).default([]), // hero slideshow images
 
     // Page-about / intro on inner pages
     pageAboutEyebrow: z.string().optional(),
@@ -273,6 +284,13 @@ const pages = defineCollection({
     installationsTitle: z.string().optional(),
     installationsIntro: z.string().optional(),
     installations: z.array(installation).default([]),
+    sddCoveredRegions: z.array(z.string()).default([]),
+
+    // B Medical Systems projects (Devices)
+    bMedicalProjectsEyebrow: z.string().optional(),
+    bMedicalProjectsTitle: z.string().optional(),
+    bMedicalProjectsIntro: z.string().optional(),
+    bMedicalProjects: z.array(bMedicalProject).default([]),
 
     // Horizontal-scroll testimonials panel
     panelTestimonialsEyebrow: z.string().optional(),
