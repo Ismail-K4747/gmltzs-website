@@ -407,13 +407,13 @@ bMedicalProjects:
     year: "2024"
   - code: "HSS2"
     name: "Health Systems Strengthening (Phase 2)"
-    description: "Western corridor coverage — Kigoma to Tabora — closing remote off-grid gaps."
-    regions: ["Kigoma", "Katavi", "Rukwa", "Tabora"]
+    description: "Largest national rollout — district hospitals and regional referral hospitals across roughly 15 regions, closing cold-chain gaps at the secondary-care level."
+    regions: ["Kigoma", "Katavi", "Rukwa", "Tabora", "Kagera", "Geita", "Mara", "Mwanza", "Shinyanga", "Simiyu", "Singida", "Dodoma", "Manyara", "Arusha", "Kilimanjaro"]
     year: "2024"
   - code: "HSS3"
     name: "Health Systems Strengthening (Phase 3)"
-    description: "Coastal and southern border districts — last-mile cold-chain delivery."
-    regions: ["Lindi", "Mtwara", "Pwani", "Ruvuma"]
+    description: "Last-mile push into rural dispensaries and clinics across approximately 5 regions — bringing reliable solar cold-chain to the lowest tier of the health system."
+    regions: ["Lindi", "Mtwara", "Pwani", "Ruvuma", "Morogoro"]
     year: "2025"
   - code: "AU-CDC2"
     name: "Africa CDC Cold-Chain Partnership (Phase 2)"
