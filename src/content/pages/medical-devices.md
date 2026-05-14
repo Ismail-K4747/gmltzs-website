@@ -57,7 +57,7 @@ govProjects:
     location: "Mwanza, Geita & Kagera Regions"
     year: "2024"
     description: "Supplied and commissioned 42 solar direct-drive vaccine refrigerators across district hospitals and rural health centres, ensuring vaccines stay potent even where the grid is unreliable."
-    image: https://loremflickr.com/1200/750/solar,refrigerator,vaccine?lock=30
+    image: /images/installations/installation-010.jpg
     results:
       - "42 health facilities now off-grid cold-chain capable"
       - "Zero vaccine loss reported in the first 12 months"
@@ -66,7 +66,7 @@ govProjects:
     location: "Dodoma Referral Hospital"
     year: "2023"
     description: "End-to-end procurement, installation, and staff training for a full suite of laboratory analysers and patient-monitoring equipment as part of the Ministry of Health modernisation programme."
-    image: https://loremflickr.com/1200/750/hospital,equipment,africa?lock=31
+    image: /images/installations/installation-020.jpg
     results:
       - "Reduced lab turnaround times by over 60%"
       - "On-site clinical engineering support for 24 months"
@@ -74,7 +74,7 @@ govProjects:
     location: "Pwani Region District Hospitals"
     year: "2022"
     description: "Delivered ultrasound systems, infant warmers, and phototherapy units to six district hospitals, strengthening maternal and newborn care across the coastal region."
-    image: https://loremflickr.com/1200/750/maternity,hospital,ultrasound?lock=32
+    image: /images/installations/installation-030.jpg
     results:
       - "6 hospitals fully equipped for safer deliveries"
       - "Hands-on training for 80+ clinical staff"
@@ -83,7 +83,7 @@ partner:
   name: "B Medical Systems"
   tagline: "A trusted global leader in medical cold-chain and vaccine refrigeration."
   description: "GML proudly partners with B Medical Systems — a Luxembourg-based, WHO PQS pre-qualified manufacturer — to bring world-class solar refrigerators, blood-bank fridges, and ultra-low-temperature freezers to Tanzania. Together we are building a stronger cold chain, one health facility at a time."
-  logo: https://loremflickr.com/600/400/medical,equipment,logo?lock=70
+  logo: /images/trusted/b-medical-systems.svg
   websiteUrl: "https://www.bmedicalsystems.com"
 
 installationsEyebrow: "Live Across Tanzania"
@@ -127,7 +127,7 @@ installations:
     project: "COVAX"
     lat: -6.801
     lng: 39.275
-    image: https://loremflickr.com/800/520/african,hospital,vaccine?lock=50
+    image: /images/installations/installation-040.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator (TCW80SDD)"
     status: "Commissioned 2022"
     notes: "Central vaccine cold storage hub serving Dar es Salaam Region under the COVAX rollout."
@@ -136,7 +136,7 @@ installations:
     project: "COVAX"
     lat: -6.173
     lng: 35.741
-    image: https://loremflickr.com/800/520/hospital,africa,clinic?lock=51
+    image: /images/installations/installation-044.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2022"
     notes: "Capital region vaccine cold-chain backbone."
@@ -145,7 +145,7 @@ installations:
     project: "COVAX"
     lat: -6.821
     lng: 37.661
-    image: https://loremflickr.com/800/520/vaccine,fridge,africa?lock=52
+    image: /images/installations/installation-048.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2022"
     notes: "Supports last-mile delivery to rural districts of Morogoro."
@@ -154,7 +154,7 @@ installations:
     project: "COVAX"
     lat: -2.516
     lng: 32.917
-    image: https://loremflickr.com/800/520/medical,centre,africa?lock=53
+    image: /images/installations/installation-052.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2022"
     notes: "Lake Zone hub for COVAX vaccine cold storage."
@@ -165,7 +165,7 @@ installations:
     project: "PAJAN"
     lat: -3.366
     lng: 36.683
-    image: https://loremflickr.com/800/520/clinic,africa,solar?lock=54
+    image: /images/installations/installation-056.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Northern circuit cold-chain anchor under the PAJAN programme."
@@ -174,7 +174,7 @@ installations:
     project: "PAJAN"
     lat: -3.341
     lng: 37.337
-    image: https://loremflickr.com/800/520/hospital,solar,africa?lock=55
+    image: /images/installations/installation-060.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Serves districts surrounding Mt. Kilimanjaro."
@@ -183,7 +183,7 @@ installations:
     project: "PAJAN"
     lat: -5.069
     lng: 39.099
-    image: https://loremflickr.com/800/520/coastal,hospital,africa?lock=56
+    image: /images/installations/installation-064.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Coastal northern hub; supports Tanga and surrounding districts."
@@ -192,7 +192,7 @@ installations:
     project: "PAJAN"
     lat: -4.314
     lng: 35.738
-    image: https://loremflickr.com/800/520/rural,hospital,africa?lock=57
+    image: /images/installations/installation-068.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Off-grid facility now reliably equipped under PAJAN."
@@ -203,7 +203,7 @@ installations:
     project: "HSS"
     lat: -1.332
     lng: 31.812
-    image: https://loremflickr.com/800/520/hospital,clinic,africa?lock=58
+    image: /images/installations/installation-072.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2024"
     notes: "Western Lake Victoria coverage hub."
@@ -212,7 +212,7 @@ installations:
     project: "HSS"
     lat: -2.872
     lng: 32.236
-    image: https://loremflickr.com/800/520/blood,bank,refrigerator?lock=41
+    image: /images/installations/installation-076.jpg
     deviceType: "Blood Bank Refrigerator + Vaccine Fridge"
     status: "Operational since June 2024"
     notes: "Supports both transfusion services and regional immunisation."
@@ -221,7 +221,7 @@ installations:
     project: "HSS"
     lat: -1.510
     lng: 33.819
-    image: https://loremflickr.com/800/520/regional,hospital,africa?lock=59
+    image: /images/installations/installation-080.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2024"
     notes: "HSS programme cold-chain delivery for Mara region."
@@ -230,7 +230,7 @@ installations:
     project: "HSS"
     lat: -1.500
     lng: 33.800
-    image: https://loremflickr.com/800/520/dispensary,africa,clinic?lock=60
+    image: /images/installations/installation-084.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2024"
     notes: "District-level last-mile cold-chain expansion."
@@ -250,7 +250,7 @@ installations:
     project: "AU-CDC"
     lat: -7.770
     lng: 35.691
-    image: https://loremflickr.com/800/520/african,hospital,fridge?lock=61
+    image: /images/installations/installation-088.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Highlands cold-chain anchor under AU-CDC programme."
@@ -259,7 +259,7 @@ installations:
     project: "AU-CDC"
     lat: -9.339
     lng: 34.769
-    image: https://loremflickr.com/800/520/highland,hospital,africa?lock=62
+    image: /images/installations/installation-092.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Njombe region cold-chain modernisation."
@@ -268,7 +268,7 @@ installations:
     project: "AU-CDC"
     lat: -8.722
     lng: 32.690
-    image: https://loremflickr.com/800/520/clinic,africa,vaccine?lock=63
+    image: /images/installations/installation-096.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2024"
     notes: "New Songwe regional cold-chain installation under AU-CDC."
@@ -279,7 +279,7 @@ installations:
     project: "HSS2"
     lat: -4.876
     lng: 29.626
-    image: https://loremflickr.com/800/520/african,medical,hospital?lock=64
+    image: /images/installations/installation-100.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Lake Tanganyika cold-chain anchor under HSS2."
@@ -288,7 +288,7 @@ installations:
     project: "HSS2"
     lat: -6.345
     lng: 31.067
-    image: https://loremflickr.com/800/520/health,centre,africa?lock=65
+    image: /images/installations/installation-104.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Remote western installation reliably off-grid."
@@ -297,7 +297,7 @@ installations:
     project: "HSS2"
     lat: -7.965
     lng: 31.616
-    image: https://loremflickr.com/800/520/regional,clinic,africa?lock=66
+    image: /images/installations/installation-108.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "HSS2 cold-chain coverage for Rukwa region."
@@ -306,7 +306,7 @@ installations:
     project: "HSS2"
     lat: -5.017
     lng: 32.819
-    image: https://loremflickr.com/800/520/hospital,africa,solar?lock=67
+    image: /images/installations/installation-112.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Central-western hub for HSS2 cold-chain delivery."
@@ -317,7 +317,7 @@ installations:
     project: "HSS3"
     lat: -10.000
     lng: 39.711
-    image: https://loremflickr.com/800/520/coastal,clinic,africa?lock=68
+    image: /images/installations/installation-116.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2024"
     notes: "Southern coastal cold-chain expansion under HSS3."
@@ -326,7 +326,7 @@ installations:
     project: "HSS3"
     lat: -10.265
     lng: 40.183
-    image: https://loremflickr.com/800/520/solar,vaccine,health?lock=43
+    image: /images/installations/installation-120.jpg
     deviceType: "Solar Vaccine Refrigerator"
     status: "Operational since November 2023"
     notes: "Coastal facility now fully off-grid cold-chain ready."
@@ -335,7 +335,7 @@ installations:
     project: "HSS3"
     lat: -6.836
     lng: 38.886
-    image: https://loremflickr.com/800/520/coastal,hospital,vaccine?lock=69
+    image: /images/installations/installation-124.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Pwani region cold-chain anchor close to Dar es Salaam."
@@ -344,7 +344,7 @@ installations:
     project: "HSS3"
     lat: -10.685
     lng: 35.650
-    image: https://loremflickr.com/800/520/southern,hospital,africa?lock=70
+    image: /images/installations/installation-128.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2024"
     notes: "Southern border region under HSS3 programme."
@@ -355,7 +355,7 @@ installations:
     project: "AU-CDC2"
     lat: -4.817
     lng: 34.747
-    image: https://loremflickr.com/800/520/medical,africa,clinic?lock=71
+    image: /images/installations/installation-132.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Central Tanzania cold-chain installation under AU-CDC2."
@@ -364,7 +364,7 @@ installations:
     project: "AU-CDC2"
     lat: -3.668
     lng: 33.421
-    image: https://loremflickr.com/800/520/medical,hospital,africa?lock=72
+    image: /images/installations/installation-136.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "AU-CDC2 cold-chain delivery for Shinyanga region."
@@ -373,7 +373,7 @@ installations:
     project: "AU-CDC2"
     lat: -2.834
     lng: 34.000
-    image: https://loremflickr.com/800/520/clinic,health,africa?lock=73
+    image: /images/installations/installation-005.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Commissioned 2024"
     notes: "Simiyu cold-chain expansion under AU-CDC2."
@@ -382,7 +382,7 @@ installations:
     project: "AU-CDC2"
     lat: -6.165
     lng: 39.198
-    image: https://loremflickr.com/800/520/zanzibar,hospital,africa?lock=74
+    image: /images/installations/installation-015.jpg
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
     status: "Operational"
     notes: "Zanzibar archipelago cold-chain hub (Unguja & Pemba support)."
