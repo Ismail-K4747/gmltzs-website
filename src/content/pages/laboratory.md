@@ -58,7 +58,7 @@ centers:
     phone: "+255 713 879 876"
     hours: "Mon–Sat 7:30am – 8:00pm · Sun 9am – 4pm"
     mapUrl: "https://maps.google.com/?q=Yombo+Kwa+Limboa+Dar+es+Salaam"
-    image: "/uploads/lab/PXL_20260426_133307688.PORTRAIT.ORIGINAL.jpg"
+    image: "/images/laboratory/card.jpg"
     highlights:
       - "Same-day blood work and urinalysis"
       - "Walk-in friendly — no appointment needed"
