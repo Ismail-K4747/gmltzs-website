@@ -530,24 +530,65 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Video Tour autoplay-on-view (lab/medics) ---
+  // Single-active strategy: only the most-visible tour video plays at any
+  // time. Decoding 3 streams in parallel was causing visible lag on the lab
+  // page; pausing the others keeps scroll fluid while still feeling "live".
   const tourVideos = document.querySelectorAll('.video-tour__video');
   if (tourVideos.length) {
+    tourVideos.forEach(v => {
+      v.preload = 'none';
+      v.disablePictureInPicture = true;
+      // Hint the compositor; helps avoid main-thread paints while playing.
+      v.style.willChange = 'transform';
+    });
+
+    let activeVideo = null;
+    const visibility = new Map();
+
+    const pickActive = () => {
+      let best = null;
+      let bestRatio = 0;
+      visibility.forEach((ratio, video) => {
+        if (ratio > bestRatio) { bestRatio = ratio; best = video; }
+      });
+      if (bestRatio < 0.4) best = null;
+      if (best === activeVideo) return;
+      if (activeVideo) {
+        activeVideo.pause();
+        activeVideo.preload = 'none';
+      }
+      activeVideo = best;
+      if (activeVideo) {
+        activeVideo.preload = 'auto';
+        activeVideo.play().catch(() => {});
+      }
+    };
+
     const tourObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const video = entry.target;
-        if (entry.isIntersecting) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
+        visibility.set(
+          entry.target,
+          entry.isIntersecting ? entry.intersectionRatio : 0
+        );
       });
-    }, { threshold: 0.5 });
+      pickActive();
+    }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
 
     tourVideos.forEach(video => {
       tourObserver.observe(video);
-      // Tap to toggle mute for a quick listen
+      // Click: if not the active video, promote it; else toggle mute.
       video.addEventListener('click', () => {
-        video.muted = !video.muted;
+        if (video !== activeVideo) {
+          if (activeVideo) {
+            activeVideo.pause();
+            activeVideo.preload = 'none';
+          }
+          activeVideo = video;
+          video.preload = 'auto';
+          video.play().catch(() => {});
+        } else {
+          video.muted = !video.muted;
+        }
       });
     });
   }
