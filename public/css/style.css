@@ -1419,6 +1419,38 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     radial-gradient(circle at 80% 20%, rgba(0,0,0,.15) 0%, transparent 50%);
 }
 
+/* ----- Hero slideshow ----- */
+.page-hero--slideshow { color: #fff; }
+.page-hero__slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.page-hero__slide {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  transform: scale(1.04);
+}
+.page-hero__slide.is-active { opacity: 1; }
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(10,28,48,.78) 0%, rgba(10,28,48,.55) 55%, rgba(10,28,48,.78) 100%);
+}
+.page-hero--slideshow .page-hero__content {
+  z-index: 2;
+  position: relative;
+}
+.page-hero--slideshow .page-hero__title,
+.page-hero--slideshow .page-hero__desc { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+
 .page-hero__content {
   position: relative;
 }
@@ -1906,6 +1938,30 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 3px 8px;
   border-radius: 4px;
   border: 1px solid rgba(0,0,0,.06);
+}
+
+.bmed-projects__partner {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .9rem;
+  padding: .55rem 1rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+}
+.bmed-projects__partner-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-text-light, #777);
+}
+.bmed-projects__partner-logo {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 /* ---- Testimonial scroll panel ---- */

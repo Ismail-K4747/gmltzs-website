@@ -8,6 +8,12 @@ pageHeroBgClass: "page-hero__bg--devices"
 pageHeroTag: "Medical Equipment"
 pageHeroTitle: "General Malick Limited: Medical Devices &amp; Lab Equipment"
 pageHeroDescription: "Supplying quality medical devices, diagnostic instruments, and laboratory equipment to hospitals, clinics, and healthcare facilities across Tanzania."
+pageHeroImages:
+  - /images/installations/hero-1.jpg
+  - /images/installations/hero-2.jpg
+  - /images/installations/hero-3.jpg
+  - /images/installations/hero-4.jpg
+  - /images/installations/hero-5.jpg
 
 pageAboutEyebrow: "About This Business"
 pageAboutTitle: "Equipping Healthcare with the Right Tools"
@@ -235,7 +241,7 @@ installations:
     project: "AU-CDC"
     lat: -8.909
     lng: 33.460
-    image: https://loremflickr.com/800/520/freezer,laboratory,medical?lock=44
+    image: /images/installations/mbeya-01.jpg
     deviceType: "Ultra-Low-Temperature Freezer + SDD Vaccine Fridge"
     status: "Operational since 2024"
     notes: "AU-CDC partnership: supports research, biobanking and immunisation."
