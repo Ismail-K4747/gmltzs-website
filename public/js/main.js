@@ -531,19 +531,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Video Tour autoplay-on-view (lab/medics) ---
   // Single-active strategy: only the most-visible tour video plays at any
-  // time. Decoding 3 streams in parallel was causing visible lag on the lab
-  // page; pausing the others keeps scroll fluid while still feeling "live".
+  // time. Three concurrent decodes were causing the lag; pausing the others
+  // keeps scroll fluid. Keep preload="metadata" so first frames are ready
+  // and play() resolves instantly (toggling preload at runtime froze them).
   const tourVideos = document.querySelectorAll('.video-tour__video');
   if (tourVideos.length) {
     tourVideos.forEach(v => {
-      v.preload = 'none';
+      v.preload = 'metadata';
       v.disablePictureInPicture = true;
-      // Hint the compositor; helps avoid main-thread paints while playing.
-      v.style.willChange = 'transform';
     });
 
     let activeVideo = null;
     const visibility = new Map();
+
+    const setActive = (video) => {
+      if (video === activeVideo) return;
+      if (activeVideo) {
+        activeVideo.pause();
+        activeVideo.currentTime = 0;
+        activeVideo.parentElement?.classList.remove('video-tour__item--playing');
+      }
+      activeVideo = video;
+      if (activeVideo) {
+        activeVideo.parentElement?.classList.add('video-tour__item--playing');
+        const p = activeVideo.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      }
+    };
 
     const pickActive = () => {
       let best = null;
@@ -551,17 +565,8 @@ document.addEventListener('DOMContentLoaded', () => {
       visibility.forEach((ratio, video) => {
         if (ratio > bestRatio) { bestRatio = ratio; best = video; }
       });
-      if (bestRatio < 0.4) best = null;
-      if (best === activeVideo) return;
-      if (activeVideo) {
-        activeVideo.pause();
-        activeVideo.preload = 'none';
-      }
-      activeVideo = best;
-      if (activeVideo) {
-        activeVideo.preload = 'auto';
-        activeVideo.play().catch(() => {});
-      }
+      if (bestRatio < 0.35) best = null;
+      setActive(best);
     };
 
     const tourObserver = new IntersectionObserver((entries) => {
@@ -576,16 +581,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tourVideos.forEach(video => {
       tourObserver.observe(video);
-      // Click: if not the active video, promote it; else toggle mute.
+      // Click a non-active tile to promote it; click the active to toggle mute.
       video.addEventListener('click', () => {
         if (video !== activeVideo) {
-          if (activeVideo) {
-            activeVideo.pause();
-            activeVideo.preload = 'none';
-          }
-          activeVideo = video;
-          video.preload = 'auto';
-          video.play().catch(() => {});
+          setActive(video);
         } else {
           video.muted = !video.muted;
         }
