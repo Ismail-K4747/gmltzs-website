@@ -232,6 +232,38 @@ const d = page.data;
       </section>
     )}
 
+    {/* ===== B MEDICAL SYSTEMS PROJECTS ===== */}
+    {(d.bMedicalProjects?.length ?? 0) > 0 && (
+      <section class="bmed-projects section">
+        <div class="container">
+          {(d.bMedicalProjectsEyebrow || d.bMedicalProjectsTitle || d.bMedicalProjectsIntro) && (
+            <div class="section__header">
+              {d.bMedicalProjectsEyebrow && <p class="section__eyebrow">{d.bMedicalProjectsEyebrow}</p>}
+              {d.bMedicalProjectsTitle && <h2 class="section__title">{d.bMedicalProjectsTitle}</h2>}
+              {d.bMedicalProjectsIntro && <p class="section__lead">{d.bMedicalProjectsIntro}</p>}
+            </div>
+          )}
+          <div class="bmed-projects__grid">
+            {d.bMedicalProjects.map((p: any) => (
+              <article class="bmed-project">
+                <header class="bmed-project__header">
+                  <span class="bmed-project__code">{p.code}</span>
+                  {p.year && <span class="bmed-project__year">{p.year}</span>}
+                </header>
+                <h3 class="bmed-project__name">{p.name}</h3>
+                {p.description && <p class="bmed-project__desc">{p.description}</p>}
+                {p.regions?.length > 0 && (
+                  <ul class="bmed-project__regions">
+                    {p.regions.map((r: string) => (<li>{r}</li>))}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
     {/* ===== HORIZONTAL TESTIMONIAL PANEL ===== */}
     {d.panelTestimonials.length > 0 && (
       <section class="testimonial-panel section">

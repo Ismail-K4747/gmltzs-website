@@ -185,9 +185,10 @@ const dataPayload = JSON.stringify({ installations, covered });
       const inst = installByRegion[key];
       if (inst) {
         const meta = [inst.deviceType, inst.status].filter(Boolean).join(' &middot; ');
+        const projectChip = inst.project ? `<span class="tz-map__detail-project">${inst.project}</span>` : '';
         detail.innerHTML = `
           ${inst.image ? `<img src="${inst.image}" alt="${inst.name}" class="tz-map__detail-img" loading="lazy" />` : ''}
-          <p class="tz-map__detail-eyebrow">${pretty}</p>
+          <p class="tz-map__detail-eyebrow">${pretty} ${projectChip}</p>
           <h3 class="tz-map__detail-name">${inst.name}</h3>
           ${meta ? `<p class="tz-map__detail-meta">${meta}</p>` : ''}
           ${inst.notes ? `<p class="tz-map__detail-desc">${inst.notes}</p>` : ''}

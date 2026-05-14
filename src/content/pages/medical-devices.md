@@ -115,46 +115,311 @@ sddCoveredRegions:
   - "Mtwara"
 
 installations:
-  - name: "Bukoba District Hospital"
-    region: "Kagera Region"
+  # ===== COVAX (urban hubs) =====
+  - name: "Muhimbili National Hospital"
+    region: "Dar es Salaam"
+    project: "COVAX"
+    lat: -6.801
+    lng: 39.275
+    image: https://loremflickr.com/800/520/african,hospital,vaccine?lock=50
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator (TCW80SDD)"
+    status: "Commissioned 2022"
+    notes: "Central vaccine cold storage hub serving Dar es Salaam Region under the COVAX rollout."
+  - name: "Dodoma Regional Referral Hospital"
+    region: "Dodoma"
+    project: "COVAX"
+    lat: -6.173
+    lng: 35.741
+    image: https://loremflickr.com/800/520/hospital,africa,clinic?lock=51
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2022"
+    notes: "Capital region vaccine cold-chain backbone."
+  - name: "Morogoro Regional Hospital"
+    region: "Morogoro"
+    project: "COVAX"
+    lat: -6.821
+    lng: 37.661
+    image: https://loremflickr.com/800/520/vaccine,fridge,africa?lock=52
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2022"
+    notes: "Supports last-mile delivery to rural districts of Morogoro."
+  - name: "Bugando Medical Centre"
+    region: "Mwanza"
+    project: "COVAX"
+    lat: -2.516
+    lng: 32.917
+    image: https://loremflickr.com/800/520/medical,centre,africa?lock=53
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2022"
+    notes: "Lake Zone hub for COVAX vaccine cold storage."
+
+  # ===== PAJAN (northern circuit) =====
+  - name: "Mount Meru Regional Referral Hospital"
+    region: "Arusha"
+    project: "PAJAN"
+    lat: -3.366
+    lng: 36.683
+    image: https://loremflickr.com/800/520/clinic,africa,solar?lock=54
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Northern circuit cold-chain anchor under the PAJAN programme."
+  - name: "Mawenzi Regional Referral Hospital"
+    region: "Kilimanjaro"
+    project: "PAJAN"
+    lat: -3.341
+    lng: 37.337
+    image: https://loremflickr.com/800/520/hospital,solar,africa?lock=55
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Serves districts surrounding Mt. Kilimanjaro."
+  - name: "Bombo Regional Referral Hospital"
+    region: "Tanga"
+    project: "PAJAN"
+    lat: -5.069
+    lng: 39.099
+    image: https://loremflickr.com/800/520/coastal,hospital,africa?lock=56
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Coastal northern hub; supports Tanga and surrounding districts."
+  - name: "Mt. Hanang District Hospital"
+    region: "Manyara"
+    project: "PAJAN"
+    lat: -4.314
+    lng: 35.738
+    image: https://loremflickr.com/800/520/rural,hospital,africa?lock=57
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Off-grid facility now reliably equipped under PAJAN."
+
+  # ===== HSS (Lake Victoria zone) =====
+  - name: "Bukoba Regional Referral Hospital"
+    region: "Kagera"
+    project: "HSS"
     lat: -1.332
     lng: 31.812
-    image: https://loremflickr.com/800/520/african,hospital,clinic?lock=40
+    image: https://loremflickr.com/800/520/hospital,clinic,africa?lock=58
     deviceType: "Solar Direct-Drive Vaccine Refrigerator"
-    status: "Operational since March 2024"
-    notes: "Serves over 80,000 residents with reliable vaccine storage even during grid outages."
+    status: "Commissioned 2024"
+    notes: "Western Lake Victoria coverage hub."
   - name: "Geita Regional Referral Hospital"
-    region: "Geita Region"
+    region: "Geita"
+    project: "HSS"
     lat: -2.872
     lng: 32.236
     image: https://loremflickr.com/800/520/blood,bank,refrigerator?lock=41
     deviceType: "Blood Bank Refrigerator + Vaccine Fridge"
     status: "Operational since June 2024"
-    notes: "Supports both transfusion services and the regional immunisation programme."
-  - name: "Dodoma Referral Hospital"
-    region: "Dodoma Region"
-    lat: -6.173
-    lng: 35.741
-    image: https://loremflickr.com/800/520/laboratory,analyser,hospital?lock=42
-    deviceType: "Laboratory Analysers & Cold Storage"
-    status: "Commissioned 2023"
-    notes: "Full lab modernisation under the Ministry of Health programme."
-  - name: "Mtwara District Hospital"
-    region: "Mtwara Region"
+    notes: "Supports both transfusion services and regional immunisation."
+  - name: "Mara Regional Referral Hospital"
+    region: "Mara"
+    project: "HSS"
+    lat: -1.510
+    lng: 33.819
+    image: https://loremflickr.com/800/520/regional,hospital,africa?lock=59
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2024"
+    notes: "HSS programme cold-chain delivery for Mara region."
+  - name: "Musoma District Health Office"
+    region: "Musoma"
+    project: "HSS"
+    lat: -1.500
+    lng: 33.800
+    image: https://loremflickr.com/800/520/dispensary,africa,clinic?lock=60
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2024"
+    notes: "District-level last-mile cold-chain expansion."
+
+  # ===== AU-CDC (southern highlands) =====
+  - name: "Mbeya Zonal Referral Hospital"
+    region: "Mbeya"
+    project: "AU-CDC"
+    lat: -8.909
+    lng: 33.460
+    image: https://loremflickr.com/800/520/freezer,laboratory,medical?lock=44
+    deviceType: "Ultra-Low-Temperature Freezer + SDD Vaccine Fridge"
+    status: "Operational since 2024"
+    notes: "AU-CDC partnership: supports research, biobanking and immunisation."
+  - name: "Iringa Regional Referral Hospital"
+    region: "Iringa"
+    project: "AU-CDC"
+    lat: -7.770
+    lng: 35.691
+    image: https://loremflickr.com/800/520/african,hospital,fridge?lock=61
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Highlands cold-chain anchor under AU-CDC programme."
+  - name: "Kibena Regional Referral Hospital"
+    region: "Njombe"
+    project: "AU-CDC"
+    lat: -9.339
+    lng: 34.769
+    image: https://loremflickr.com/800/520/highland,hospital,africa?lock=62
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Njombe region cold-chain modernisation."
+  - name: "Songwe Regional Hospital"
+    region: "Songwe"
+    project: "AU-CDC"
+    lat: -8.722
+    lng: 32.690
+    image: https://loremflickr.com/800/520/clinic,africa,vaccine?lock=63
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2024"
+    notes: "New Songwe regional cold-chain installation under AU-CDC."
+
+  # ===== HSS2 (western corridor) =====
+  - name: "Maweni Regional Referral Hospital"
+    region: "Kigoma"
+    project: "HSS2"
+    lat: -4.876
+    lng: 29.626
+    image: https://loremflickr.com/800/520/african,medical,hospital?lock=64
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Lake Tanganyika cold-chain anchor under HSS2."
+  - name: "Mpanda Regional Referral Hospital"
+    region: "Katavi"
+    project: "HSS2"
+    lat: -6.345
+    lng: 31.067
+    image: https://loremflickr.com/800/520/health,centre,africa?lock=65
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Remote western installation reliably off-grid."
+  - name: "Sumbawanga Regional Referral Hospital"
+    region: "Rukwa"
+    project: "HSS2"
+    lat: -7.965
+    lng: 31.616
+    image: https://loremflickr.com/800/520/regional,clinic,africa?lock=66
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "HSS2 cold-chain coverage for Rukwa region."
+  - name: "Kitete Regional Referral Hospital"
+    region: "Tabora"
+    project: "HSS2"
+    lat: -5.017
+    lng: 32.819
+    image: https://loremflickr.com/800/520/hospital,africa,solar?lock=67
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Central-western hub for HSS2 cold-chain delivery."
+
+  # ===== HSS3 (coastal & southern) =====
+  - name: "Sokoine Regional Referral Hospital"
+    region: "Lindi"
+    project: "HSS3"
+    lat: -10.000
+    lng: 39.711
+    image: https://loremflickr.com/800/520/coastal,clinic,africa?lock=68
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2024"
+    notes: "Southern coastal cold-chain expansion under HSS3."
+  - name: "Ligula Regional Referral Hospital"
+    region: "Mtwara"
+    project: "HSS3"
     lat: -10.265
     lng: 40.183
     image: https://loremflickr.com/800/520/solar,vaccine,health?lock=43
     deviceType: "Solar Vaccine Refrigerator"
     status: "Operational since November 2023"
     notes: "Coastal facility now fully off-grid cold-chain ready."
-  - name: "Mbeya Zonal Referral Hospital"
-    region: "Mbeya Region"
-    lat: -8.909
-    lng: 33.460
-    image: https://loremflickr.com/800/520/freezer,laboratory,medical?lock=44
-    deviceType: "Ultra-Low-Temperature Freezer"
-    status: "Operational since 2024"
-    notes: "Supports advanced research and biobanking activities."
+  - name: "Tumbi Regional Referral Hospital"
+    region: "Pwani"
+    project: "HSS3"
+    lat: -6.836
+    lng: 38.886
+    image: https://loremflickr.com/800/520/coastal,hospital,vaccine?lock=69
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Pwani region cold-chain anchor close to Dar es Salaam."
+  - name: "Songea Regional Referral Hospital"
+    region: "Ruvuma"
+    project: "HSS3"
+    lat: -10.685
+    lng: 35.650
+    image: https://loremflickr.com/800/520/southern,hospital,africa?lock=70
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2024"
+    notes: "Southern border region under HSS3 programme."
+
+  # ===== AU-CDC2 (mixed) =====
+  - name: "Singida Regional Referral Hospital"
+    region: "Singida"
+    project: "AU-CDC2"
+    lat: -4.817
+    lng: 34.747
+    image: https://loremflickr.com/800/520/medical,africa,clinic?lock=71
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Central Tanzania cold-chain installation under AU-CDC2."
+  - name: "Shinyanga Regional Referral Hospital"
+    region: "Shinyanga"
+    project: "AU-CDC2"
+    lat: -3.668
+    lng: 33.421
+    image: https://loremflickr.com/800/520/medical,hospital,africa?lock=72
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "AU-CDC2 cold-chain delivery for Shinyanga region."
+  - name: "Simiyu Regional Hospital"
+    region: "Simiyu"
+    project: "AU-CDC2"
+    lat: -2.834
+    lng: 34.000
+    image: https://loremflickr.com/800/520/clinic,health,africa?lock=73
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Commissioned 2024"
+    notes: "Simiyu cold-chain expansion under AU-CDC2."
+  - name: "Mnazi Mmoja Hospital"
+    region: "Zanzibar"
+    project: "AU-CDC2"
+    lat: -6.165
+    lng: 39.198
+    image: https://loremflickr.com/800/520/zanzibar,hospital,africa?lock=74
+    deviceType: "Solar Direct-Drive Vaccine Refrigerator"
+    status: "Operational"
+    notes: "Zanzibar archipelago cold-chain hub (Unguja & Pemba support)."
+
+bMedicalProjectsEyebrow: "Programmes Delivered"
+bMedicalProjectsTitle: "7 Projects with B Medical Systems in Tanzania"
+bMedicalProjectsIntro: "GM Group has partnered with B Medical Systems on seven national cold-chain programmes — equipping hospitals across all 28 regions of Tanzania with solar direct-drive (SDD) vaccine refrigeration."
+bMedicalProjects:
+  - code: "COVAX"
+    name: "COVAX Vaccine Cold-Chain Rollout"
+    description: "National vaccine distribution programme equipping urban referral hospitals with solar direct-drive refrigerators."
+    regions: ["Dar es Salaam", "Dodoma", "Morogoro", "Mwanza"]
+    year: "2022"
+  - code: "PAJAN"
+    name: "PAJAN Northern Circuit Programme"
+    description: "Cold-chain modernisation across the northern tourism and health corridor."
+    regions: ["Arusha", "Kilimanjaro", "Tanga", "Manyara"]
+    year: "2023"
+  - code: "HSS"
+    name: "Health Systems Strengthening (Phase 1)"
+    description: "Lake Victoria zone cold-chain build-out for routine immunisation."
+    regions: ["Kagera", "Geita", "Mara", "Musoma"]
+    year: "2024"
+  - code: "AU-CDC"
+    name: "Africa CDC Cold-Chain Partnership (Phase 1)"
+    description: "Southern highlands biobanking, ultra-low-temperature freezers and SDD vaccine fridges."
+    regions: ["Mbeya", "Iringa", "Njombe", "Songwe"]
+    year: "2024"
+  - code: "HSS2"
+    name: "Health Systems Strengthening (Phase 2)"
+    description: "Western corridor coverage — Kigoma to Tabora — closing remote off-grid gaps."
+    regions: ["Kigoma", "Katavi", "Rukwa", "Tabora"]
+    year: "2024"
+  - code: "HSS3"
+    name: "Health Systems Strengthening (Phase 3)"
+    description: "Coastal and southern border districts — last-mile cold-chain delivery."
+    regions: ["Lindi", "Mtwara", "Pwani", "Ruvuma"]
+    year: "2025"
+  - code: "AU-CDC2"
+    name: "Africa CDC Cold-Chain Partnership (Phase 2)"
+    description: "Central regions and the Zanzibar archipelago — completing national coverage."
+    regions: ["Singida", "Shinyanga", "Simiyu", "Zanzibar"]
+    year: "2025"
 
 panelTestimonialsEyebrow: "What Our Clients Say"
 panelTestimonialsTitle: "Voices From the Field"
