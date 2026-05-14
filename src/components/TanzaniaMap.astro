@@ -1,0 +1,265 @@
+---
+// Interactive Tanzania regions map (Leaflet + GADM ADM1 GeoJSON).
+// On scroll into view: zooms from continental Africa down to Tanzania bounds.
+// All 28 SDD-covered regions are highlighted in gold; click any region for details.
+
+interface Installation {
+  name: string;
+  region?: string;
+  lat?: number;
+  lng?: number;
+  image?: string;
+  deviceType?: string;
+  status?: string;
+  notes?: string;
+}
+
+interface Props {
+  installations: Installation[];
+  coveredRegions?: string[];
+}
+
+const { installations, coveredRegions = [] } = Astro.props;
+
+// Default covered regions if CMS hasn't supplied them.
+const defaultCovered = [
+  'Dar es Salaam', 'Dodoma', 'Morogoro', 'Mwanza', 'Kagera', 'Geita',
+  'Tanga', 'Zanzibar', 'Kigoma', 'Mbeya', 'Iringa', 'Ruvuma', 'Singida',
+  'Shinyanga', 'Arusha', 'Kilimanjaro', 'Musoma', 'Simiyu', 'Katavi',
+  'Lindi', 'Manyara', 'Mara', 'Njombe', 'Pwani', 'Rukwa', 'Songwe',
+  'Tabora', 'Mtwara',
+];
+const covered = coveredRegions.length ? coveredRegions : defaultCovered;
+
+const dataPayload = JSON.stringify({ installations, covered });
+---
+
+<div class="tz-map" data-tz-payload={dataPayload}>
+  <div class="tz-map__stage">
+    <div class="tz-map__leaflet" data-tz-leaflet></div>
+    <div class="tz-map__legend">
+      <span class="tz-map__legend-dot tz-map__legend-dot--active"></span>
+      <span>SDD installation</span>
+    </div>
+    <div class="tz-map__hint">Hover regions &middot; click for details</div>
+  </div>
+
+  <aside class="tz-map__panel">
+    <div class="tz-map__detail" data-tz-detail aria-live="polite">
+      <p class="tz-map__detail-eyebrow">Selected region</p>
+      <h3 class="tz-map__detail-name">Hover or tap a region</h3>
+      <p class="tz-map__detail-desc">All highlighted areas have active solar direct-drive (SDD) cold-chain installations supplied and serviced by GM Group.</p>
+    </div>
+
+    <div class="tz-map__regions">
+      <p class="tz-map__regions-title">Coverage ({covered.length} regions)</p>
+      <ul class="tz-map__regions-list">
+        {covered.map((r) => (
+          <li><button type="button" class="tz-map__region-chip" data-tz-region={r}>{r}</button></li>
+        ))}
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<script>
+  // @ts-nocheck
+  import L from 'leaflet';
+  import 'leaflet/dist/leaflet.css';
+
+  // Tanzania bounding box (slightly padded).
+  const TZ_BOUNDS: L.LatLngBoundsLiteral = [[-12.2, 28.8], [-0.7, 40.8]];
+  const AFRICA_CENTER: L.LatLngExpression = [0, 25];
+
+  function normalize(s: string): string {
+    return (s || '')
+      .toLowerCase()
+      .replace(/\bregion\b/g, '')
+      .replace(/[\s\-_,.]+/g, '')
+      .trim();
+  }
+
+  // Map user-friendly region names to one or more GADM NAME_1 values.
+  function expandToGadm(name: string): string[] {
+    const n = normalize(name);
+    if (n === 'zanzibar') {
+      return ['kaskaziniunguja', 'kusiniunguja', 'mjinimagharibi', 'kaskazinipemba', 'kusinipemba'];
+    }
+    if (n === 'musoma') return ['mara']; // Musoma is the capital of Mara region
+    return [n];
+  }
+
+  async function initMap(block: HTMLElement) {
+    const container = block.querySelector<HTMLElement>('[data-tz-leaflet]');
+    if (!container) return;
+    if ((container as any).__tzInit) return;
+    (container as any).__tzInit = true;
+
+    let payload: any = { installations: [], covered: [] };
+    try { payload = JSON.parse(block.getAttribute('data-tz-payload') || '{}'); } catch {}
+    const installations = payload.installations || [];
+    const covered: string[] = payload.covered || [];
+
+    const installedKeys = new Set<string>();
+    covered.forEach((c) => expandToGadm(c).forEach((k) => installedKeys.add(k)));
+
+    // Index installations by normalized region name for click-to-detail.
+    const installByRegion: Record<string, any> = {};
+    installations.forEach((i: any) => {
+      if (i.region) installByRegion[normalize(i.region)] = i;
+    });
+
+    const map = L.map(container, {
+      zoomControl: false,
+      attributionControl: true,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      dragging: false,
+      touchZoom: false,
+      minZoom: 3,
+      maxZoom: 8,
+      zoomSnap: 0.25,
+    });
+
+    // Faded basemap so neighbouring countries are visible but recede.
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
+      subdomains: 'abcd',
+      maxZoom: 10,
+      opacity: 0.45,
+      attribution: '&copy; OpenStreetMap &copy; CARTO',
+    }).addTo(map);
+
+    // Initial wide-Africa view; we'll fly to Tanzania on scroll-in.
+    map.setView(AFRICA_CENTER, 3);
+
+    // Load Tanzania ADM1 GeoJSON.
+    const geo = await fetch('/data/tanzania-regions.json').then((r) => r.json());
+
+    const detail = block.querySelector<HTMLElement>('[data-tz-detail]');
+
+    const layer = L.geoJSON(geo, {
+      style: (feature) => {
+        const key = normalize(feature?.properties?.NAME_1 || '');
+        const isInstalled = installedKeys.has(key);
+        return {
+          color: isInstalled ? '#fff8e8' : 'rgba(255,255,255,.4)',
+          weight: isInstalled ? 1.2 : 0.6,
+          fillColor: isInstalled ? '#d4a843' : '#2c4256',
+          fillOpacity: isInstalled ? 0.82 : 0.55,
+        } as L.PathOptions;
+      },
+      onEachFeature: (feature, lyr) => {
+        const rawName = feature.properties.NAME_1;
+        const pretty = prettyName(rawName);
+        const key = normalize(rawName);
+        const isInstalled = installedKeys.has(key);
+
+        lyr.bindTooltip(pretty, { sticky: true, className: 'tz-map__tooltip', direction: 'top' });
+
+        lyr.on('mouseover', () => {
+          (lyr as L.Path).setStyle({ weight: 2.5, fillOpacity: 0.95 });
+          (lyr as L.Path).bringToFront();
+        });
+        lyr.on('mouseout', () => layer.resetStyle(lyr));
+        lyr.on('click', () => {
+          showRegionDetail(pretty, key, isInstalled);
+        });
+      },
+    }).addTo(map);
+
+    function prettyName(raw: string): string {
+      return raw
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .replace(/Dares Salaam/i, 'Dar es Salaam')
+        .replace(/Mjini Magharibi/i, 'Zanzibar — Mjini Magharibi')
+        .replace(/Kaskazini Unguja/i, 'Zanzibar — North Unguja')
+        .replace(/Kusini Unguja/i, 'Zanzibar — South Unguja')
+        .replace(/Kaskazini Pemba/i, 'Pemba — North')
+        .replace(/Kusini Pemba/i, 'Pemba — South');
+    }
+
+    function showRegionDetail(pretty: string, key: string, isInstalled: boolean) {
+      if (!detail) return;
+      const inst = installByRegion[key];
+      if (inst) {
+        const meta = [inst.deviceType, inst.status].filter(Boolean).join(' &middot; ');
+        detail.innerHTML = `
+          ${inst.image ? `<img src="${inst.image}" alt="${inst.name}" class="tz-map__detail-img" loading="lazy" />` : ''}
+          <p class="tz-map__detail-eyebrow">${pretty}</p>
+          <h3 class="tz-map__detail-name">${inst.name}</h3>
+          ${meta ? `<p class="tz-map__detail-meta">${meta}</p>` : ''}
+          ${inst.notes ? `<p class="tz-map__detail-desc">${inst.notes}</p>` : ''}
+        `;
+      } else if (isInstalled) {
+        detail.innerHTML = `
+          <p class="tz-map__detail-eyebrow">${pretty}</p>
+          <h3 class="tz-map__detail-name">Active SDD coverage area</h3>
+          <p class="tz-map__detail-desc">GM Group has commissioned and continues to service solar direct-drive cold-chain units across this region.</p>
+        `;
+      } else {
+        detail.innerHTML = `
+          <p class="tz-map__detail-eyebrow">${pretty}</p>
+          <h3 class="tz-map__detail-name">Region not yet served</h3>
+          <p class="tz-map__detail-desc">No active GML installations recorded here yet — get in touch to discuss bringing solar cold-chain to this region.</p>
+        `;
+      }
+    }
+
+    // Region chip clicks (sidebar list).
+    block.querySelectorAll<HTMLButtonElement>('[data-tz-region]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-tz-region') || '';
+        const keys = expandToGadm(name);
+        // Find first matching layer feature.
+        let target: L.Layer | null = null;
+        layer.eachLayer((l: any) => {
+          if (target) return;
+          const k = normalize(l.feature?.properties?.NAME_1 || '');
+          if (keys.includes(k)) target = l;
+        });
+        if (target) {
+          (target as any).fire('click');
+          map.fitBounds((target as any).getBounds(), { padding: [40, 40], maxZoom: 7 });
+        }
+      });
+    });
+
+    // Scroll-triggered fly-to-Tanzania (one-shot).
+    let zoomed = false;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (zoomed) return;
+        const e = entries[0];
+        if (e.isIntersecting && e.intersectionRatio > 0.25) {
+          zoomed = true;
+          // Small delay so the user sees the world view first.
+          setTimeout(() => {
+            map.flyToBounds(TZ_BOUNDS, { duration: 2.4, padding: [20, 20] });
+          }, 350);
+          // Once landed, allow gentle drag within Tanzania bounds.
+          setTimeout(() => {
+            map.dragging.enable();
+            map.touchZoom.enable();
+            map.setMaxBounds(TZ_BOUNDS);
+            map.options.minZoom = 5;
+          }, 3200);
+        }
+      },
+      { threshold: [0, 0.25, 0.5] }
+    );
+    io.observe(block);
+
+    // Cleanup.
+    window.addEventListener('beforeunload', () => map.remove());
+  }
+
+  function initAll() {
+    document.querySelectorAll<HTMLElement>('.tz-map').forEach(initMap);
+  }
+
+  if (document.readyState !== 'loading') initAll();
+  else document.addEventListener('DOMContentLoaded', initAll);
+  document.addEventListener('astro:page-load', initAll);
+</script>

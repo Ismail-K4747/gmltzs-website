@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import TanzaniaGlobe from '../components/TanzaniaGlobe.astro';
+import TanzaniaMap from '../components/TanzaniaMap.astro';
 
 interface Props { slug: string; }
 const { slug } = Astro.props;
@@ -227,7 +227,7 @@ const d = page.data;
               {d.installationsIntro && <p class="section__lead">{d.installationsIntro}</p>}
             </div>
           )}
-          <TanzaniaGlobe installations={d.installations} />
+          <TanzaniaMap installations={d.installations} coveredRegions={d.sddCoveredRegions ?? []} />
         </div>
       </section>
     )}
