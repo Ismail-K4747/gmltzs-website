@@ -208,7 +208,7 @@ progressCards:
     markerLabel: May 2026
     markerAriaLabel: Scroll to mid-May 2026 slab finishing crew
     mediaType: video
-    mediaUrl: /images/Real Estate Project assets/2026-05-13-08-slab-pour-A.mp4
+    mediaUrl: /images/Real Estate Project assets/2026-05-13-09-slab-pour-B.mp4
     posterUrl: /images/Real Estate Project assets/2026-05-13-07.jpg
     overlayLabel: Autoplay on View
     overlayHeadline: Slab Closes Out
