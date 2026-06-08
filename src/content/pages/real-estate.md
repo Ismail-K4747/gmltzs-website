@@ -215,6 +215,17 @@ progressCards:
     dateLabel: 13 May 2026
     title: Crews Finish the Pour
     caption: Hi-vis crews work the wet slab smooth — the deck for the next storey is officially set.
+  - index: 10
+    markerLabel: June 2026
+    markerAriaLabel: Scroll to June 2026 second floor coming to an end
+    mediaType: video
+    mediaUrl: images\Real Estate Project assets\update kinondoni.mp4
+    posterUrl: /images/Real Estate Project assets/2026-05-13-07.jpg
+    overlayLabel: Autoplay on View
+    overlayHeadline: Excellent Progress on the 2nd Floor
+    dateLabel: 02 June 2026
+    title: 2 Storey surroundings walk-through
+    caption: Second storey almost done. Setting the scene for the final floor.
     active: false
 projectFeatures:
   - title: Premium Finishes
