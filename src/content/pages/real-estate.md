@@ -231,8 +231,8 @@ progressCards:
     markerLabel: June 2026
     markerAriaLabel: Scroll to June 2026 second floor coming to an end
     mediaType: video
-    mediaUrl: /uploads/update kinondoni.mp4
-    posterUrl: /uploads/2026-05-13-07.jpg
+    mediaUrl: /images/Real Estate Project assets/update kinondoni.mp4
+    posterUrl: /images/Real Estate Project assets/2026-05-13-07.jpg
     overlayLabel: Autoplay on View
     overlayHeadline: Excellent Progress on the 2nd Floor
     dateLabel: 02 June 2026
