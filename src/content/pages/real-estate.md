@@ -58,6 +58,17 @@ ctaBanner:
   buttonLabel: Get in Touch
   buttonHref: /#contact
 whatsappMessage: Hello GML, I would like to enquire about your real estate services.
+centersEyebrow: ''
+centersTitle: ''
+centersIntro: ''
+govProjectsEyebrow: ''
+govProjectsTitle: ''
+govProjectsIntro: ''
+installationsEyebrow: ''
+installationsTitle: ''
+installationsIntro: ''
+panelTestimonialsEyebrow: ''
+panelTestimonialsTitle: ''
 legalLastUpdated: ''
 projectEyebrow: Featured Project
 projectTitle: GM Residence Kinondoni
@@ -215,6 +226,18 @@ progressCards:
     dateLabel: 13 May 2026
     title: Crews Finish the Pour
     caption: Hi-vis crews work the wet slab smooth — the deck for the next storey is officially set.
+    active: false
+  - index: 10
+    markerLabel: June 2026
+    markerAriaLabel: Scroll to June 2026 second floor coming to an end
+    mediaType: video
+    mediaUrl: /uploads/update kinondoni.mp4
+    posterUrl: /uploads/2026-05-13-07.jpg
+    overlayLabel: Autoplay on View
+    overlayHeadline: Excellent Progress on the 2nd Floor
+    dateLabel: 02 June 2026
+    title: 2 Storey surroundings walk-through
+    caption: Second floor almost done. Setting the scene for the final floor.
     active: false
 projectFeatures:
   - title: Premium Finishes
