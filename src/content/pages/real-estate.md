@@ -239,6 +239,18 @@ progressCards:
     title: 2 Storey surroundings walk-through
     caption: Second floor almost done. Setting the scene for the final floor.
     active: false
+  - index: 11
+    markerLabel: July 2026
+    markerAriaLabel: Scroll to July 2026 Third Floor Kick Off
+    mediaType: video
+    mediaUrl: /images/Real Estate Project assets/update_kinondoni_july_26.mp4
+    posterUrl: /images/Real Estate Project assets/WhatsApp Image 2026-07-13 at 9.14.54 AM.jpeg
+    overlayLabel: Autoplay on View
+    overlayHeadline: Third Floor Groundwork
+    dateLabel: 03 July 2026
+    title: Mesh Set, Structure Rises
+    caption: Steel mesh is laid out on the final level, marking the start of the last floor's rise.
+    active: false
 projectFeatures:
   - title: Premium Finishes
     description: Imported porcelain tiles, solid-core doors, and granite kitchen countertops throughout.
