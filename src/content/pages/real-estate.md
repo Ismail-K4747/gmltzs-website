@@ -99,12 +99,12 @@ projectStats:
   - value: Kinondoni
     label: Dar es Salaam
 projectGalleryAllImages:
-  - /images/Real Estate Project assets/3.jpeg
-  - /images/Real Estate Project assets/12.jpeg
-  - /images/Real Estate Project assets/9.jpeg
-  - /images/Real Estate Project assets/2.jpeg
-  - /images/Real Estate Project assets/7.jpeg
-  - /images/Real Estate Project assets/1.jpeg
+  - /uploads/IMG-20260815-WA0115(2).jpg
+  - /uploads/IMG-20260815-WA0113.jpg
+  - /uploads/IMG-20260815-WA0119.jpg
+  - /uploads/IMG-20260815-WA0117(1).jpg
+  - /uploads/IMG-20260815-WA0118(1).jpg
+  - /uploads/IMG-20260815-WA0114(2).jpg
   - /images/Real Estate Project assets/4.jpeg
   - /images/Real Estate Project assets/5.jpeg
   - /images/Real Estate Project assets/6.jpeg
