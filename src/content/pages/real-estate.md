@@ -118,7 +118,7 @@ projectGalleryAllImages:
   - /images/Real Estate Project assets/17.jpeg
   - /images/Real Estate Project assets/18.jpeg
   - /images/Real Estate Project assets/19.jpeg
-  - /images/Real Estate Project assets/20.jpeg
+  - /uploads/IMG-20260815-WA0114(2).jpg
 projectGalleryMain:
   image: /uploads/IMG-20260815-WA0115(2).jpg
   alt: GM Residence Kinondoni – front exterior view
@@ -258,6 +258,7 @@ progressCards:
     dateLabel: 13 May 2026
     title: Crews Finish the Pour
     caption: Hi-vis crews work the wet slab smooth — the deck for the next storey is officially set.
+    active: false
   - index: 10
     markerLabel: June 2026
     markerAriaLabel: Scroll to June 2026 second floor coming to an end
