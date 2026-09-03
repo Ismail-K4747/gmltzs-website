@@ -118,7 +118,7 @@ projectGalleryAllImages:
   - /images/Real Estate Project assets/17.jpeg
   - /images/Real Estate Project assets/18.jpeg
   - /images/Real Estate Project assets/19.jpeg
-  - /uploads/IMG-20260815-WA0115(2).jpg
+  - /uploads/IMG-20260815-WA0117(1).jpg
 projectGalleryMain:
   image: /uploads/IMG-20260815-WA0115(2).jpg
   alt: GM Residence Kinondoni – front exterior view
