@@ -35,7 +35,7 @@ bodySections: []
 pageTheme: ''
 pageHeroBgClass: page-hero__bg--realestate
 pageHeroTag: Real Estate
-pageHeroTitle: GM Apartments &amp; Real Estate
+pageHeroTitle: GM Apartments & Real Estate
 pageHeroDescription: Modern apartment rentals and premium real estate development, sales, and property management across Dar es Salaam and beyond.
 pageAboutEyebrow: About This Business
 pageAboutTitle: Building the Future of Tanzanian Real Estate
@@ -52,10 +52,10 @@ services:
   - title: Property Management
     description: Full-service management including tenant relations, maintenance, and rent collection for property owners.
     iconSvg: <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.78 7.78 5.5 5.5 0 017.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-  - title: Land Sales &amp; Advisory
+  - title: Land Sales & Advisory
     description: Expert guidance on land acquisition, due diligence, title verification, and investment advisory.
     iconSvg: <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-  - title: Architecture &amp; Design
+  - title: Architecture & Design
     description: Architectural planning and interior design services that blend modern aesthetics with functional living.
     iconSvg: <path d="M2 20L12 4l10 16H2z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="16" r=".5"/>
   - title: Investment Advisory
@@ -90,7 +90,7 @@ projectEyebrow: Featured Project
 projectTitle: GM Residence Kinondoni
 projectSubtitle: Modern apartments with spacious balconies, secure parking, 24/7 security, backup power, and premium finishes in the heart of Kinondoni, Dar es Salaam.
 projectStats:
-  - value: 2 &amp; 3
+  - value: 2 & 3
     label: Bedrooms
   - value: 85–140
     label: m² Floor Area

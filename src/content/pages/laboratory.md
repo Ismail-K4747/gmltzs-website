@@ -6,7 +6,7 @@ canonical: "https://gmltzs.com/businesses/laboratory.html"
 pageTheme: "laboratory"
 pageHeroBgClass: "page-hero__bg--laboratory"
 pageHeroTag: "Diagnostics"
-pageHeroTitle: "GM Labs &amp; Diagnostic Point"
+pageHeroTitle: "GM Labs & Diagnostic Point"
 pageHeroDescription: "State-of-the-art diagnostic and clinical laboratory services, delivering accurate, timely results for patients and healthcare providers."
 pageHeroImages:
   - /images/laboratory/hero-1.jpg

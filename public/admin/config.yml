@@ -158,7 +158,7 @@ collections:
       - { name: pageTheme,         label: "Inner page — theme",       widget: select, options: ["", "devices", "medics", "laboratory", "realestate"], required: false }
       - { name: pageHeroBgClass,   label: "Inner page — hero background CSS class", widget: string, required: false }
       - { name: pageHeroTag,       label: "Inner page — hero small tag",  widget: string, required: false }
-      - { name: pageHeroTitle,     label: "Inner page — hero title",      widget: string, required: false }
+      - { name: pageHeroTitle,     label: "Inner page — hero title",      widget: string, required: false, hint: "Plain text only. Type '&' directly; do not enter '&amp;'." }
       - { name: pageHeroDescription, label: "Inner page — hero description", widget: text, required: false }
 
       # ---- INNER PAGE ABOUT ----
@@ -178,7 +178,7 @@ collections:
         required: false
         summary: "{{fields.title}}"
         fields:
-          - { name: title,       label: "Title",       widget: string }
+          - { name: title,       label: "Title",       widget: string, hint: "Plain text only. Type '&' directly; do not enter '&amp;'." }
           - { name: description, label: "Description", widget: text }
           - { name: iconSvg,     label: "Inline SVG (paths only)", widget: text, required: false, hint: "Advanced — paste raw <path>/<circle>/etc. inside the existing 24×24 viewbox" }
 
@@ -321,7 +321,7 @@ collections:
         summary: "{{fields.title}}"
         fields:
           - { name: title, label: "Section title", widget: string }
-          - { name: body,  label: "Section body (HTML allowed)", widget: text }
+          - { name: body,  label: "Section body (HTML allowed)", widget: text, hint: "Use valid HTML only. Avoid inline style attributes; use existing CSS classes." }
 
       # ==========================================================================
       # REAL-ESTATE-SPECIFIC FIELDS
@@ -334,7 +334,7 @@ collections:
         widget: list
         required: false
         fields:
-          - { name: value, label: "Value", widget: string }
+          - { name: value, label: "Value", widget: string, hint: "Plain text only. Type '&' directly; do not enter '&amp;'." }
           - { name: label, label: "Label", widget: string }
       - name: projectGalleryAllImages
         label: "Project — gallery (lightbox set)"
@@ -387,7 +387,7 @@ collections:
         widget: list
         required: false
         fields:
-          - { name: title,       label: "Title",       widget: string }
+          - { name: title,       label: "Title",       widget: string, hint: "Plain text only. Type '&' directly; do not enter '&amp;'." }
           - { name: description, label: "Description", widget: text }
           - { name: iconSvg,     label: "Inline SVG (paths only)", widget: text, required: false }
       - { name: projectEnquireButtonLabel, label: "Project enquire-button label", widget: string, required: false }

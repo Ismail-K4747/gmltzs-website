@@ -24,7 +24,7 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
     <div class={`page-hero__bg ${d.pageHeroBgClass ?? ''}`}></div>
     <div class="container page-hero__content">
       {d.pageHeroTag && <span class="page-hero__tag">{d.pageHeroTag}</span>}
-      <h1 class="page-hero__title" set:html={d.pageHeroTitle} />
+      <h1 class="page-hero__title">{d.pageHeroTitle}</h1>
       {d.pageHeroDescription && <p class="page-hero__desc">{d.pageHeroDescription}</p>}
     </div>
   </section>
@@ -51,7 +51,7 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
                   <svg viewBox="0 0 24 24" set:html={s.iconSvg} />
                 </div>
               )}
-              <h3 class="service-card__title" set:html={s.title} />
+                  <h3 class="service-card__title">{s.title}</h3>
               <p class="service-card__desc">{s.description}</p>
             </div>
           ))}
@@ -67,7 +67,7 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
         {d.projectEyebrow && <p class="section__eyebrow">{d.projectEyebrow}</p>}
         {d.projectTitle && <h2 class="section__title">{d.projectTitle}</h2>}
         {d.projectSubtitle && (
-          <p class="section__subtitle" style="max-width:640px;margin-inline:auto;color:var(--color-text-light);margin-top:.75rem;">{d.projectSubtitle}</p>
+          <p class="section__subtitle project__subtitle">{d.projectSubtitle}</p>
         )}
       </div>
 
@@ -75,7 +75,7 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
         <div class="project__stats">
           {d.projectStats.map((s) => (
             <div class="project__stat">
-              <span class="project__stat-value" set:html={s.value} />
+              <span class="project__stat-value">{s.value}</span>
               <span class="project__stat-label">{s.label}</span>
             </div>
           ))}
@@ -109,14 +109,14 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
 
       {/* Lightbox */}
       <div class="lightbox" id="lightbox">
-        <button class="lightbox__close" aria-label="Close">&times;</button>
-        <button class="lightbox__prev" aria-label="Previous">
+        <button type="button" class="lightbox__close" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox__prev" aria-label="Previous">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
         <div class="lightbox__content">
-          <img src="" alt="" />
+          <img src={d.projectGalleryMain?.image ?? d.projectGalleryAllImages[0]} data-lightbox-image alt="" />
         </div>
-        <button class="lightbox__next" aria-label="Next">
+        <button type="button" class="lightbox__next" aria-label="Next">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
         <div class="lightbox__counter"><span id="lb-current">1</span> / <span id="lb-total">{d.projectGalleryAllImages.length}</span></div>
@@ -137,26 +137,26 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
                     <video
                       id="project-video"
                       src={v.videoUrl}
-                      poster={v.posterUrl}
+                      {...(v.posterUrl ? { poster: v.posterUrl } : {})}
                       muted
                       loop
                       playsinline
                       preload="metadata"
-                      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;"
+                      class="project__video"
                     ></video>
                   </div>
                 </div>
               ))}
             </div>
-            <button class="project__slider-btn project__slider-btn--prev" aria-label="Previous slide">
+            <button type="button" class="project__slider-btn project__slider-btn--prev" aria-label="Previous slide">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-            <button class="project__slider-btn project__slider-btn--next" aria-label="Next slide">
+            <button type="button" class="project__slider-btn project__slider-btn--next" aria-label="Next slide">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
             </button>
             <div class="project__slider-dots">
               {d.videoTourSlides.map((_, i) => (
-                <button class={`project__slider-dot${i === 0 ? ' active' : ''}`} data-slide={i} aria-label={`Slide ${i + 1}`}>
+                <button type="button" class={`project__slider-dot${i === 0 ? ' active' : ''}`} data-slide={i} aria-label={`Slide ${i + 1}`}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                 </button>
               ))}
@@ -188,12 +188,12 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
             ))}
           </ol>
 
-          <div class="project__progress-strip" aria-label="Construction progress timeline">
+          <div class="project__progress-strip">
             {d.progressCards.map((c) => (
               <article class={`project__progress-card${c.active ? ' active' : ''}`} data-progress-index={c.index}>
                 <div class="project__progress-media">
                   {c.mediaType === 'video' ? (
-                    <video class="project__progress-video" src={c.mediaUrl} poster={c.posterUrl} muted loop playsinline preload="metadata" aria-label={c.markerAriaLabel}></video>
+                    <video class="project__progress-video" src={c.mediaUrl} {...(c.posterUrl ? { poster: c.posterUrl } : {})} muted loop playsinline preload="metadata"></video>
                   ) : (
                     <img src={c.mediaUrl} alt={c.markerAriaLabel ?? c.title} loading="lazy" />
                   )}
@@ -227,7 +227,7 @@ const allImagesJson = JSON.stringify(d.projectGalleryAllImages);
       )}
 
       {d.projectEnquireButtonLabel && (
-        <div style="text-align:center;margin-top:2.5rem;">
+        <div class="project__enquire">
           <a href="/#contact" class="btn btn--primary btn--lg">{d.projectEnquireButtonLabel}</a>
         </div>
       )}

@@ -14,16 +14,16 @@ legalSections:
   - title: "Data Storage"
     body: "<p>Contact form submissions are processed through Formspree, a third-party form handling service. Your data is transmitted securely and stored in accordance with Formspree's privacy practices. We retain enquiry data only as long as necessary to fulfil your request.</p>"
   - title: "Your Rights"
-    body: '<p>You have the right to request access to, correction of, or deletion of your personal information. To exercise any of these rights, please contact us at <a href="mailto:info@gmltzs.com" style="color:var(--color-accent);">info@gmltzs.com</a>.</p>'
+    body: '<p>You have the right to request access to, correction of, or deletion of your personal information. To exercise any of these rights, please contact us at <a class="legal-page__contact-link" href="mailto:info@gmltzs.com">info@gmltzs.com</a>.</p>'
   - title: "Contact"
     body: |
       <p>If you have questions about this Privacy Policy, please contact us:</p>
       <p>
-        <strong>GM Group</strong><br />
-        Kinondoni, Kawawa Road / Kasaba Street<br />
-        P.O. Box 452, Dar es Salaam, Tanzania<br />
-        Email: <a href="mailto:info@gmltzs.com" style="color:var(--color-accent);">info@gmltzs.com</a><br />
-        Phone: <a href="tel:+255713879876" style="color:var(--color-accent);">+255 (0) 713 879 876</a>
+        <strong>GM Group</strong><br>
+        Kinondoni, Kawawa Road / Kasaba Street<br>
+        P.O. Box 452, Dar es Salaam, Tanzania<br>
+        Email: <a class="legal-page__contact-link" href="mailto:info@gmltzs.com">info@gmltzs.com</a><br>
+        Phone: <a class="legal-page__contact-link" href="tel:+255713879876">+255&nbsp;(0)&nbsp;713&nbsp;879&nbsp;876</a>
       </p>
 
 galleryTitle: ""

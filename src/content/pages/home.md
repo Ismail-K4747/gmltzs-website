@@ -1,5 +1,5 @@
 ---
-title: "GM Group | Medical Devices, Real Estate, Pharmacy & Laboratory Services"
+title: "GM Group | Medical Devices, Real Estate & Laboratory Services"
 metaDescription: "GM Group is a diversified enterprise in Dar es Salaam, Tanzania delivering excellence across medical devices, real estate, pharmacy, and laboratory services."
 metaKeywords: "GM Group, General Malick Limited, GML, Dar es Salaam, medical devices, real estate, pharmacy, laboratory, Tanzania"
 canonical: "https://gmltzs.com/"

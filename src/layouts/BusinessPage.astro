@@ -30,14 +30,14 @@ const d = page.data;
         {d.pageHeroImages?.length > 0 && (
           <div class="page-hero__slideshow" data-hero-slideshow>
             {d.pageHeroImages.map((src: string, i: number) => (
-              <div class={`page-hero__slide ${i === 0 ? 'is-active' : ''}`} style={`background-image:url('${src}')`}></div>
+              <div class={`page-hero__slide ${i === 0 ? 'is-active' : ''}`} data-background-image={src}></div>
             ))}
             <div class="page-hero__overlay"></div>
           </div>
         )}
         <div class="container page-hero__content">
           {d.pageHeroTag && <span class="page-hero__tag">{d.pageHeroTag}</span>}
-          <h1 class="page-hero__title" set:html={d.pageHeroTitle} />
+          <h1 class="page-hero__title">{d.pageHeroTitle}</h1>
           {d.pageHeroDescription && <p class="page-hero__desc">{d.pageHeroDescription}</p>}
         </div>
       </section>
@@ -68,7 +68,7 @@ const d = page.data;
                       <svg viewBox="0 0 24 24" set:html={s.iconSvg} />
                     </div>
                   )}
-                  <h3 class="service-card__title" set:html={s.title} />
+                  <h3 class="service-card__title">{s.title}</h3>
                   <p class="service-card__desc">{s.description}</p>
                 </div>
               ))}
@@ -91,12 +91,11 @@ const d = page.data;
                 <video
                   class="video-tour__video"
                   src={v.videoUrl}
-                  poster={v.posterUrl}
+                  {...(v.posterUrl ? { poster: v.posterUrl } : {})}
                   muted
                   loop
                   playsinline
                   preload="metadata"
-                  aria-label={v.title ?? v.caption ?? 'Video tour clip'}
                 ></video>
                 {(v.title || v.caption) && (
                   <figcaption class="video-tour__caption">
@@ -156,7 +155,7 @@ const d = page.data;
                   {c.tagline && <p class="center-card__tagline">{c.tagline}</p>}
                   <ul class="center-card__meta">
                     {c.address && <li><strong>Where:</strong> {c.address}</li>}
-                    {c.phone && <li><strong>Call:</strong> <a href={`tel:${c.phone.replace(/\s+/g, '')}`}>{c.phone}</a></li>}
+                    {c.phone && <li><strong>Call:</strong> <a href={`tel:${c.phone.replace(/\s+/g, '')}`} set:html={c.phone.replace(/ /g, '&nbsp;')}></a></li>}
                     {c.hours && <li><strong>Hours:</strong> {c.hours}</li>}
                   </ul>
                   {c.highlights.length > 0 && (
@@ -182,7 +181,7 @@ const d = page.data;
               {d.govProjectsEyebrow && <p class="section__eyebrow">{d.govProjectsEyebrow}</p>}
               {d.govProjectsTitle && <h2 class="section__title">{d.govProjectsTitle}</h2>}
               {d.govProjectsIntro && <p class="section__lead">{d.govProjectsIntro}</p>}
-              <div class="bmed-projects__partner" aria-label="In partnership with the Government of the United Republic of Tanzania">
+              <div class="bmed-projects__partner">
                 <span class="bmed-projects__partner-label">In partnership with</span>
                 <img class="bmed-projects__partner-logo" src="/images/trusted/gvtz.svg" alt="Government of the United Republic of Tanzania" loading="lazy" />
               </div>
@@ -298,9 +297,9 @@ const d = page.data;
               {d.panelTestimonialsTitle && <h2 class="section__title">{d.panelTestimonialsTitle}</h2>}
             </div>
           )}
-          <div class="testimonial-panel__strip" role="list">
+          <div class="testimonial-panel__strip">
             {d.panelTestimonials.map((t) => (
-              <article class="testimonial-card" role="listitem">
+              <article class="testimonial-card">
                 <svg class="testimonial-card__quote" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M9.17 6A5.17 5.17 0 004 11.17v6.66h6.67V11.17H6.83A2.34 2.34 0 019.17 8.83V6zm10 0a5.17 5.17 0 00-5.17 5.17v6.66h6.67V11.17h-3.84A2.34 2.34 0 0119.17 8.83V6z"/></svg>
                 <p class="testimonial-card__quote-text">{t.quote}</p>
                 <div class="testimonial-card__author">
@@ -339,6 +338,10 @@ const d = page.data;
         const root = document.querySelector('[data-hero-slideshow]');
         if (!root) return;
         const slides = root.querySelectorAll('.page-hero__slide');
+        slides.forEach(function (slide) {
+          const image = slide.getAttribute('data-background-image');
+          if (image) slide.style.backgroundImage = "url('" + image.replace(/'/g, "\\'") + "')";
+        });
         if (slides.length < 2) return;
         let i = 0;
         setInterval(function () {

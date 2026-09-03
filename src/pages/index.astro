@@ -122,7 +122,7 @@ const site = siteEntry?.data;
                 ? <img class="biz-card__logo" src={b.logo} alt={b.logoAlt ?? ''} />
                 : <div class="biz-card__logo"><Icon name={b.id.replace('biz-', '')} /></div>
               }
-              <h3 class="biz-card__title" set:html={b.title} />
+              <h3 class="biz-card__title">{b.title}</h3>
               <p class="biz-card__desc">{b.description}</p>
               {b.features.length > 0 && (
                 <ul class="biz-card__features">
@@ -204,7 +204,7 @@ const site = siteEntry?.data;
       </div>
       <div class="testimonials__dots" id="testimonials-dots">
         {d.testimonials.map((_, i) => (
-          <button class={`dot${i === 0 ? ' active' : ''}`} aria-label={`Testimonial ${i + 1}`}></button>
+          <button type="button" class={`dot${i === 0 ? ' active' : ''}`} aria-label={`Testimonial ${i + 1}`}></button>
         ))}
       </div>
     </div>
@@ -226,7 +226,7 @@ const site = siteEntry?.data;
             </div>
             <div>
               <h4>Head Office</h4>
-              <p set:html={(site?.address ?? '').replace(/\n/g, '<br />')}></p>
+              <p set:html={(site?.address ?? '').replace(/\n/g, '<br>')}></p>
             </div>
           </div>
 
@@ -234,9 +234,8 @@ const site = siteEntry?.data;
             <div class="contact__map">
               <iframe
                 src={site.headOfficeMapEmbed}
-                width="100%"
+                class="contact__map-frame"
                 height="220"
-                style="border:0; border-radius:12px;"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -252,7 +251,7 @@ const site = siteEntry?.data;
               </div>
               <div>
                 <h4>Phone</h4>
-                <p><a href={`tel:${site.contactPhone}`}>{site.contactPhone}</a><br />Mon – Fri, 8am – 5pm (EAT)</p>
+                <p><a href={`tel:${site.contactPhone}`}>{site.contactPhone}</a><br>Mon – Fri, 8am – 5pm (EAT)</p>
               </div>
             </div>
           )}
@@ -328,7 +327,7 @@ const site = siteEntry?.data;
             <span class="btn__text">Send Message</span>
             <span class="btn__loader" hidden>Sending…</span>
           </button>
-          <div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;">
+          <div class="form__honeypot" aria-hidden="true">
             <label for="website">Website</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
           </div>

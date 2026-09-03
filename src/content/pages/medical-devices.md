@@ -6,7 +6,7 @@ canonical: "https://gmltzs.com/businesses/medical-devices.html"
 pageTheme: "devices"
 pageHeroBgClass: "page-hero__bg--devices"
 pageHeroTag: "Medical Equipment"
-pageHeroTitle: "General Malick Limited: Medical Devices &amp; Lab Equipment"
+pageHeroTitle: "General Malick Limited: Medical Devices & Lab Equipment"
 pageHeroDescription: "Supplying quality medical devices, diagnostic instruments, and laboratory equipment to hospitals, clinics, and healthcare facilities across Tanzania."
 pageHeroImages:
   - /images/installations/hero-1.jpg
