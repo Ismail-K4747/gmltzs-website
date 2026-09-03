@@ -279,7 +279,7 @@ const pages = defineCollection({
     govProjectsTitle: z.string().optional(),
     govProjectsIntro: z.string().optional(),
     govProjects: z.array(govProject).default([]),
-    partner: partnerInfo.optional(),
+    partner: partnerInfo.nullable().optional(),
 
     // Interactive globe installations (Devices)
     installationsEyebrow: z.string().optional(),
