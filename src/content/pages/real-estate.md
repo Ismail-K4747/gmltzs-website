@@ -9,21 +9,30 @@ heroEyebrow: ''
 heroTitle: ''
 heroTitleAccent: ''
 heroSubtitle: ''
+heroActions: []
+heroStats: []
 aboutEyebrow: ''
 aboutTitle: ''
 aboutLead: ''
+aboutParagraphs: []
 aboutCtaLabel: ''
 aboutCtaHref: ''
+aboutCards: []
 businessesEyebrow: ''
 businessesTitle: ''
 businessesSubtitle: ''
+businesses: []
 valuesEyebrow: ''
 valuesTitle: ''
+values: []
 testimonialsEyebrow: ''
 testimonialsTitle: ''
+testimonials: []
 contactEyebrow: ''
 contactTitle: ''
 contactSubtitle: ''
+bodySections: []
+pageTheme: ''
 pageHeroBgClass: page-hero__bg--realestate
 pageHeroTag: Real Estate
 pageHeroTitle: GM Apartments &amp; Real Estate
@@ -61,15 +70,22 @@ whatsappMessage: Hello GML, I would like to enquire about your real estate servi
 centersEyebrow: ''
 centersTitle: ''
 centersIntro: ''
+centers: []
 govProjectsEyebrow: ''
 govProjectsTitle: ''
 govProjectsIntro: ''
+govProjects: []
+partner: null
 installationsEyebrow: ''
 installationsTitle: ''
 installationsIntro: ''
+installations: []
 panelTestimonialsEyebrow: ''
 panelTestimonialsTitle: ''
+panelTestimonials: []
+insightsArticles: []
 legalLastUpdated: ''
+legalSections: []
 projectEyebrow: Featured Project
 projectTitle: GM Residence Kinondoni
 projectSubtitle: Modern apartments with spacious balconies, secure parking, 24/7 security, backup power, and premium finishes in the heart of Kinondoni, Dar es Salaam.
@@ -83,12 +99,12 @@ projectStats:
   - value: Kinondoni
     label: Dar es Salaam
 projectGalleryAllImages:
-  - /images/Real Estate Project assets/3.jpeg
-  - /images/Real Estate Project assets/12.jpeg
-  - /images/Real Estate Project assets/9.jpeg
-  - /images/Real Estate Project assets/2.jpeg
-  - /images/Real Estate Project assets/7.jpeg
-  - /images/Real Estate Project assets/1.jpeg
+  - /uploads/IMG-20260815-WA0115(2).jpg
+  - /uploads/IMG-20260815-WA0113.jpg
+  - /uploads/IMG-20260815-WA0119.jpg
+  - /uploads/IMG-20260815-WA0117(1).jpg
+  - /uploads/IMG-20260815-WA0118(1).jpg
+  - /uploads/IMG-20260815-WA0114(2).jpg
   - /images/Real Estate Project assets/4.jpeg
   - /images/Real Estate Project assets/5.jpeg
   - /images/Real Estate Project assets/6.jpeg
@@ -104,19 +120,19 @@ projectGalleryAllImages:
   - /images/Real Estate Project assets/19.jpeg
   - /images/Real Estate Project assets/20.jpeg
 projectGalleryMain:
-  image: /images/Real Estate Project assets/3.jpeg
+  image: /uploads/IMG-20260815-WA0115(2).jpg
   alt: GM Residence Kinondoni – front exterior view
 projectGalleryThumbs:
-  - image: /images/Real Estate Project assets/12.jpeg
+  - image: /uploads/IMG-20260815-WA0119.jpg
     alt: Corner view with balconies and parking
     countOverlay: ''
-  - image: /images/Real Estate Project assets/9.jpeg
+  - image: /uploads/IMG-20260815-WA0113.jpg
     alt: Night view with LED lighting
     countOverlay: ''
   - image: /images/Real Estate Project assets/2.jpeg
     alt: Aerial view of building
     countOverlay: ''
-  - image: /images/Real Estate Project assets/7.jpeg
+  - image: /uploads/IMG-20260815-WA0118(1).jpg
     alt: Side view of building
     countOverlay: +15 Photos
 videoTourSlides:
@@ -128,6 +144,7 @@ progressCards:
     markerAriaLabel: Scroll to February 2026 foundation snapshot
     mediaType: image
     mediaUrl: /images/Real Estate Project assets/2026-02-00-foundation.jpg
+    posterUrl: ''
     overlayLabel: Still Frame
     overlayHeadline: Where It Started
     dateLabel: February 2026
@@ -139,71 +156,85 @@ progressCards:
     markerAriaLabel: Scroll to February 2026 groundwork momentum
     mediaType: video
     mediaUrl: /images/Real Estate Project assets/2026-02-01-groundwork.mp4
+    posterUrl: ''
     overlayLabel: Autoplay on View
     overlayHeadline: First Site Activity
     dateLabel: February 2026
     title: Work Picks Up
     caption: Crews shape the base and start the first concrete work on the footings.
+    active: false
   - index: 2
     markerLabel: Mar 2026
     markerAriaLabel: Scroll to March 2026 structural lift
     mediaType: video
     mediaUrl: /images/Real Estate Project assets/2026-03-02-structure-rising.mp4
+    posterUrl: ''
     overlayLabel: Autoplay on View
     overlayHeadline: Heavy Work Arrives
     dateLabel: March 2026
     title: Structure Starts Rising
     caption: Materials and machinery move in as the main structure starts to show.
+    active: false
   - index: 3
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 facade progress
     mediaType: video
     mediaUrl: /images/Real Estate Project assets/2026-04-03-form-takes-shape.mp4
+    posterUrl: ''
     overlayLabel: Autoplay on View
     overlayHeadline: Building Takes Form
     dateLabel: April 2026
     title: Height and Shape Grow
     caption: More of the outer form is visible, with major structural work ongoing.
+    active: false
   - index: 4
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 structural update
     mediaType: video
     mediaUrl: /images/Real Estate Project assets/2026-04-04-frame-complete.mp4
+    posterUrl: ''
     overlayLabel: Autoplay on View
     overlayHeadline: Building Takes Shape
     dateLabel: April 2026
     title: Structure Filling Out
     caption: Columns and beams stand tall — the building's full frame is now clearly visible on the skyline.
+    active: false
   - index: 5
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 beam prep update
     mediaType: video
     mediaUrl: /images/Real Estate Project assets/2026-04-05-beams-loaded.mp4
+    posterUrl: ''
     overlayLabel: Autoplay on View
     overlayHeadline: Concrete Meets Steel
     dateLabel: April 2026
     title: Beams Loaded Up
     caption: Freshly mixed concrete fills every erected beam frame — the skeleton locks into place, load by load.
+    active: false
   - index: 6
     markerLabel: Apr 2026
     markerAriaLabel: Scroll to April 2026 concrete pour
     mediaType: video
     mediaUrl: /images/Real Estate Project assets/2026-04-06-concrete-pour.mp4
+    posterUrl: ''
     overlayLabel: Autoplay on View
     overlayHeadline: The Pour is On
     dateLabel: April 2026
     title: Concrete Flows, Structure Sets
     caption: Concrete poured and setting in the beams — sealing a milestone that will hold the building for generations.
+    active: false
   - index: 7
     markerLabel: May 2026
     markerAriaLabel: Scroll to early May 2026 marine boards milestone
     mediaType: video
     mediaUrl: /images/Real Estate Project assets/2026-05-02-07-marine-boards.mp4
+    posterUrl: ''
     overlayLabel: Autoplay on View
     overlayHeadline: Ready to Ascend
     dateLabel: Early May 2026
     title: Marine Boards Set for 2nd Floor
     caption: Heavy-duty marine boards laid across the beams — the formwork that will support the next slab is locked in.
+    active: false
   - index: 8
     markerLabel: May 2026
     markerAriaLabel: Scroll to mid-May 2026 second-floor slab pour
@@ -215,6 +246,7 @@ progressCards:
     dateLabel: 13 May 2026
     title: Pump Truck Goes Live
     caption: A boom-pump arm reaches over the structure as the 2nd-floor slab takes its first wave of concrete.
+    active: false
   - index: 9
     markerLabel: May 2026
     markerAriaLabel: Scroll to mid-May 2026 slab finishing crew
@@ -261,6 +293,18 @@ progressCards:
     dateLabel: 02 June 2026
     title: 2 Storey surroundings walk-through
     caption: Second floor almost done. Setting the scene for the final floor.
+    active: false
+  - index: 11
+    markerLabel: July 2026
+    markerAriaLabel: Scroll to July 2026 Third Floor Kick Off
+    mediaType: video
+    mediaUrl: /images/Real Estate Project assets/update_kinondoni_july_26.mp4
+    posterUrl: /images/Real Estate Project assets/WhatsApp Image 2026-07-13 at 9.14.54 AM.jpeg
+    overlayLabel: Autoplay on View
+    overlayHeadline: Third Floor Groundwork
+    dateLabel: 03 July 2026
+    title: Mesh Set, Structure Rises
+    caption: Steel mesh is laid out on the final level, marking the start of the last floor's rise.
     active: false
 projectFeatures:
   - title: Premium Finishes
