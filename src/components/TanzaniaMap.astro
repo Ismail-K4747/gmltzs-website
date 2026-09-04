@@ -124,11 +124,10 @@ const dataPayload = JSON.stringify({ installations, covered });
     });
 
     // Faded basemap so neighbouring countries are visible but recede.
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
-      subdomains: 'abcd',
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 10,
       opacity: 0.45,
-      attribution: '&copy; OpenStreetMap &copy; CARTO',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">OpenStreetMap</a> contributors',
     }).addTo(map);
 
     // Initial wide-Africa view; we'll fly to Tanzania on scroll-in.
